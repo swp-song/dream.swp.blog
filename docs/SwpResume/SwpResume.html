@@ -1,0 +1,544 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>index</title>
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 20px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;word-wrap: break-word; word-break: break-all;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+img{max-width: 100%;}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 26px;
+}
+h2 {
+    font-size: 22px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+table td{ word-wrap: break-word !important; word-break: break-all !important; }
+/*
+
+XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #fff;
+  color: black;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs-comment {
+  color: #006a00;
+}
+
+.hljs-keyword,
+.hljs-literal,
+.nginx .hljs-title {
+  color: #aa0d91;
+}
+.method,
+.hljs-list .hljs-title,
+.hljs-tag .hljs-title,
+.setting .hljs-value,
+.hljs-winutils,
+.tex .hljs-command,
+.http .hljs-title,
+.hljs-request,
+.hljs-status,
+.hljs-name {
+  color: #008;
+}
+
+.hljs-envvar,
+.tex .hljs-special {
+  color: #660;
+}
+
+.hljs-string {
+  color: #c41a16;
+}
+.hljs-tag .hljs-value,
+.hljs-cdata,
+.hljs-filter .hljs-argument,
+.hljs-attr_selector,
+.apache .hljs-cbracket,
+.hljs-date,
+.hljs-regexp {
+  color: #080;
+}
+
+.hljs-sub .hljs-identifier,
+.hljs-pi,
+.hljs-tag,
+.hljs-tag .hljs-keyword,
+.hljs-decorator,
+.ini .hljs-title,
+.hljs-shebang,
+.hljs-prompt,
+.hljs-hexcolor,
+.hljs-rule .hljs-value,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.hljs-number,
+.css .hljs-function,
+.hljs-function .hljs-title,
+.coffeescript .hljs-attribute {
+  color: #1c00cf;
+}
+
+.hljs-class .hljs-title,
+.smalltalk .hljs-class,
+.hljs-type,
+.hljs-typename,
+.hljs-tag .hljs-attribute,
+.hljs-doctype,
+.hljs-class .hljs-id,
+.hljs-built_in,
+.setting,
+.hljs-params,
+.clojure .hljs-attribute {
+  color: #5c2699;
+}
+
+.hljs-variable {
+ color: #3f6e74;
+}
+.css .hljs-tag,
+.hljs-rule .hljs-property,
+.hljs-pseudo,
+.hljs-subst {
+  color: #000;
+}
+
+.css .hljs-class,
+.css .hljs-id {
+  color: #9b703f;
+}
+
+.hljs-value .hljs-important {
+  color: #ff7700;
+  font-weight: bold;
+}
+
+.hljs-rule .hljs-keyword {
+  color: #c5af75;
+}
+
+.hljs-annotation,
+.apache .hljs-sqbracket,
+.nginx .hljs-built_in {
+  color: #9b859d;
+}
+
+.hljs-preprocessor,
+.hljs-preprocessor *,
+.hljs-pragma {
+  color: #643820;
+}
+
+.tex .hljs-formula {
+  background-color: #eee;
+  font-style: italic;
+}
+
+.diff .hljs-header,
+.hljs-chunk {
+  color: #808080;
+  font-weight: bold;
+}
+
+.diff .hljs-change {
+  background-color: #bccff9;
+}
+
+.hljs-addition {
+  background-color: #baeeba;
+}
+
+.hljs-deletion {
+  background-color: #ffc8bd;
+}
+
+.hljs-comment .hljs-doctag {
+  font-weight: bold;
+}
+
+.method .hljs-id {
+  color: #000;
+}
+
+</style>
+
+<style> @media print{ .hljs{overflow: visible; word-wrap: break-word !important;} }</style></head><body><div class="markdown-body">
+<h1 style="text-align:center"> 宋伟平 </h1>
+
+<h4 style="text-align:center"> 求职意向：iOS开发工程师 / 项目经理 </h4>
+
+<h5 style="text-align:center"> 性别： 男， 电话： 13244681025，邮箱： 386587868@qq.com </h5>
+
+<hr/>
+
+<h1 id="toc_0">教育背景</h1>
+
+<ul>
+<li><p><strong>黑龙江工业学院 / 专科</strong>  <strong style="float:right;"><em >2008.09 - 2011.6</em></strong></p>
+
+<blockquote>
+<ul>
+<li>电气与信息工程系，电气自动化技专业。</li>
+</ul>
+</blockquote></li>
+<li><p><strong>主修课程：</strong></p>
+
+<blockquote>
+<ul>
+<li>数字电子技术，模拟电子技术，C语言，单片机 (精通 <strong>Arduino</strong>，51单片， <strong>AVR</strong>, <strong>PIC</strong> 单片机软硬件开发) 。</li>
+<li>可编程控制器(<strong>PLC</strong>)，变频器。</li>
+<li>可熟练应用 <strong>Protel99SE</strong>，<strong>ProtelDXP</strong>，<strong>Altium</strong>，<strong>Designer</strong>，制作 <strong>PCB</strong>。</li>
+</ul>
+</blockquote></li>
+</ul>
+
+<hr/>
+
+<h1 id="toc_1">职业技能</h1>
+
+<ul>
+<li><p><strong>GitHub / 个人博客地址：</strong></p>
+
+<blockquote>
+<ul>
+<li><p><strong><a href="https://swp-song.com">博客地址</a></strong> <strong style="float:right;"><em><a href="https://swp-song.com">https://swp-song.com</a> </em></strong></p></li>
+<li><p><strong><a href="https://github.com/swp-song">GitHub地址</a></strong> <strong style="float:right;"><em><a href="https://github.com/swp-song">https://github.com/swp-song</a></em></strong></p></li>
+</ul>
+</blockquote></li>
+</ul>
+
+<hr/>
+
+<ul>
+<li><p><strong>iOS：</strong></p>
+
+<blockquote>
+<ul>
+<li>熟练掌握 <strong>C++ / Objective-C / Swift</strong> 技术，以及 <strong>iOS SDK</strong> 中 UI、网络、数据库、XML /JSON 解析等开发技巧, 可进行独立开发, 数据结构和算法的基础扎实。</li>
+<li>对 <strong>RunTime，RunLoop</strong> 有一定的了解和实际项目的运用。</li>
+<li> 对 <strong>AFNetworking, ReactiveCocoa, Masonry, SDWebImage, MJExtension, MJRefresh</strong> 主流框架有一定使用经验。</li>
+<li> 对 <strong>iOS</strong> 下网络通信机制，理解 <strong>Socket</strong> 通信、<strong>TCP IP http / https</strong>。</li>
+<li>熟练使用 <strong>Git，Cocoapods</strong>。</li>
+<li>熟练掌握苹果上线详细流程, 开发账号申请。</li>
+</ul>
+</blockquote></li>
+</ul>
+
+<hr/>
+
+<ul>
+<li><p><strong>PHP：</strong></p>
+
+<blockquote>
+<ul>
+<li><strong>CI</strong> (<strong>CodeIgniter</strong>) 框架 <strong>PHP</strong> 可以独立开发项目后台管理，前台接口。</li>
+<li>熟练掌握 <strong>Oracle、MySQL</strong> 数据库, 了解 <strong>SQL</strong> 数据库，熟练操作 <strong>SQL</strong> 语句。</li>
+<li>熟悉使用 <strong>HTML</strong>，熟练掌握 <strong>JQuery</strong>，<strong>Javascript</strong>。</li>
+</ul>
+</blockquote></li>
+</ul>
+
+<hr/>
+
+<h1 id="toc_2">职业经历</h1>
+
+<ul>
+<li><p><strong>哈尔滨尽在指间网络科技有限公司</strong></p>
+
+<blockquote>
+<ul>
+<li><strong>iOS开发工程师 / 开发部主管</strong> <strong style="float:right;"><em>2017-02 - 今 </em></strong></li>
+</ul>
+</blockquote></li>
+</ul>
+
+<hr/>
+
+<ul>
+<li><p><strong>哈尔滨优智科技有限公司</strong></p>
+
+<blockquote>
+<ul>
+<li><strong>项目经理 / iOS开发主管</strong> <strong style="float:right;"><em>2015.03 - 2017.01</em></strong></li>
+<li><strong>iOS 开发工程师</strong>   <strong style="float:right;"><em>2014.11 - 2015.03 </em></strong></li>
+<li><strong>PHP 开发工程师</strong>   <strong style="float:right;"><em>2014.03 - 2014.11</em></strong></li>
+</ul>
+</blockquote></li>
+</ul>
+
+<hr/>
+
+<h1 id="toc_3">项目经历</h1>
+
+<ul>
+<li><p><strong>哈尔滨尽在指间网络科技有限公司, 在职期间所做的项目：</strong></p>
+
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>上线时间</th>
+<th>App Store</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>尽在指间</td>
+<td>2017-05</td>
+<td><a href="https://itunes.apple.com/app/tap-black-to-white/id1234185775">下载地址</a></td>
+</tr>
+<tr>
+<td>指间外卖</td>
+<td>2017-05</td>
+<td><a href="https://itunes.apple.com/app/tap-black-to-white/id1248149622">下载地址</a></td>
+</tr>
+<tr>
+<td>尽在指间购物商户端</td>
+<td>2017-05</td>
+<td><a href="https://itunes.apple.com/app/tap-black-to-white/id1234543165">下载地址</a></td>
+</tr>
+<tr>
+<td>尽在指间外卖商户端</td>
+<td>2017-06</td>
+<td><a href="https://itunes.apple.com/app/tap-black-to-white/id1241827616">下载地址</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote></li>
+</ul>
+
+<hr/>
+
+<p>&ensp;</p>
+
+<ul>
+<li><p><strong>哈尔滨优智科技有限公司, 在职期间所做的项目：</strong></p>
+
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>上线时间</th>
+<th>App Store</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>中盛优选</td>
+<td>2016-11</td>
+<td><a href="https://itunes.apple.com/app/tap-black-to-white/id1121530097">下载地址</a></td>
+</tr>
+<tr>
+<td>中盛优选商户</td>
+<td>2016-11</td>
+<td><a href="https://itunes.apple.com/app/tap-black-to-white/id1139639795">下载地址</a></td>
+</tr>
+<tr>
+<td>中盛优选门店</td>
+<td>2016-11</td>
+<td><a href="https://itunes.apple.com/app/tap-black-to-white/id1139641549">下载地址</a></td>
+</tr>
+<tr>
+<td>0452e</td>
+<td>2016-09</td>
+<td><a href="https://itunes.apple.com/app/tap-black-to-white/id1053746481">下载地址</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote></li>
+</ul>
+
+<hr/>
+
+<p><strong>哈尔滨优智科技有限公司，在职期间所做的但是没有运营成功的项目，AppStore可下载：</strong></p>
+
+<blockquote>
+<ul>
+<li>忆口私房小厨</li>
+<li>优榜</li>
+<li>帮众养车</li>
+<li>企联惠</li>
+<li>企联惠商户版</li>
+<li>高邮街</li>
+<li><strong><a href="https://swp-song.com/docs/SwpResume/SwpProject.html">项目详细介绍链接请点击</a></strong></li>
+</ul>
+</blockquote>
+
+<hr/>
+
+<h1 id="toc_4">自我评价</h1>
+
+<blockquote>
+<ul>
+<li>敢于面对挑战和困难，有较好的沟通能力。</li>
+<li>性格温和谦逊 工作认真负责，信守承诺，有良好的编程习惯，能够不断的学习和掌握新的技术。</li>
+</ul>
+</blockquote>
+
+<hr/>
+
+<h1 id="toc_5">致谢</h1>
+
+<blockquote>
+<ul>
+<li>感谢您花时间阅读我的简历，期待能有机会和您共事。</li>
+</ul>
+</blockquote>
+
+<hr/>
+
+</div></body>
+
+</html>

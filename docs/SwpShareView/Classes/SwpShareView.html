@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>SwpShareView Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">SwpShareView v2.1.0 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">swp-song</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/initWithData:">+ initWithData:</option>
+		
+		<option value="//api/name/swpShareViewShowInit">+ swpShareViewShowInit</option>
+		
+		<option value="//api/name/swpShareViewShowInitWithDelegate">+ swpShareViewShowInitWithDelegate</option>
+		
+		<option value="//api/name/swpShareViewShowWithData:">+ swpShareViewShowWithData:</option>
+		
+		<option value="//api/name/swpShareViewShowWithData:setDelegate:">+ swpShareViewShowWithData:setDelegate:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/clickCloseButtonEvent:">- clickCloseButtonEvent:</option>
+		
+		<option value="//api/name/clickViewEvent:">- clickViewEvent:</option>
+		
+		<option value="//api/name/delegate">- delegate</option>
+		
+		<option value="//api/name/initWithFrame:">- initWithFrame:</option>
+		
+		<option value="//api/name/setFrame:">- setFrame:</option>
+		
+		<option value="//api/name/setSwpShareListViewCloseDelegateOrBlock:">- setSwpShareListViewCloseDelegateOrBlock:</option>
+		
+		<option value="//api/name/setSwpShareListViewDidSelectDelegateOrBlock:swpShare:">- setSwpShareListViewDidSelectDelegateOrBlock:swpShare:</option>
+		
+		<option value="//api/name/setSwpShareListViewWhetherCloseDelegateOrBlock">- setSwpShareListViewWhetherCloseDelegateOrBlock</option>
+		
+		<option value="//api/name/setSwpShares:">- setSwpShares:</option>
+		
+		<option value="//api/name/setUpUI">- setUpUI</option>
+		
+		<option value="//api/name/swpShareItemType">- swpShareItemType</option>
+		
+		<option value="//api/name/swpShareListView:didSelectItemAtIndexPath:swpShare:swpShareKey:">- swpShareListView:didSelectItemAtIndexPath:swpShare:swpShareKey:</option>
+		
+		<option value="//api/name/swpShareListView:tripartiteFrameworkShareType:">- swpShareListView:tripartiteFrameworkShareType:</option>
+		
+		<option value="//api/name/swpShareListViewDidSelectIndexBlock:">- swpShareListViewDidSelectIndexBlock:</option>
+		
+		<option value="//api/name/swpShareListViewDidSelectIndexBlockChain">- swpShareListViewDidSelectIndexBlockChain</option>
+		
+		<option value="//api/name/swpShareSetTripartiteFrameworkShareTypes">- swpShareSetTripartiteFrameworkShareTypes</option>
+		
+		<option value="//api/name/swpShareTitle">- swpShareTitle</option>
+		
+		<option value="//api/name/swpShareTitleColor">- swpShareTitleColor</option>
+		
+		<option value="//api/name/swpShareTitleFont">- swpShareTitleFont</option>
+		
+		<option value="//api/name/swpShareTitleSize">- swpShareTitleSize</option>
+		
+		<option value="//api/name/swpShareViewCloseBlock:">- swpShareViewCloseBlock:</option>
+		
+		<option value="//api/name/swpShareViewCloseBlockChain">- swpShareViewCloseBlockChain</option>
+		
+		<option value="//api/name/swpShareViewCustomItems">- swpShareViewCustomItems</option>
+		
+		<option value="//api/name/swpShareViewHidden">- swpShareViewHidden</option>
+		
+		<option value="//api/name/swpShareViewHiddenAnimation">- swpShareViewHiddenAnimation</option>
+		
+		<option value="//api/name/swpShareViewInfo">- swpShareViewInfo</option>
+		
+		<option value="//api/name/swpShareViewShowAnimation">- swpShareViewShowAnimation</option>
+		
+		<option value="//api/name/swpShareViewVersion">- swpShareViewVersion</option>
+		
+		<option value="//api/name/swpShareViewWhetherCloseBlock:">- swpShareViewWhetherCloseBlock:</option>
+		
+		<option value="//api/name/swpShareViewWhetherCloseBlockChain">- swpShareViewWhetherCloseBlockChain</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">SwpShareView Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>UIView</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>SwpShareView.h<br />SwpShareView.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/swpShareViewInfo" title="swpShareViewInfo"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareViewInfo">&ndash;&nbsp;swpShareViewInfo</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareViewInfo   ( 读取 SwpShareView 信息资源文件 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSDictionary *)swpShareViewInfo</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>NSDictionary</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareViewVersion" title="swpShareViewVersion"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareViewVersion">&ndash;&nbsp;swpShareViewVersion</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareViewVersion ( 读取 SwpShareView 版本号 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *)swpShareViewVersion</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>NSString</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareViewShowWithData:" title="swpShareViewShowWithData:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareViewShowWithData:">+&nbsp;swpShareViewShowWithData:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareViewShowWithData:   ( 显示控件 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)swpShareViewShowWithData:(NSArray&lt;NSString*&gt; *)<em>shareData</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>shareData</code></th>
+						<td><p>shareData</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>SwpShareView</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareViewShowInit" title="swpShareViewShowInit"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareViewShowInit">+&nbsp;swpShareViewShowInit</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareViewShowInit    ( 显示控件 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (__kindof SwpShareView *_Nonnull ( ^ ) ( NSArray&lt;NSString*&gt; *_Nonnull ))swpShareViewShowInit</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareViewShowWithData:setDelegate:" title="swpShareViewShowWithData:setDelegate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareViewShowWithData:setDelegate:">+&nbsp;swpShareViewShowWithData:setDelegate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareViewShowWithData:setDelegate:   ( 显示控件, 并设置代理 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)swpShareViewShowWithData:(NSArray&lt;NSString*&gt; *)<em>shareData</em> setDelegate:(id&lt;SwpShareViewDelegate&gt; _Nullable)<em>delegate</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>shareData</code></th>
+						<td><p>shareData</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>delegate</code></th>
+						<td><p><a href="#//api/name/delegate">delegate</a></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>SwpShareView</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareViewShowInitWithDelegate" title="swpShareViewShowInitWithDelegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareViewShowInitWithDelegate">+&nbsp;swpShareViewShowInitWithDelegate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareViewShowInitWithDelegate    ( 显示控件, 并设置代理 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (__kindof SwpShareView *_Nonnull ( ^ ) ( NSArray&lt;NSString*&gt; *_Nonnull , id&lt;SwpShareViewDelegate&gt; _Nullable ))swpShareViewShowInitWithDelegate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/delegate">&ndash;&nbsp;delegate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>delegate    ( 设置代理 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (__kindof SwpShareView *_Nonnull ( ^ ) ( id&lt;SwpShareViewDelegate&gt; _Nullable ))delegate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareViewCustomItems" title="swpShareViewCustomItems"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareViewCustomItems">&ndash;&nbsp;swpShareViewCustomItems</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareViewCustomItems:   ( 自定义分享 items )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (__kindof SwpShareView *( ^ ) ( NSArray&lt;SwpShareModel*&gt; *swpShareCustomItems ))swpShareViewCustomItems</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareViewHidden" title="swpShareViewHidden"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareViewHidden">&ndash;&nbsp;swpShareViewHidden</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareViewHidden: ( 关闭 swpShareView  )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (__kindof SwpShareView *( ^ ) ( void ))swpShareViewHidden</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareSetTripartiteFrameworkShareTypes" title="swpShareSetTripartiteFrameworkShareTypes"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareSetTripartiteFrameworkShareTypes">&ndash;&nbsp;swpShareSetTripartiteFrameworkShareTypes</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareSetTripartiteFrameworkShareTypes   ( 设置三方分享 type )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (__kindof SwpShareView *( ^ ) ( NSArray *tripartiteFrameworkShareTypes ))swpShareSetTripartiteFrameworkShareTypes</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareItemType" title="swpShareItemType"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareItemType">&ndash;&nbsp;swpShareItemType</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareItemType   ( 隐藏未安装 App )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (__kindof SwpShareView *( ^ ) ( SwpShareItemType swpShareItemType ))swpShareItemType</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareTitleSize" title="swpShareTitleSize"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareTitleSize">&ndash;&nbsp;swpShareTitleSize</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>@ author swp_song</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (__kindof SwpShareView *( ^ ) ( CGFloat swpShareTitleSize ))swpShareTitleSize</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@ author swp_song</p>
+
+<p>@ brief  swpShareTitleSize: ( 设置分享 title 字体大小 )</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareTitle" title="swpShareTitle"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareTitle">&ndash;&nbsp;swpShareTitle</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>@ author swp_song</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (__kindof SwpShareView *( ^ ) ( NSString *swpShareTitle ))swpShareTitle</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@ author swp_song</p>
+
+<p>@ brief  swpShareTitle: ( 设置 分享 title )</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareTitleColor" title="swpShareTitleColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareTitleColor">&ndash;&nbsp;swpShareTitleColor</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>@ author swp_song</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (__kindof SwpShareView *( ^ ) ( UIColor *swpShareTitleColor ))swpShareTitleColor</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@ author swp_song</p>
+
+<p>@ brief  swpShareTitle: ( 设置 分享 字体 颜色 )</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareTitleFont" title="swpShareTitleFont"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareTitleFont">&ndash;&nbsp;swpShareTitleFont</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>@ author swp_song</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (__kindof SwpShareView *( ^ ) ( UIFont *swpShareTitleFont ))swpShareTitleFont</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@ author swp_song</p>
+
+<p>@ brief  swpShareTitleFont: ( 设置 分享 字体  )</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareViewWhetherCloseBlock:" title="swpShareViewWhetherCloseBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareViewWhetherCloseBlock:">&ndash;&nbsp;swpShareViewWhetherCloseBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareViewWhetherCloseBlock:  ( SwpShareView 回调，是否关闭分享页面 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)swpShareViewWhetherCloseBlock:(BOOL ( ^ _Nullable ) ( SwpShareView *_Nonnull swpShareView ))<em>swpShareViewWhetherCloseBlock</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>swpShareViewWhetherCloseBlock</code></th>
+						<td><p><a href="#//api/name/swpShareViewWhetherCloseBlock">swpShareViewWhetherCloseBlock</a></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareViewWhetherCloseBlockChain" title="swpShareViewWhetherCloseBlockChain"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareViewWhetherCloseBlockChain">&ndash;&nbsp;swpShareViewWhetherCloseBlockChain</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareViewWhetherCloseBlockChain   ( SwpShareView 回调，是否关闭分享页面 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (__kindof SwpShareView *_Nonnull ( ^ ) ( BOOL ( ^ _Nullable ) ( SwpShareView *_Nonnull ) ))swpShareViewWhetherCloseBlockChain</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareListViewDidSelectIndexBlock:" title="swpShareListViewDidSelectIndexBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareListViewDidSelectIndexBlock:">&ndash;&nbsp;swpShareListViewDidSelectIndexBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareListViewDidSelectIndexBlock:    ( SwpShareView 回调，点击每个分享图标调用 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)swpShareListViewDidSelectIndexBlock:(void ( ^ _Nullable ) ( SwpShareView *_Nonnull swpShareView , NSInteger didSelectIndex , SwpShareModel *_Nonnull swpShare ))<em>swpShareListViewDidSelectIndexBlock</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>swpShareListViewDidSelectIndexBlock</code></th>
+						<td><p><a href="#//api/name/swpShareListViewDidSelectIndexBlock">swpShareListViewDidSelectIndexBlock</a></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareListViewDidSelectIndexBlockChain" title="swpShareListViewDidSelectIndexBlockChain"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareListViewDidSelectIndexBlockChain">&ndash;&nbsp;swpShareListViewDidSelectIndexBlockChain</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareListViewDidSelectIndexBlockChain    ( SwpShareView 回调，点击每个分享图标调用 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (__kindof SwpShareView *_Nonnull ( ^ ) ( void ( ^ _Nullable ) ( SwpShareView *_Nonnull , NSInteger , SwpShareModel *_Nonnull ) ))swpShareListViewDidSelectIndexBlockChain</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareViewCloseBlock:" title="swpShareViewCloseBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareViewCloseBlock:">&ndash;&nbsp;swpShareViewCloseBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareViewCloseBlock: ( SwpShareView 回调，分享页面关闭之后调用 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)swpShareViewCloseBlock:(void ( ^ _Nullable ) ( SwpShareView *_Nonnull swpShareView , SwpShareModel *_Nonnull swpShare ))<em>swpShareViewCloseBlock</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>swpShareViewCloseBlock</code></th>
+						<td><p>swpShareVswpShareViewCloseBlockiewCloseBlock</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareViewCloseBlockChain" title="swpShareViewCloseBlockChain"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareViewCloseBlockChain">&ndash;&nbsp;swpShareViewCloseBlockChain</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareViewCloseBlockChain ( SwpShareView 回调，分享页面关闭之后调用 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (__kindof SwpShareView *_Nonnull ( ^ ) ( void ( ^ _Nullable ) ( SwpShareView *_Nonnull , SwpShareModel *_Nonnull ) ))swpShareViewCloseBlockChain</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/initWithFrame:" title="initWithFrame:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithFrame:">&ndash;&nbsp;initWithFrame:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>initWithFrame:  ( Override Init )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithFrame:(CGRect)<em>frame</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>frame</code></th>
+						<td><p>frame</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>SwpShareView</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setFrame:" title="setFrame:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setFrame:">&ndash;&nbsp;setFrame:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>setFrame:   ( Override setFrame )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setFrame:(CGRect)<em>frame</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>frame</code></th>
+						<td><p>frame</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUpUI" title="setUpUI"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUpUI">&ndash;&nbsp;setUpUI</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>setUpUI ( 添加控件 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setUpUI</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithData:" title="initWithData:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithData:">+&nbsp;initWithData:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>initWithData:   ( 快速初始化 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)initWithData:(NSArray&lt;NSString*&gt; *)<em>shareData</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>shareData</code></th>
+						<td><p>shareData</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>SwpShareView</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/clickCloseButtonEvent:" title="clickCloseButtonEvent:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clickCloseButtonEvent:">&ndash;&nbsp;clickCloseButtonEvent:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>clickCloseButtonEvent:  ( 关闭按钮绑定方法 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)clickCloseButtonEvent:(UIButton *)<em>button</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>button</code></th>
+						<td><p>button</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/clickViewEvent:" title="clickViewEvent:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clickViewEvent:">&ndash;&nbsp;clickViewEvent:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>clickViewEvent: ( view 绑定方法 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)clickViewEvent:(UITapGestureRecognizer *)<em>tapGestureRecognizer</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tapGestureRecognizer</code></th>
+						<td><p>tapGestureRecognizer</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareViewShowAnimation" title="swpShareViewShowAnimation"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareViewShowAnimation">&ndash;&nbsp;swpShareViewShowAnimation</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareViewShowAnimation: ( SwpShareView 动画显示 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)swpShareViewShowAnimation</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareViewHiddenAnimation" title="swpShareViewHiddenAnimation"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareViewHiddenAnimation">&ndash;&nbsp;swpShareViewHiddenAnimation</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareViewHiddenAnimation: ( swpShareView 动画关闭 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)swpShareViewHiddenAnimation</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setSwpShares:" title="setSwpShares:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setSwpShares:">&ndash;&nbsp;setSwpShares:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>setSwpShares    ( Override Setter )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setSwpShares:(NSArray&lt;SwpShareModel*&gt; *)<em>swpShares</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>swpShares</code></th>
+						<td><p><a href="#//api/name/swpShares">swpShares</a></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setSwpShareListViewWhetherCloseDelegateOrBlock" title="setSwpShareListViewWhetherCloseDelegateOrBlock"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setSwpShareListViewWhetherCloseDelegateOrBlock">&ndash;&nbsp;setSwpShareListViewWhetherCloseDelegateOrBlock</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>setSwpShareListViewWhetherCloseDelegateOrBlock  ( 设置 SwpShareView 是否关闭分享页面，代理和 Block )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)setSwpShareListViewWhetherCloseDelegateOrBlock</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>BOOL</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setSwpShareListViewDidSelectDelegateOrBlock:swpShare:" title="setSwpShareListViewDidSelectDelegateOrBlock:swpShare:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setSwpShareListViewDidSelectDelegateOrBlock:swpShare:">&ndash;&nbsp;setSwpShareListViewDidSelectDelegateOrBlock:swpShare:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>setSwpShareListViewDidSelectDelegateOrBlock:swpShare:  ( 设置 SwpShareView，点击每个分享图标，代理和 Block )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setSwpShareListViewDidSelectDelegateOrBlock:(NSIndexPath *)<em>indexPath</em> swpShare:(SwpShareModel *)<em>swpShare</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPath</code></th>
+						<td><p>indexPath</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>swpShare</code></th>
+						<td><p><a href="#//api/name/swpShare">swpShare</a></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setSwpShareListViewCloseDelegateOrBlock:" title="setSwpShareListViewCloseDelegateOrBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setSwpShareListViewCloseDelegateOrBlock:">&ndash;&nbsp;setSwpShareListViewCloseDelegateOrBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>setSwpShareListViewCloseDelegateOrBlock  ( 设置 SwpShareView  关闭之后，代理和 Block )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setSwpShareListViewCloseDelegateOrBlock:(SwpShareModel *)<em>swpShare</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>swpShare</code></th>
+						<td><p><a href="#//api/name/swpShare">swpShare</a></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareListView:didSelectItemAtIndexPath:swpShare:swpShareKey:" title="swpShareListView:didSelectItemAtIndexPath:swpShare:swpShareKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareListView:didSelectItemAtIndexPath:swpShare:swpShareKey:">&ndash;&nbsp;swpShareListView:didSelectItemAtIndexPath:swpShare:swpShareKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareListView:didSelectItemAtIndexPath:swpShare:swpShareKey: ( SwpShareListView 代理方法，点击 Cell 时调用 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)swpShareListView:(SwpShareListView *)<em>swpShareListView</em> didSelectItemAtIndexPath:(NSIndexPath *)<em>indexPath</em> swpShare:(SwpShareModel *)<em>swpShare</em> swpShareKey:(NSString *)<em>swpShareKey</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>swpShareListView</code></th>
+						<td><p><a href="#//api/name/swpShareListView">swpShareListView</a></p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPath</code></th>
+						<td><p>indexPath</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>swpShare</code></th>
+						<td><p><a href="#//api/name/swpShare">swpShare</a></p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>swpShareKey</code></th>
+						<td><p>swpShareKey</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpShareListView:tripartiteFrameworkShareType:" title="swpShareListView:tripartiteFrameworkShareType:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpShareListView:tripartiteFrameworkShareType:">&ndash;&nbsp;swpShareListView:tripartiteFrameworkShareType:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>swpShareListView:tripartiteFrameworkShareType: ( SwpShareListView 代理方法，获取三方框架分享类型 )</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (id)swpShareListView:(SwpShareListView *)<em>swpShareListView</em> tripartiteFrameworkShareType:(NSInteger)<em>index</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>swpShareListView</code></th>
+						<td><p><a href="#//api/name/swpShareListView">swpShareListView</a></p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>index</code></th>
+						<td><p>index</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>id                  id</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>@author swp_song</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpShareView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2018 swp-song. All rights reserved. Updated: 2018-04-10</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

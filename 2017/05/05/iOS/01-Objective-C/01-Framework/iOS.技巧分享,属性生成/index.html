@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/Header/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Header/swp-favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Header/swp-favicon-32x32.png">
+  <link rel="mask-icon" href="/images/Header/swp-logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|monospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dream-swp.com","root":"/","scheme":"Gemini","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="需求: 根据后台返回 json 数据, 生成对应的模型属性。    实现步骤: 解析后台数据, 并转换成字典。 字典添加分类, 添加实现方 ( 不写成分类方法也可以， 可以写成一个公共方法调用，具体看您的心情 😁😁😁😁😁😁 )。 这里笔者使用分类写的。 循环字典判断对应的数据类型，生成对应的属性类型，拼接字符串。 控制台打印输出，复制粘贴到模型类中 ( 😀😀😀😀😀😀😀😀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS,『 技巧分享, 属性生成 』">
+<meta property="og:url" content="https://dream-swp.com/2017/05/05/iOS/01-Objective-C/01-Framework/iOS.%E6%8A%80%E5%B7%A7%E5%88%86%E4%BA%AB,%E5%B1%9E%E6%80%A7%E7%94%9F%E6%88%90/index.html">
+<meta property="og:site_name" content="Dream">
+<meta property="og:description" content="需求: 根据后台返回 json 数据, 生成对应的模型属性。    实现步骤: 解析后台数据, 并转换成字典。 字典添加分类, 添加实现方 ( 不写成分类方法也可以， 可以写成一个公共方法调用，具体看您的心情 😁😁😁😁😁😁 )。 这里笔者使用分类写的。 循环字典判断对应的数据类型，生成对应的属性类型，拼接字符串。 控制台打印输出，复制粘贴到模型类中 ( 😀😀😀😀😀😀😀😀">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-05-05T02:30:28.000Z">
+<meta property="article:modified_time" content="2020-10-15T05:45:17.362Z">
+<meta property="article:author" content="Dream">
+<meta property="article:tag" content="Objective-c">
+<meta property="article:tag" content="偷懒技巧">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://dream-swp.com/2017/05/05/iOS/01-Objective-C/01-Framework/iOS.%E6%8A%80%E5%B7%A7%E5%88%86%E4%BA%AB,%E5%B1%9E%E6%80%A7%E7%94%9F%E6%88%90/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>iOS,『 技巧分享, 属性生成 』 | Dream</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Dream</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description"></p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">需求:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">实现步骤:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">3.</span> <span class="nav-text">注意:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-number">4.</span> <span class="nav-text">知识点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code"><span class="nav-number">5.</span> <span class="nav-text">Code</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%89%80%E6%9C%89%E5%B1%9E%E6%80%A7"><span class="nav-number">5.1.</span> <span class="nav-text">创建所有属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%BC%E6%8E%A5%E6%89%80%E6%9C%89%E5%B1%9E"><span class="nav-number">5.2.</span> <span class="nav-text">拼接所有属</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E5%B1%9E%E6%80%A7%E7%B1%BB%E5%9E%8B"><span class="nav-number">5.3.</span> <span class="nav-text">验证属性类型</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dream"
+      src="/images/Header/swp_header.png">
+  <p class="site-author-name" itemprop="name">Dream</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/swp-song" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;swp-song" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dream-swp.com/2017/05/05/iOS/01-Objective-C/01-Framework/iOS.%E6%8A%80%E5%B7%A7%E5%88%86%E4%BA%AB,%E5%B1%9E%E6%80%A7%E7%94%9F%E6%88%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Header/swp_header.png">
+      <meta itemprop="name" content="Dream">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dream">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          iOS,『 技巧分享, 属性生成 』
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-05-05 10:30:28" itemprop="dateCreated datePublished" datetime="2017-05-05T10:30:28+08:00">2017-05-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-15 13:45:17" itemprop="dateModified" datetime="2020-10-15T13:45:17+08:00">2020-10-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="需求"><a href="#需求" class="headerlink" title="需求:"></a>需求:</h3><ul>
+<li>根据后台返回 <strong>json</strong> 数据, 生成对应的模型属性。 </li>
+</ul>
+<hr>
+<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤:"></a>实现步骤:</h3><ul>
+<li>解析后台数据, 并转换成字典。</li>
+<li>字典添加分类, 添加实现方 ( 不写成分类方法也可以， 可以写成一个公共方法调用，具体看您的心情 😁😁😁😁😁😁 )。</li>
+<li>这里笔者使用分类写的。</li>
+<li>循环字典判断对应的数据类型，生成对应的属性类型，拼接字符串。</li>
+<li>控制台打印输出，复制粘贴到模型类中 ( 😀😀😀😀😀😀😀😀😀 )。</li>
+</ul>
+<hr>
+<a id="more"></a>    
+
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h3><ul>
+<li>唯一的缺点就是定义模型数据中属性的名称，是根据后台生成的，如果后台变量名称很坑慎用 ( 😂😂😂😂😂😂 )。</li>
+</ul>
+<hr>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><ul>
+<li>熟悉 OC ( Objective - C ) 的一些基本知识.</li>
+<li>了解一些的字符串 OC 字符传的操作.</li>
+<li>了解如何判断系统类型, 和分类 ( Category ) 基本使用.</li>
+</ul>
+<hr>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><h4 id="创建所有属性"><a href="#创建所有属性" class="headerlink" title="创建所有属性"></a>创建所有属性</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建所有属性</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)swpGenerateProperty;</span><br><span class="line"><span class="comment">// 核心方法 :</span></span><br><span class="line"><span class="comment">// 拼接属性字符串</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)swpStitchingString;</span><br><span class="line"><span class="comment">// 验证属性类型</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)swpVerificationPropertyType:(<span class="keyword">id</span>)key value:(<span class="keyword">id</span>)value;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)swpGenerateProperty &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span> swpStitchingString];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="拼接所有属"><a href="#拼接所有属" class="headerlink" title="拼接所有属"></a>拼接所有属</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拼接所有属</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)swpStitchingString &#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *propertys = [<span class="built_in">NSMutableString</span> string];</span><br><span class="line">    [<span class="keyword">self</span> enumerateKeysAndObjectsUsingBlock:^(<span class="keyword">id</span>  _Nonnull key, <span class="keyword">id</span>  _Nonnull value, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</span><br><span class="line">        <span class="keyword">id</span> dictionaryKey    = key;</span><br><span class="line">        <span class="keyword">id</span> dictionaryValen  = value;</span><br><span class="line">        <span class="keyword">if</span> ([dictionaryKey isEqual:<span class="string">@&quot;id&quot;</span>]) &#123;</span><br><span class="line">            dictionaryKey = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;%@_&quot;</span>, key];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">NSString</span> *property = [<span class="keyword">self</span> swpVerificationPropertyType:dictionaryKey value:dictionaryValen];</span><br><span class="line">        [propertys appendFormat:<span class="string">@&quot;\n /\*!  !\*/ \n %@ \n&quot;</span>, property];</span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="keyword">return</span> propertys.copy;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="验证属性类型"><a href="#验证属性类型" class="headerlink" title="验证属性类型"></a>验证属性类型</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)swpVerificationPropertyType:(<span class="keyword">id</span>)key value:(<span class="keyword">id</span>)value &#123;</span><br><span class="line">    <span class="keyword">if</span> ([value isKindOfClass:<span class="built_in">NSClassFromString</span>(<span class="string">@&quot;__NSCFBoolean&quot;</span>)]) &#123;</span><br><span class="line">        <span class="comment">// BOOL</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;@property (nonatomic, assign, getter = is%@) BOOL %@;&quot;</span>, [key capitalizedString], key];</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([value isKindOfClass:[<span class="built_in">NSNumber</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="comment">// NSInteger</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;@property (nonatomic, assign) NSInteger     %@;&quot;</span>, key];  </span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([value isKindOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="comment">// NSString</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;@property (nonatomic, copy  ) NSString      \*%@;&quot;</span>, key];</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([value isKindOfClass:[<span class="built_in">NSDictionary</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="comment">// NSDictionary</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;@property (nonatomic, copy  ) NSDictionary  \*%@;&quot;</span>, key];</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([value isKindOfClass:[<span class="built_in">NSArray</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="comment">// NSArray</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;@property (nonatomic, copy  ) NSArray       *%@;&quot;</span>,  key];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">@&quot;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Objective-c/" rel="tag"><i class="fa fa-tag"></i> Objective-c</a>
+              <a href="/tags/%E5%81%B7%E6%87%92%E6%8A%80%E5%B7%A7/" rel="tag"><i class="fa fa-tag"></i> 偷懒技巧</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/04/10/iOS/02-UIControl/03.iOS.%E5%88%86%E4%BA%AB%E5%BC%B9%E5%87%BA%E8%A7%86%E5%9B%BE%20SwpShareView/" rel="prev" title="iOS,『 分享弹出视图 SwpShareView 』">
+                  <i class="fa fa-chevron-left"></i> iOS,『 分享弹出视图 SwpShareView 』
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/05/12/iOS/03-NetworkRequest/01.iOS.AFNetworking%20%E5%B0%81%E8%A3%85/" rel="next" title="iOS, 『 AFNetworking 封装 』">
+                  iOS, 『 AFNetworking 封装 』 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fab fa-apple"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dream</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
