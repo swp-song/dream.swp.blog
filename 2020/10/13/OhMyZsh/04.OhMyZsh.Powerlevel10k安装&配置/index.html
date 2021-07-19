@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/Header/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Header/swp-favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Header/swp-favicon-32x32.png">
+  <link rel="mask-icon" href="/images/Header/swp-logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dream-swp.com","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Powerlevel10k">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oh My Zsh,『 Powerlevel10k 安装 &amp; 配置 』">
+<meta property="og:url" content="https://dream-swp.com/2020/10/13/OhMyZsh/04.OhMyZsh.Powerlevel10k%E5%AE%89%E8%A3%85&%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Dream">
+<meta property="og:description" content="Powerlevel10k">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dream-swp.com/images/Tools/OhMyZsh/1602569542612.png">
+<meta property="og:image" content="https://dream-swp.com/images/Tools/OhMyZsh/1602580360441.png">
+<meta property="og:image" content="https://dream-swp.com/images/Tools/OhMyZsh/1602580367466.png">
+<meta property="og:image" content="https://dream-swp.com/images/Tools/OhMyZsh/1602582537785.png">
+<meta property="og:image" content="https://dream-swp.com/images/Tools/OhMyZsh/1602582544800.png">
+<meta property="article:published_time" content="2020-10-13T06:04:04.000Z">
+<meta property="article:modified_time" content="2021-07-19T15:36:04.026Z">
+<meta property="article:author" content="Dream">
+<meta property="article:tag" content="Oh My Zsh">
+<meta property="article:tag" content="命令行工具">
+<meta property="article:tag" content="Powerlevel9k">
+<meta property="article:tag" content="Powerlevel10k">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dream-swp.com/images/Tools/OhMyZsh/1602569542612.png">
+
+
+<link rel="canonical" href="https://dream-swp.com/2020/10/13/OhMyZsh/04.OhMyZsh.Powerlevel10k%E5%AE%89%E8%A3%85&%E9%85%8D%E7%BD%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dream-swp.com/2020/10/13/OhMyZsh/04.OhMyZsh.Powerlevel10k%E5%AE%89%E8%A3%85&%E9%85%8D%E7%BD%AE/","path":"2020/10/13/OhMyZsh/04.OhMyZsh.Powerlevel10k安装&配置/","title":"Oh My Zsh,『 Powerlevel10k 安装 & 配置 』"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Oh My Zsh,『 Powerlevel10k 安装 & 配置 』 | Dream</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Dream</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description"></p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Powerlevel10k"><span class="nav-number">1.</span> <span class="nav-text">Powerlevel10k</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Powerlevel10k-%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">Powerlevel10k 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Powerlevel10k-%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">Powerlevel10k 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Powerleve10k-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">Powerleve10k 自定义样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zshrc-%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">.zshrc 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93%E5%BA%93-hack-nerd-font"><span class="nav-number">6.</span> <span class="nav-text">安装字体库 ( hack-nerd-font )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%BB%88%E7%AB%AF%E5%AD%97%E4%BD%93"><span class="nav-number">7.</span> <span class="nav-text">修改终端字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zshrc-%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD"><span class="nav-number">8.</span> <span class="nav-text">.zshrc 文件下载</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dream"
+      src="/images/Header/swp_header.png">
+  <p class="site-author-name" itemprop="name">Dream</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/swp-song" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;swp-song" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dream-swp.com/2020/10/13/OhMyZsh/04.OhMyZsh.Powerlevel10k%E5%AE%89%E8%A3%85&%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Header/swp_header.png">
+      <meta itemprop="name" content="Dream">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dream">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Oh My Zsh,『 Powerlevel10k 安装 & 配置 』
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-13 14:04:04" itemprop="dateCreated datePublished" datetime="2020-10-13T14:04:04+08:00">2020-10-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-19 23:36:04" itemprop="dateModified" datetime="2021-07-19T23:36:04+08:00">2021-07-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/Tools/OhMyZsh/1602569542612.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="Powerlevel10k"><a href="#Powerlevel10k" class="headerlink" title="Powerlevel10k"></a>Powerlevel10k</h3><a id="more"></a>    
+
+<ul>
+<li>由于 Powerlevel9k ( 已经被弃用 ) 升级到 Powerlevel10k, 所以本篇文章进行更新. </li>
+<li><a class="btn" target="_blank" rel="noopener" href="https://github.com/Powerlevel9k/powerlevel9k">Powerlevel9k 官方文档</a>
+
+</li>
+</ul>
+<hr>
+<ul>
+<li>Powerlevel10k 主题可以用于 zsh, oh-my-zsh, Prezto, Antigen 等等。</li>
+<li>Powerlevel10k 依托于 zsh, oh-my-zsh, Prezto, Antigen。</li>
+<li>这里我们直接使用 oh-my-zsh。</li>
+<li><a class="btn" target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k">Powerlevel10k 官方文档</a> <a class="btn" href="https://dream-swp.com/2017/08/20/OhMyZsh/01.OhMyZsh.主题安装配置/">OhMyZsh 「 主题安装配置 」</a></li>
+<li>笔者使用的系统环境是 Mac OS. </li>
+</ul>
+<h3 id="Powerlevel10k-安装"><a href="#Powerlevel10k-安装" class="headerlink" title="Powerlevel10k 安装"></a>Powerlevel10k 安装</h3><ul>
+<li>手动安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>国内用户可以使用 gitee.com 上的官方镜像加速下载.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://gitee.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Powerlevel10k-配置"><a href="#Powerlevel10k-配置" class="headerlink" title="Powerlevel10k 配置"></a>Powerlevel10k 配置</h3><ul>
+<li>编辑 .zshrc 文件， 文件路径 ~/.zshrc</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=<span class="string">&quot;powerlevel10k/powerlevel10k&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Powerleve10k-自定义样式"><a href="#Powerleve10k-自定义样式" class="headerlink" title="Powerleve10k 自定义样式"></a>Powerleve10k 自定义样式</h3><ul>
+<li><p>Powerleve10k 兼容 Powerleve9k 的样式，代码可以通用</p>
+</li>
+<li><p>需要编辑 .zshrc 文件， 来自定义终端的样式</p>
+</li>
+<li><a class="btn" target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k#batteries-included">Powerlevel10k 详细文档的配置</a> <a class="btn" target="_blank" rel="noopener" href="https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config">Powerleve9k 更多样式</a></li>
+<li><p>笔者提供两个样式：</p>
+</li>
+<li><p>Dream_01.zshrc:<br><img src="/images/Tools/OhMyZsh/1602580360441.png" alt="Dream_01.zshrc"></p>
+</li>
+<li><p>Dream_02.zshrc:<br><img src="/images/Tools/OhMyZsh/1602580367466.png" alt="Dream_02.zshrc"></p>
+</li>
+</ul>
+<hr>
+<h3 id="zshrc-配置"><a href="#zshrc-配置" class="headerlink" title=".zshrc 配置"></a>.zshrc 配置</h3><ul>
+<li><p>下载 Dream_01.zshrc 或 Dream_02.zshrc，把其他代码复制到 .zshrc 文件的最下面</p>
+</li>
+<li><p>找到 .zshrc 文件 编辑 </p>
+</li>
+<li><p>文件目录 : </p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="安装字体库-hack-nerd-font"><a href="#安装字体库-hack-nerd-font" class="headerlink" title="安装字体库 ( hack-nerd-font )"></a>安装字体库 ( hack-nerd-font )</h3><ul>
+<li>我们现在需要安装终端需要的字体库 </li>
+<li><a class="btn" target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts">Nerd Fonts</a></li>
+<li>这里我实用 Homebrew 来安装 </li>
+<li><a class="btn" target="_blank" rel="noopener" href="https://brew.sh/index_zh-cn">Homebrew</a></li>
+<li>打开终端输入:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install font-hack-nerd-font</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>等待安装完成.</li>
+</ul>
+<hr>
+<h3 id="修改终端字体"><a href="#修改终端字体" class="headerlink" title="修改终端字体"></a>修改终端字体</h3><ul>
+<li>Mac OC 系统自带终端 -&gt; 偏好设置 -&gt; 字体 -&gt; 修改成 Hack Nerd Font</li>
+</ul>
+<p><img src="/images/Tools/OhMyZsh/1602582537785.png"></p>
+<ul>
+<li>iTerm -&gt; Preferences -&gt; Profiles -&gt; Text -&gt; font -&gt; 修改成 Hack Nerd Font</li>
+</ul>
+<p><img src="/images/Tools/OhMyZsh/1602582544800.png"></p>
+<hr>
+<h3 id="zshrc-文件下载"><a href="#zshrc-文件下载" class="headerlink" title=".zshrc 文件下载"></a>.zshrc 文件下载</h3><ul>
+<li><a class="btn" href="https://dream-swp.com/docs/iTerm/Dream_01.zshrc">Dream_01.zshrc</a> <a class="btn" href="https://dream-swp.com/docs/iTerm/Dream_02.zshrc">Dream_02.zshrc</a>
+
+</li>
+</ul>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Oh-My-Zsh/" rel="tag"><i class="fa fa-tag"></i> Oh My Zsh</a>
+              <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" rel="tag"><i class="fa fa-tag"></i> 命令行工具</a>
+              <a href="/tags/Powerlevel9k/" rel="tag"><i class="fa fa-tag"></i> Powerlevel9k</a>
+              <a href="/tags/Powerlevel10k/" rel="tag"><i class="fa fa-tag"></i> Powerlevel10k</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/09/OhMyZsh/03.OhMyZsh.443.Connection.Refused.%E9%94%99%E8%AF%AF%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85/" rel="prev" title="Oh My Zsh,『 443 Connection Refused 错误无法安装 』">
+                  <i class="fa fa-chevron-left"></i> Oh My Zsh,『 443 Connection Refused 错误无法安装 』
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/10/14/HexoBlog/06.Hexo.NexT.%E7%BB%9F%E8%AE%A1&%E6%A3%80%E7%B4%A2/" rel="next" title="Hexo,『 NexT 统计 & 检索 』">
+                  Hexo,『 NexT 统计 & 检索 』 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fab fa-apple"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dream</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

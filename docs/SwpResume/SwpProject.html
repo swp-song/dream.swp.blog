@@ -1,0 +1,648 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>index</title>
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 20px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;word-wrap: break-word; word-break: break-all;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+img{max-width: 100%;}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 26px;
+}
+h2 {
+    font-size: 22px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+table td{ word-wrap: break-word !important; word-break: break-all !important; }
+/*
+
+XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #fff;
+  color: black;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs-comment {
+  color: #006a00;
+}
+
+.hljs-keyword,
+.hljs-literal,
+.nginx .hljs-title {
+  color: #aa0d91;
+}
+.method,
+.hljs-list .hljs-title,
+.hljs-tag .hljs-title,
+.setting .hljs-value,
+.hljs-winutils,
+.tex .hljs-command,
+.http .hljs-title,
+.hljs-request,
+.hljs-status,
+.hljs-name {
+  color: #008;
+}
+
+.hljs-envvar,
+.tex .hljs-special {
+  color: #660;
+}
+
+.hljs-string {
+  color: #c41a16;
+}
+.hljs-tag .hljs-value,
+.hljs-cdata,
+.hljs-filter .hljs-argument,
+.hljs-attr_selector,
+.apache .hljs-cbracket,
+.hljs-date,
+.hljs-regexp {
+  color: #080;
+}
+
+.hljs-sub .hljs-identifier,
+.hljs-pi,
+.hljs-tag,
+.hljs-tag .hljs-keyword,
+.hljs-decorator,
+.ini .hljs-title,
+.hljs-shebang,
+.hljs-prompt,
+.hljs-hexcolor,
+.hljs-rule .hljs-value,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.hljs-number,
+.css .hljs-function,
+.hljs-function .hljs-title,
+.coffeescript .hljs-attribute {
+  color: #1c00cf;
+}
+
+.hljs-class .hljs-title,
+.smalltalk .hljs-class,
+.hljs-type,
+.hljs-typename,
+.hljs-tag .hljs-attribute,
+.hljs-doctype,
+.hljs-class .hljs-id,
+.hljs-built_in,
+.setting,
+.hljs-params,
+.clojure .hljs-attribute {
+  color: #5c2699;
+}
+
+.hljs-variable {
+ color: #3f6e74;
+}
+.css .hljs-tag,
+.hljs-rule .hljs-property,
+.hljs-pseudo,
+.hljs-subst {
+  color: #000;
+}
+
+.css .hljs-class,
+.css .hljs-id {
+  color: #9b703f;
+}
+
+.hljs-value .hljs-important {
+  color: #ff7700;
+  font-weight: bold;
+}
+
+.hljs-rule .hljs-keyword {
+  color: #c5af75;
+}
+
+.hljs-annotation,
+.apache .hljs-sqbracket,
+.nginx .hljs-built_in {
+  color: #9b859d;
+}
+
+.hljs-preprocessor,
+.hljs-preprocessor *,
+.hljs-pragma {
+  color: #643820;
+}
+
+.tex .hljs-formula {
+  background-color: #eee;
+  font-style: italic;
+}
+
+.diff .hljs-header,
+.hljs-chunk {
+  color: #808080;
+  font-weight: bold;
+}
+
+.diff .hljs-change {
+  background-color: #bccff9;
+}
+
+.hljs-addition {
+  background-color: #baeeba;
+}
+
+.hljs-deletion {
+  background-color: #ffc8bd;
+}
+
+.hljs-comment .hljs-doctag {
+  font-weight: bold;
+}
+
+.method .hljs-id {
+  color: #000;
+}
+
+</style>
+
+<style> @media print{ .hljs{overflow: visible; word-wrap: break-word !important;} }</style></head><body><div class="markdown-body">
+<h1 id="toc_0">项目介绍:</h1>
+
+<h3 id="toc_1">哈尔滨尽在指间网络科技有限公司, 在职期间所做的项目</h3>
+
+<hr/>
+
+<h4 id="toc_2">尽在指间</h4>
+
+<p><strong>项目描述：</strong></p>
+
+<blockquote>
+<ul>
+<li>所属公司：哈尔滨尽在指间网络科技有限公司</li>
+<li>开发环境：Xcode</li>
+<li>开发语言：Objective-C</li>
+<li>使用平台：iOS手机 App</li>
+<li><p>App功能描：App 分为四大模块</p>
+
+<blockquote>
+<ul>
+<li>购物模块：用户购买商品，与商家聊天，咨询商品信息，添加购物车等功能。</li>
+<li>外卖模块：用户点餐，生成订单，支付等功能。</li>
+<li>聊天模块：在App中用户之间可以添加，删除，拉黑好友，创建，解散群等功能。</li>
+<li>招聘模块：该模块展示一些招聘信息，有一些简单的筛选，后台发布招聘信息等功能。</li>
+<li>App，还有一部分社交圈，可发布文字图片，点赞，评论，分享商品信息等功能。</li>
+</ul>
+</blockquote></li>
+<li><p>PS：应用中包含 第三登录 &lt;微信，QQ，新浪，支付宝，等三方登录&gt;，支付&lt;微信，支付宝，银联，Apple Pay，PayPal&gt;，推送，分享，等常用的一些功能。</p></li>
+</ul>
+</blockquote>
+
+<p><strong>责任描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>该项目是公司自营项目，是哈尔滨尽在指间网络科技有限公司下自运营电商平台，尽在指间用户端，该项目包括三个端，iOS，Android 和 Web。</li>
+<li>本人是该项目的负责人，iOS底层架构，开发负责人，负责该项目的流程分析，整体调度，时间，上线协调控制。</li>
+<li>本人哈尔滨尽在指间网络科技有限公司开发部的负责人。
+*本人负责开发的是 iOS 端，合作开发完成，耗时三个月左右提交测试版本。</li>
+<li>该项目提交 App Store 已通过，可下载。</li>
+</ul>
+</blockquote>
+
+<hr/>
+
+<h4 id="toc_3">指间外卖</h4>
+
+<p><strong>项目描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>所属公司：哈尔滨尽在指间网络科技有限公司</li>
+<li>开发环境：Xcode</li>
+<li>开发语言：Objective-C</li>
+<li>使用平台：iOS手机 App</li>
+<li><p>App功能描述：App 分为三个模块</p>
+
+<blockquote>
+<ul>
+<li>首页：展示分类，轮播广告位，活动版块，推荐商家。</li>
+<li>订单：展示用字自己的订单，详情可查看用户订单进度。</li>
+<li>我的：钱包，修改个人信息，登录，注册，地址管理，退款记录，等模块。</li>
+</ul>
+</blockquote></li>
+<li><p>PS：应用中包含 第三登录 &lt;微信，QQ，新浪，支付宝，等三方登录&gt;，支付&lt;微信，支付宝，银联，Apple Pay，PayPal&gt;，推送，分享，等常用的一些功能。</p></li>
+</ul>
+</blockquote>
+
+<p><strong>责任描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>该项目是公司自营项目，是哈尔滨尽在指间网络科技有限公司下自运营电商平台，之间外卖，是尽在指间的外卖模块的抽取，该项目包括三个端，iOS，Android 和 Web。</li>
+<li>本人是该项目的负责人，iOS底层架构，开发负责人，负责该项目的流程分析，整体调度，时间，上线协调控制。</li>
+<li>本人哈尔滨尽在指间网络科技有限公司开发部的负责人。</li>
+<li>本人负责开发的是 iOS 端，独立完成，耗时一个月左右&lt; 尽在指间外卖模块的抽取，1周左右时间，提交测试版本&gt;。</li>
+<li>该项目提交 App Store 已通过，可下载。</li>
+</ul>
+</blockquote>
+
+<hr/>
+
+<h4 id="toc_4">尽在指间外卖商户端</h4>
+
+<p><strong>项目描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>所属公司：哈尔滨尽在指间网络科技有限公司</li>
+<li>开发环境：Xcode</li>
+<li>开发语言：Objective-C</li>
+<li>使用平台：iOS手机 App</li>
+<li><p>App功能描述 ：App 分为四个模块</p>
+
+<blockquote>
+<ul>
+<li>订单：用户订单模块，接受用户下单，对订单一系列操作，接单，取消，打印订单，查单订单详情。</li>
+<li>统计：该模块是统计商户完成订单，总金额，订单订单数量，根据时间筛选订单。</li>
+<li>消息：该模块是用户端和商户端聊天的模块，用户咨询商品信息的模块。</li>
+<li>我的：展示一些商户信息，版本号，申请提现，缓存清理等。</li>
+</ul>
+</blockquote></li>
+<li></li>
+</ul>
+</blockquote>
+
+<p><strong>责任描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>该项目是公司自营项目，是哈尔滨尽在指间网络科技有限公司下自运营电商平台，尽在指间购物商户端，该项目包括三个端，iOS，Android 和 Web。</li>
+<li>本人是该项目的负责人，iOS底层架构，开发负责人，负责该项目的流程分析，整体调度，时间，上线协调控制。</li>
+<li>本人哈尔滨尽在指间网络科技有限公司开发部的负责人。</li>
+<li>本人负责开发的是 iOS 端，独立发开完成，耗时一个月左右，提交测试版本。</li>
+<li>该项目提交 App Store 已通过，可下载。</li>
+</ul>
+</blockquote>
+
+<hr/>
+
+<h4 id="toc_5">尽在指间购物商户端</h4>
+
+<p><strong>项目描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>所属公司：哈尔滨尽在指间网络科技有限公司</li>
+<li>开发环境：Xcode</li>
+<li>开发语言：Objective-C</li>
+<li>使用平台：iOS手机 App</li>
+<li><p>App功能描述 ：App 分为三个模块</p>
+
+<blockquote>
+<ul>
+<li>订单： 用户订单模块，接受用户下单，对订单一系列操作，接单，取消，打印订单，查单订单详情。</li>
+<li>统计：该模块是统计商户完成订单，总金额，订单订单数量，根据时间筛选订单。</li>
+<li>我的：展示一些商户信息，版本号，申请提现，链接蓝牙，缓存清理等。</li>
+</ul>
+</blockquote></li>
+<li></li>
+</ul>
+</blockquote>
+
+<p><strong>责任描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>该项目是公司自营项目，是哈尔滨尽在指间网络科技有限公司下自运营电商平台，尽在指间外卖商户端，该项目包括三个端，iOS，Android 和 Web。</li>
+<li>本人是该项目的负责人，iOS底层架构，开发负责人，负责该项目的流程分析，整体调度，时间，上线协调控制。</li>
+<li>本人哈尔滨尽在指间网络科技有限公司开发部的负责人.</li>
+<li>本人负责开发的是 iOS 端，独立发开完成，耗时一个月左右，提交测试版本。</li>
+<li>该项目提交 App Store 已通过，可下载。</li>
+</ul>
+</blockquote>
+
+<hr/>
+
+<h3 id="toc_6">哈尔滨优智科技有限公司, 在职期间所做的项目</h3>
+
+<hr/>
+
+<h4 id="toc_7">中盛优选</h4>
+
+<p><strong>项目描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>所属公司：哈尔滨优智科技有限公司</li>
+<li>开发环境：Xcode</li>
+<li>开发语言：Objective-C</li>
+<li>使用平台：iOS手机 App</li>
+<li><p>App功能描述 ：App 分为四个模块</p>
+
+<blockquote>
+<ul>
+<li>首页：展示轮播广告位，分类，中盛优选生鲜门店，推荐商家，广告。</li>
+<li>发现：新鲜事，可发布一些信息，二手市场，发布二手物件置换，跑腿，代买代卖等功能.</li>
+<li>购物车 ：用户加入购物车，对购物车商品的一些操作，商品增删改查，商品支付等。</li>
+<li>我的：展示一些商户信息，积分，余额等，可充值，可修改用户信息，用户订单，积分商城等。</li>
+</ul>
+</blockquote></li>
+<li><p>PS：应用中包含 第三登录 &lt;微信，QQ，新浪，支付宝，等三方登录&gt;，支付&lt;微信，支付宝，银联，Apple Pay，PayPal&gt;，推送，分享，等常用的一些功能。</p></li>
+</ul>
+</blockquote>
+
+<p><strong>责任描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>该项目是公司一个外包项目，该项目是绥化盛世华庭酒店下，中盛优选用户端，包括三个端，iOS，Android 和 Web。</li>
+<li>本人是该项目的项目经理，负责该项目的流程分析，整体调度，时间把控.</li>
+<li>本人负责开发的是 iOS 端，合作完成，耗时二个月左右，提交测试版本.</li>
+<li>该项目提交 App Store 已通过，可下载。</li>
+</ul>
+</blockquote>
+
+<hr/>
+
+<h4 id="toc_8">中盛商户端</h4>
+
+<p><strong>项目描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>所属公司：哈尔滨优智科技有限公司</li>
+<li>开发环境：Xcode</li>
+<li>开发语言：Objective-C</li>
+<li>使用平台：iOS手机 App</li>
+<li><p>App功能描述 ：App 分为三个模块</p>
+
+<blockquote>
+<ul>
+<li>订单 ：用户订单模块，接受用户下单，对订单一系列操作，接单，取消，打印订单，查单订单详情</li>
+<li>记账：记账功能是在 中盛优选用户端中生鲜超市下单会自动记录，订单信息。</li>
+<li>销售统计：该模块是统计商户完成订单，总金额，订单订单数量，根据时间筛选订单。</li>
+<li>商户中心：展示一些商户信息，版本号，申请提现，绑定采购员信息，连接蓝牙功能等。</li>
+</ul>
+</blockquote></li>
+<li></li>
+</ul>
+</blockquote>
+
+<p><strong>责任描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>该项目是公司一个外包项目，该项目是绥化盛世华庭酒店下，中盛优选商户端，包括三个端，iOS，Android 和 Web。</li>
+<li>本人是该项目的项目经理，负责该项目的流程分析，整体调度，时间把控。</li>
+<li>本人负责开发的是 iOS 端，独立发开完成，耗时半个月左右，提交测试版本。</li>
+<li>该项目提交 App Store 已通过，可下载。</li>
+</ul>
+</blockquote>
+
+<hr/>
+
+<h4 id="toc_9">中盛门店端</h4>
+
+<p><strong>项目描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>所属公司：哈尔滨优智科技有限公司</li>
+<li>开发环境：Xcode</li>
+<li>开发语言：Objective-C</li>
+<li>使用平台：iOS手机 App</li>
+<li><p>App功能描述：App 分为三个模块</p>
+
+<blockquote>
+<ul>
+<li>订单用户：用户订单模块，接受用户下单，对订单一系列操作，接单，取消，打印订单，查单订单详情。</li>
+<li>销售统计：该模块是统计商户完成订单，总金额，订单订单数量，根据时间筛选订单。
+
+<ul>
+<li> 商户中心：展示一些商户信息，版本号，蓝牙列表，链接蓝牙功能等。</li>
+</ul></li>
+</ul>
+</blockquote></li>
+<li></li>
+</ul>
+</blockquote>
+
+<p><strong>责任描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>该项目是公司一个外包项目，该项目是绥化盛世华庭酒店下，中盛优选生鲜超市的门店端，包括三个端，iOS，Android 和 Web。</li>
+<li>本人是该项目的项目经理，负责该项目的流程分析，整体调度，时间把控。</li>
+<li>本人负责开发的是 iOS 端，独立发开完成，耗时半个月左右，提交测试版本。</li>
+<li>该项目提交 App Store 已通过，可下载。</li>
+</ul>
+</blockquote>
+
+<hr/>
+
+<h4 id="toc_10">0452e</h4>
+
+<p><strong>项目描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>所属公司：哈尔滨优智科技有限公司</li>
+<li>开发环境：Xcode</li>
+<li>开发语言：Objective-C</li>
+<li>使用平台：iOS手机 App</li>
+<li><p>App功能描述 ：App 分为五个模块</p>
+
+<blockquote>
+<ul>
+<li>咨询：展示所有咨询分类，和咨询模块，可以筛选，可发布咨询，回复。发布可发布文字，图片，音频，视频等。</li>
+<li>通讯：该模块即时通讯模块，可以进行一些了添加好友，聊天，删除好友，拉黑操作。</li>
+<li>社交：可以在地图上展示用户定位的位置，按照性别进行筛选。</li>
+<li>福利：是App中自己福利体统，可根据App中的 E 币换取。E 币是发帖，回帖获得。</li>
+<li>我的：用户登录，注册，忘记密码，用户发布，修改个人信息，查看用户自己的发布，进行的一系列增删该查操作。</li>
+</ul>
+</blockquote></li>
+<li><p>PS：应用中包含 第三登录 &lt;微信，QQ，新浪，支付宝，等三方登录&gt;，支付&lt;微信，支付宝，银联，Apple Pay，PayPal&gt;，推送，分享，等常用的一些功能。</p></li>
+</ul>
+</blockquote>
+
+<p><strong>责任描述:</strong></p>
+
+<blockquote>
+<ul>
+<li>该项目是公司一个外包项目，是齐齐哈尔自媒体平台的一个手机端，包括三个端，iOS，Android 和 Web。</li>
+<li>本人负责开发的是 iOS端，独立发开完成，耗时三个月左右，提交测试版本。</li>
+<li>本人是该项目的项目经理，负责该项目的流程分析，整体调度，时间把控。</li>
+<li>其中重点是 App 本身的即时通讯技术。是该项目的重点。
+** 该项目提交 App Store 已通过，可下载。</li>
+</ul>
+</blockquote>
+
+<hr/>
+
+<h3 id="toc_11">哈尔滨优智科技有限公司, 在职期间所做的，但是没有运营成功的项目</h3>
+
+<blockquote>
+<p><strong>可以在 AppStore &lt;苹果商店&gt;下载：</strong></p>
+
+<blockquote>
+<ul>
+<li>忆口私房小厨</li>
+<li>优榜</li>
+<li>帮众养车</li>
+<li>企联惠</li>
+<li>企联惠商户版</li>
+<li>高邮街</li>
+</ul>
+</blockquote>
+</blockquote>
+
+<hr/>
+
+</div></body>
+
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/Header/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Header/swp-favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Header/swp-favicon-32x32.png">
+  <link rel="mask-icon" href="/images/Header/swp-logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dream-swp.com","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Hexo 数据备份">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo,『 数据同步 &amp; 数据迁移 』">
+<meta property="og:url" content="https://dream-swp.com/2018/01/31/HexoBlog/05.Hexo.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%8E%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/index.html">
+<meta property="og:site_name" content="Dream">
+<meta property="og:description" content="Hexo 数据备份">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dream-swp.com/images/HexoBlog/00/1602255580174.png">
+<meta property="article:published_time" content="2018-01-31T07:04:11.000Z">
+<meta property="article:modified_time" content="2021-07-19T14:33:46.910Z">
+<meta property="article:author" content="Dream">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="个人博客搭建">
+<meta property="article:tag" content="GitHub Pages">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dream-swp.com/images/HexoBlog/00/1602255580174.png">
+
+
+<link rel="canonical" href="https://dream-swp.com/2018/01/31/HexoBlog/05.Hexo.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%8E%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dream-swp.com/2018/01/31/HexoBlog/05.Hexo.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%8E%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/","path":"2018/01/31/HexoBlog/05.Hexo.数据同步与数据迁移/","title":"Hexo,『 数据同步 & 数据迁移 』"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo,『 数据同步 & 数据迁移 』 | Dream</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Dream</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description"></p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD"><span class="nav-number">1.</span> <span class="nav-text">Hexo 数据备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E4%BB%BD%E9%80%89%E6%8B%A9"><span class="nav-number">2.</span> <span class="nav-text">备份选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD"><span class="nav-number">3.</span> <span class="nav-text">Hexo 博客备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB"><span class="nav-number">4.</span> <span class="nav-text">Hexo 博客迁移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E5%A4%87%E4%BB%BD"><span class="nav-number">5.</span> <span class="nav-text">主题备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tips"><span class="nav-number">6.</span> <span class="nav-text">Tips</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dream"
+      src="/images/Header/swp_header.png">
+  <p class="site-author-name" itemprop="name">Dream</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/swp-song" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;swp-song" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dream-swp.com/2018/01/31/HexoBlog/05.Hexo.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%8E%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Header/swp_header.png">
+      <meta itemprop="name" content="Dream">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dream">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo,『 数据同步 & 数据迁移 』
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-01-31 15:04:11" itemprop="dateCreated datePublished" datetime="2018-01-31T15:04:11+08:00">2018-01-31</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-19 22:33:46" itemprop="dateModified" datetime="2021-07-19T22:33:46+08:00">2021-07-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/HexoBlog/00/1602255580174.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="Hexo-数据备份"><a href="#Hexo-数据备份" class="headerlink" title="Hexo 数据备份"></a>Hexo 数据备份</h3><a id="more"></a>    
+
+<ul>
+<li>相信很多人都有这样的困扰，在自己的电脑中搭建完毕，<strong>Hexo</strong> 博客之后，配置了主题，样式等等，突然换了电脑该怎么办？</li>
+<li>一般情况下，<strong>Hexo</strong> 部署到 <strong>Github</strong> 或 <strong>Coding</strong> 生成好的 <strong>Html</strong> 文件，就算 <strong>clone</strong> 下来我们也无法得到 <strong>.md</strong> ，和样式。</li>
+<li>那么在另外一台电脑上从新进行部署的话，需要重新修改样式配置文件，保证博客文章的同步，较少的台电脑我们是可以这么做的，很多台电脑呢？</li>
+<li>也有的人会说，复制出来，复制粘贴到不同的电脑上，多台电脑保证数据同步依然会很麻烦。</li>
+<li>这篇博客来帮你解决以上问题，实现在不同电脑上都可以自由写博客。</li>
+</ul>
+<hr>
+<h3 id="备份选择"><a href="#备份选择" class="headerlink" title="备份选择"></a>备份选择</h3><ul>
+<li>同一个 <strong>Git</strong> 仓库，使用不同的分支来控制，一个是 <strong>blog</strong> 备份数据分支 ， 一个是 <strong>pages</strong> 服务的分支。</li>
+<li>使用两个不同的 <strong>Git</strong> 仓库，分别来控制，笔者使用的是这种方法。</li>
+<li>Git 选择：</li>
+<li>可以使用 <strong>GitHub Pages</strong>， <strong>GitHub</strong> 仓库。</li>
+<li>可以使用 <strong>GitLab Pages</strong>， <strong>GitLab</strong> 仓库。</li>
+<li>也可以在自己的服务器搭建。</li>
+<li>笔者使用的是 <strong>GitHub</strong>，看读者自己的喜好。</li>
+</ul>
+<hr>
+<h3 id="Hexo-博客备份"><a href="#Hexo-博客备份" class="headerlink" title="Hexo 博客备份"></a>Hexo 博客备份</h3><ul>
+<li><strong>GitHub</strong> 新建一个 <strong>Git</strong> 仓库，克隆到电脑中。</li>
+<li>终端进入仓库目录，将博客拷贝到仓库下</li>
+<li>上传 <strong>Git</strong> 仓库 ( 上传仓库是建议删除 node_modules &amp; .deploy_git 这两个文件, .deploy_git 该文件是隐藏文件 )</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入 Git 仓库目录</span></span><br><span class="line"><span class="built_in">cd</span> your-git </span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交本地仓库</span></span><br><span class="line">git commit -a -m <span class="string">&#x27;备注&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送远程仓库</span></span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加标签</span></span><br><span class="line">git tag -a 0.0.x -m <span class="string">&#x27;0.0.x&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 标签推送到远程仓库</span></span><br><span class="line">git push --tags</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Hexo-博客迁移"><a href="#Hexo-博客迁移" class="headerlink" title="Hexo 博客迁移"></a>Hexo 博客迁移</h3><ul>
+<li>Git 克隆仓库到本地。</li>
+<li>安装 Hexo 依赖文件。</li>
+<li>安装模板样式，覆盖模板 <strong>_config.yml</strong> 配置文件</li>
+<li>安装 Git 部署文件。</li>
+<li>部署发布。</li>
+<li>命令如下：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Git 克隆仓库</span></span><br><span class="line">git <span class="built_in">clone</span> https://your-git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入仓库目录下</span></span><br><span class="line"><span class="built_in">cd</span> your-git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 **Hexo** 依赖文件</span></span><br><span class="line">rm -rf node_modules &amp;&amp; npm install --force</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试部署</span></span><br><span class="line">hexo s</span><br><span class="line">http://localhost:4000</span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署</span></span><br><span class="line">hexo clean &amp;&amp; hexo g </span><br><span class="line"></span><br><span class="line"><span class="comment"># 发布</span></span><br><span class="line">hexo d</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="主题备份"><a href="#主题备份" class="headerlink" title="主题备份"></a>主题备份</h3><ul>
+<li>备份主题模板的配置文件 _config.yml，数据迁移的时候安装完模板，直接可以替换配置文件。</li>
+<li><a class="btn" href="https://dream-swp.com/2018/01/25/HexoBlog/04.Hexo.NexT.模板配置/">Hexo「 NexT 模板配置 」</a>
+
+
+</li>
+</ul>
+<hr>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><ul>
+<li>每次写完博客，或 更新完模板样式，需要提交 Git，</li>
+<li>换电脑的时候如果，电脑中做过迁移，只需要 Git Pull 下就好，如果没有做过迁移，需要按照上面方法迁移博客数据。 </li>
+<li><strong>千万不要执行 hexo init，这样会重置hexo的配置文件，配好的文件就丢失啦！</strong></li>
+</ul>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag"><i class="fa fa-tag"></i> 个人博客搭建</a>
+              <a href="/tags/GitHub-Pages/" rel="tag"><i class="fa fa-tag"></i> GitHub Pages</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/01/30/HexoBlog/04.Hexo.NexT.%E6%A0%87%E7%AD%BE&%E5%88%86%E7%B1%BB%E9%85%8D%E7%BD%AE/" rel="prev" title="Hexo,『 NexT 标签 & 分类 配置 』">
+                  <i class="fa fa-chevron-left"></i> Hexo,『 NexT 标签 & 分类 配置 』
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/02/11/CocoaPods/01.CocoaPods.%E5%AE%89%E8%A3%85&%E4%BD%BF%E7%94%A8/" rel="next" title="CocoaPods,『 安装 & 使用 』">
+                  CocoaPods,『 安装 & 使用 』 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fab fa-apple"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dream</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

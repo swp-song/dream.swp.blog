@@ -1,0 +1,1405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>CocoaPods,『 安装 &amp; 使用 』</title>
+    <url>/2018/02/11/CocoaPods/01.CocoaPods.%E5%AE%89%E8%A3%85&amp;%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/CocoaPods/1602224488.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="CocoaPods"><a href="#CocoaPods" class="headerlink" title="CocoaPods"></a>CocoaPods</h3><a id="more"></a>    
+
+<ul>
+<li>在 iOS 项目的开发中，开发者必然会用到一些三方的库，需要导入一堆相关依赖库，更新的时候也要删掉重新导入然后再配置，当我们需要更新某个第三方库的时候，我们又要手动移除该库，导入新的库，然后再配置，这些是很麻烦且没有意义的工作。</li>
+<li>这时我们需要一个三方库文件管理的工具，来方便管理库文件：<strong>CocoaPods</strong>，就是帮助开发者解决三方库文件，导入，更新的。</li>
+<li>说白了 <strong>CocoaPods</strong> 就是三方库的管理工具。</li>
+<li>使用 <strong>CocoaPods</strong> 更方便管理我们的三方库文件。</li>
+</ul>
+<hr>
+<h3 id="Ruby，Gem"><a href="#Ruby，Gem" class="headerlink" title="Ruby，Gem"></a>Ruby，Gem</h3><ul>
+<li><strong>Gem</strong> 的使用，<strong>Gem</strong> 是 <strong>Ruby</strong> 的包管理工具，<strong>Ruby</strong> 的各种插件是通过 <strong>Gem</strong> 来安装的， <strong>CocoaPods</strong> 就是 <strong>Ruby</strong> 开发的一个插件。</li>
+<li>在使用 <strong>Gem</strong> 来安装 <strong>CocoaPods</strong> 时， 建议先更新 <strong>Gem</strong> 的版本，（ <strong>Gem</strong> 是 <strong>Mac OS</strong> 自带的我们不需要安装 ，但是需要更新下，防止安装失败）。</li>
+</ul>
+<hr>
+<h4 id="查看-Gem-版本"><a href="#查看-Gem-版本" class="headerlink" title="查看 Gem 版本"></a>查看 Gem 版本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gem --versio </span><br><span class="line">gem -v</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Gem-升级"><a href="#Gem-升级" class="headerlink" title="Gem 升级"></a>Gem 升级</h4><ul>
+<li>Gem 升级：</li>
+<li>Gem 升级， 这个主要是解决 Gem 版本过老导致 Cocoapods 不能安装问题</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">sudo gem update --system</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Gem-更新所有插件"><a href="#Gem-更新所有插件" class="headerlink" title="Gem 更新所有插件"></a>Gem 更新所有插件</h4><ul>
+<li>Gem 更新所有插件:</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">sudo gem update</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Gem-更新所有插件-1"><a href="#Gem-更新所有插件-1" class="headerlink" title="Gem 更新所有插件"></a>Gem 更新所有插件</h4><ul>
+<li>Gem 清除过期插件：</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">sudo gem cleanup</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CocoaPods/1602225181.png"></p>
+<hr>
+<h3 id="安装-CocoaPods"><a href="#安装-CocoaPods" class="headerlink" title="安装 CocoaPods"></a>安装 CocoaPods</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
+<li><strong><a href="https://cocoapods.org/">CocoaPods 官方网站</a></strong></li>
+<li>CocoaPods 安装命令如下:</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">sudo gem install -n /usr/local/bin cocoapods</span><br></pre></td></tr></table></figure>
+<ul>
+<li>等待安装成功。</li>
+</ul>
+<hr>
+<h4 id="更换-Ruby-源"><a href="#更换-Ruby-源" class="headerlink" title="更换 Ruby 源"></a>更换 Ruby 源</h4><ul>
+<li>以上操作是建立在 <strong>Gem</strong> 服务器良好的情况下进行的，如果没翻墙，请切换到国内的 <strong>Ruby</strong> 软件源</li>
+<li><strong>Ruby</strong> 的软件源  <strong><a href="https://rubygems.org/">https://rubygems.org</a></strong> 因为使用的国外的服务器，所以被墙了，需要切换 <strong>Ruby</strong> 的源，使用如下 ：</li>
+<li><del>淘宝的已经不能用了 <strong><a href="https://ruby.taobao.org/">https://ruby.taobao.org/</a></strong></del></li>
+<li>终端输入：</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更换 Ruby 源, 确保只有 gems.ruby-china.com</span></span><br><span class="line">gem sources --add <span class="symbol">https:</span>/<span class="regexp">/gems.ruby-china.com/</span> --remove <span class="symbol">https:</span>/<span class="regexp">/rubygems.org/</span></span><br><span class="line">gem sources -l</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CocoaPods/1602226065.png"></p>
+<hr>
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><ul>
+<li>替换完成在输入安装命令即可：</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">sudo gem install -n /usr/local/bin cocoapods</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>等待安装完成。</li>
+<li><strong>同理 <a href="https://gems.ruby-china.com/">https://gems.ruby-china.com/</a> 镜像也可换回 <a href="https://rubygems.org/">https://rubygems.org/</a> 镜像</strong></li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">gem sources --add <span class="symbol">https:</span>/<span class="regexp">/rubygems.org/</span> --remove <span class="symbol">https:</span>/<span class="regexp">/gems.ruby-china.com/</span></span><br><span class="line">gem sources -l</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="CocoaPods-命令简单使用"><a href="#CocoaPods-命令简单使用" class="headerlink" title="CocoaPods  命令简单使用"></a>CocoaPods  命令简单使用</h3><ul>
+<li>命令如下：</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看帮助，查看 pod 命令</span></span><br><span class="line">pod --help </span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 pod 版本</span></span><br><span class="line">pod --version</span><br><span class="line">        </span><br><span class="line"><span class="comment"># 创建 Podfile 文件        </span></span><br><span class="line">pod init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索库，根据库的名称</span></span><br><span class="line">pod search SwpCateGory</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装三方库</span></span><br><span class="line">pod install</span><br><span class="line">   </span><br><span class="line"><span class="comment"># 更新三方库</span></span><br><span class="line">pod update</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CocoaPods/1602260730098.png"></p>
+<ul>
+<li>search </li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">pod search SwpCateGory</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CocoaPods/1602260976992.png"></p>
+<hr>
+<h3 id="CocoaPods-，Podfile-文件编写，三方库的安装"><a href="#CocoaPods-，Podfile-文件编写，三方库的安装" class="headerlink" title="CocoaPods ，Podfile 文件编写，三方库的安装"></a>CocoaPods ，Podfile 文件编写，三方库的安装</h3><h4 id="创建-Podfile-文件"><a href="#创建-Podfile-文件" class="headerlink" title="创建 Podfile 文件"></a>创建 Podfile 文件</h4><ul>
+<li>创建 Podfile 文件</li>
+<li><strong>终端输入:</strong></li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">cd &lt;project&gt;</span><br><span class="line">pod init</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>可以使用 CocoaPods App 编辑 Podfile</li>
+<li><strong><a href="https://cocoapods.org/app">CocoaPods App下载页面</a></strong></li>
+</ul>
+<hr>
+<h4 id="编写-Podfile-文件"><a href="#编写-Podfile-文件" class="headerlink" title="编写 Podfile 文件"></a>编写 Podfile 文件</h4><ul>
+<li>创建完 <strong>Podfile</strong> 之后使用 <strong>CocoaPods App</strong>，<strong>常用编辑器</strong>，或 <strong>Vim</strong> 编辑 <strong>Podfile</strong> 文件，读者任选其一。</li>
+<li>编辑如下：</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Uncomment the next line to define a global platform for your project</span></span><br><span class="line">source <span class="string">&#x27;https://github.com/CocoaPods/Specs.git&#x27;</span></span><br><span class="line">platform <span class="symbol">:ios</span>, <span class="string">&#x27;11.0&#x27;</span></span><br><span class="line">target <span class="string">&#x27;Demo&#x27;</span> <span class="keyword">do</span></span><br><span class="line">    <span class="comment"># Comment the next line if you don&#x27;t want to use dynamic frameworks</span></span><br><span class="line">    use_frameworks!</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Pods for Demo</span></span><br><span class="line">    pod <span class="string">&#x27;SwpCateGory&#x27;</span></span><br><span class="line">    pod <span class="string">&#x27;SwpRequest&#x27;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="编写-pod-install"><a href="#编写-pod-install" class="headerlink" title="编写 pod install"></a>编写 pod install</h4><ul>
+<li>编辑完 <strong>Podfile</strong> 文件，安装三方库</li>
+<li>终端安装三方库：</li>
+<li>终端输入：</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 进入项目</span></span><br><span class="line">cd &lt;project&gt;</span><br><span class="line"><span class="comment"># 安装三方库</span></span><br><span class="line">pod install </span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CocoaPods/1602260754991.png"></p>
+<hr>
+<h4 id="Tips-1"><a href="#Tips-1" class="headerlink" title="Tips"></a>Tips</h4><ul>
+<li><p>进入项目目录，请打开：<strong>（重要的事情说说三遍！！！）</strong></p>
+</li>
+<li><p><strong>xxx.xcworkspace！！！</strong> </p>
+</li>
+<li><p><strong>xxx.xcworkspace！！！</strong> </p>
+</li>
+<li><p><strong>xxx.xcworkspace！！！</strong> </p>
+</li>
+<li><p>而不是 <strong>xxx.xcodeproj</strong></p>
+<p>  <img src="/images/CocoaPods/1602260754991.png"></p>
+</li>
+<li><p>项目结构:</p>
+<p>  <img src="/images/CocoaPods/1602260805029.png" alt="项目结构"></p>
+</li>
+</ul>
+<hr>
+<h3 id="CocoaPods-操作"><a href="#CocoaPods-操作" class="headerlink" title="CocoaPods 操作"></a>CocoaPods 操作</h3><h4 id="CocoaPods-卸载"><a href="#CocoaPods-卸载" class="headerlink" title="CocoaPods 卸载"></a>CocoaPods 卸载</h4><figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 卸载 CocoaPods</span></span><br><span class="line">sudo gem uninstall cocoapods </span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="CocoaPods更新-："><a href="#CocoaPods更新-：" class="headerlink" title="CocoaPods更新 ："></a>CocoaPods更新 ：</h4><figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更新 CocoaPods</span></span><br><span class="line">sudo gem update cocoapods</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="CocoaPods-更新测试版-："><a href="#CocoaPods-更新测试版-：" class="headerlink" title="CocoaPods 更新测试版 ："></a>CocoaPods 更新测试版 ：</h4><figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装测试版 CocoaPods</span></span><br><span class="line">sudo gem install -n /usr/local/bin cocoapods --pre</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h4 id="CocoaPods-初始化-："><a href="#CocoaPods-初始化-：" class="headerlink" title="CocoaPods 初始化 ："></a>CocoaPods 初始化 ：</h4><figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pod 初始化</span></span><br><span class="line">pod setup</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Tips-2"><a href="#Tips-2" class="headerlink" title="Tips"></a>Tips</h4><ul>
+<li><strong>CocoaPods</strong> 初始化操作可能等待的时间过于长久，就是将 <strong>podspec</strong> 索引文件 下载到 <strong>~/.cocoapods</strong> 目录下。</li>
+<li>如果你等太久，可以终端输入:</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">cd ~<span class="regexp">/.cocoapods</span></span><br><span class="line"><span class="regexp">du -sh </span></span><br></pre></td></tr></table></figure>
+
+<hr>
+]]></content>
+      <categories>
+        <category>CocoaPods</category>
+      </categories>
+      <tags>
+        <tag>CocoaPods</tag>
+        <tag>Pod</tag>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo,『 安装 &amp; 配置 』</title>
+    <url>/2017/09/19/HexoBlog/02.Hexo.%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/HexoBlog/00/1602229593.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="Hexo，安装"><a href="#Hexo，安装" class="headerlink" title="Hexo，安装"></a>Hexo，安装</h3><a id="more"></a>    
+
+<ul>
+<li><p>打开终端输入:</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入密码。等待安装完成:</p>
+</li>
+<li><p>打开终端输入:</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>终端输入结果：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo-cli: 4.2.0</span><br><span class="line">os: Darwin 19.6.0 darwin x64</span><br><span class="line">node: 14.13.0</span><br><span class="line">v8: 8.4.371.19-node.16</span><br><span class="line">uv: 1.40.0</span><br><span class="line">zlib: 1.2.11</span><br><span class="line">brotli: 1.0.9</span><br><span class="line">ares: 1.16.1</span><br><span class="line">modules: 83</span><br><span class="line">nghttp2: 1.41.0</span><br><span class="line">napi: 7</span><br><span class="line">llhttp: 2.1.2</span><br><span class="line">openssl: 1.1.1g</span><br><span class="line">cldr: 37.0</span><br><span class="line">icu: 67.1</span><br><span class="line">tz: 2020a</span><br><span class="line">unicode: 13.0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<hr>
+<h3 id="Hexo-创建博客"><a href="#Hexo-创建博客" class="headerlink" title="Hexo 创建博客"></a>Hexo 创建博客</h3><ul>
+<li><p>初始化 <strong>Hexo</strong> 打开终端输入：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>等待安装完成：<br><img src="/images/HexoBlog/02/1602237010.gif" alt="博客创建"></p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>folder</strong> 生成博客文件夹名称，根据读者喜好自定义。</p>
+</li>
+<li><p>进入博客目录，终端输入： </p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd folder</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动服务，终端端输入：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用浏览器打开 <strong><a href="http://localhost:4000/">http://localhost:4000/</a></strong> 或 <strong><a href="http://127.0.0.1:4000/">http://127.0.0.1:4000/</a></strong> 就可以看到页面了。</p>
+</li>
+</ul>
+<p><img src="/images/HexoBlog/02/1602237010.png" alt="博客创建"></p>
+<hr>
+<h3 id="Hexo，目录结构"><a href="#Hexo，目录结构" class="headerlink" title="Hexo，目录结构"></a>Hexo，目录结构</h3><ul>
+<li><strong>有些文件是在部署时才会产生的</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">├── .deploy         <span class="comment"># 需要部署的文件</span></span><br><span class="line">|</span><br><span class="line">├── node_modules    <span class="comment"># Hexo插件</span></span><br><span class="line">|</span><br><span class="line">├── public          <span class="comment"># 生成的静态网页文件</span></span><br><span class="line">|</span><br><span class="line">├── scaffolds       <span class="comment"># 模板</span></span><br><span class="line">|</span><br><span class="line">├── <span class="built_in">source</span>          <span class="comment"># 博客正文和其他源文件, 404 、favicon 、CNAME</span></span><br><span class="line">|</span><br><span class="line">|   ├── _drafts     <span class="comment"># 草稿</span></span><br><span class="line">|   |</span><br><span class="line">|   └── _posts      <span class="comment"># 文章</span></span><br><span class="line">|</span><br><span class="line">├── themes          <span class="comment"># 主题</span></span><br><span class="line">|</span><br><span class="line">├── _config.yml     <span class="comment"># 全局配置文件</span></span><br><span class="line">|</span><br><span class="line">└── package.json</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Hexo，-config-yml全局站点配置文件"><a href="#Hexo，-config-yml全局站点配置文件" class="headerlink" title="Hexo，_config.yml全局站点配置文件"></a>Hexo，_config.yml全局站点配置文件</h3><ul>
+<li><strong>全局站点配置文件</strong>  配置文件为 <strong>/_config.yml</strong>。</li>
+</ul>
+<h4 id="Site"><a href="#Site" class="headerlink" title="Site"></a>Site</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site                      # 站点信息</span></span><br><span class="line">title: Test                 <span class="comment"># 博客标题</span></span><br><span class="line">subtitle:                   <span class="comment"># 副标题</span></span><br><span class="line">description:                <span class="comment"># 描述</span></span><br><span class="line">author: John Doe            <span class="comment"># 作者</span></span><br><span class="line">language: zh-CN             <span class="comment"># 语言</span></span><br><span class="line">timezone: Asia/Shanghai     <span class="comment"># 时区</span></span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">url: http://yoursite.com                <span class="comment"># 博客网址</span></span><br><span class="line">root: /                                 <span class="comment"># 根目录</span></span><br><span class="line">permalink: :year/:month/:day/:title/    <span class="comment"># 文章的链接格式</span></span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Directory"><a href="#Directory" class="headerlink" title="Directory"></a>Directory</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">source_dir: <span class="built_in">source</span>          <span class="comment"># 源文件</span></span><br><span class="line">public_dir: public          <span class="comment"># 生成的文件</span></span><br><span class="line">tag_dir: tags               <span class="comment"># 标签文件夹</span></span><br><span class="line">archive_dir: archives       <span class="comment"># 归档文件夹</span></span><br><span class="line">category_dir: categories    <span class="comment"># 分类文件夹</span></span><br><span class="line">code_dir: downloads/code    <span class="comment"># 下载文件</span></span><br><span class="line">i18n_dir: :lang             <span class="comment"># 国际化</span></span><br><span class="line">skip_render:</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Writing-写作"><a href="#Writing-写作" class="headerlink" title="Writing 写作"></a>Writing 写作</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">new_post_name: :title.md    <span class="comment"># 文章标题</span></span><br><span class="line">default_layout: post        <span class="comment"># 模板</span></span><br><span class="line">titlecase: <span class="literal">false</span>            <span class="comment"># 标题是否换成小写</span></span><br><span class="line">external_link: <span class="literal">true</span>         <span class="comment"># 是否在新页面打开链接</span></span><br><span class="line">filename_case: 0</span><br><span class="line">render_drafts: <span class="literal">false</span></span><br><span class="line">post_asset_folder: <span class="literal">false</span></span><br><span class="line">relative_link: <span class="literal">false</span></span><br><span class="line">future: <span class="literal">true</span></span><br><span class="line">highlight:</span><br><span class="line">    <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">    line_number: <span class="literal">true</span></span><br><span class="line">    auto_detect: <span class="literal">true</span></span><br><span class="line">    tab_replace:</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Category-amp-amp-Tag-分类和标签"><a href="#Category-amp-amp-Tag-分类和标签" class="headerlink" title="Category &amp;&amp; Tag ( 分类和标签 )"></a>Category &amp;&amp; Tag ( 分类和标签 )</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Date-时间日期格式"><a href="#Date-时间日期格式" class="headerlink" title="Date ( 时间日期格式 )"></a>Date ( 时间日期格式 )</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Pagination-分页"><a href="#Pagination-分页" class="headerlink" title="Pagination ( 分页 )"></a>Pagination ( 分页 )</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">per_page: 10            <span class="comment"># 每页文章数</span></span><br><span class="line">pagination_dir: page</span><br><span class="line"><span class="comment"># Extensions            # 插件和主题</span></span><br><span class="line"><span class="comment">## Plugins: http://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: http://hexo.io/themes/</span></span><br><span class="line">theme: landscape        <span class="comment"># 主题</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Deployment-部署配置"><a href="#Deployment-部署配置" class="headerlink" title="Deployment ( 部署配置 )"></a>Deployment ( 部署配置 )</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:  <span class="comment"># 部署配置</span></span><br><span class="line">    <span class="built_in">type</span>:</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Hexo，写文章"><a href="#Hexo，写文章" class="headerlink" title="Hexo，写文章"></a>Hexo，写文章</h3><ul>
+<li>打开终端，进入博客文件目录。</li>
+<li>输入：<strong>hexo new  文章标题</strong></li>
+<li>然后到 <strong>_post</strong> 目录下打开，文章标题.md。</li>
+<li>文章格式如下：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">title: 文章标题</span><br><span class="line">date: 2017-09-18 14:18:11</span><br><span class="line">tags: [标签1, 标签2, 标签3]</span><br><span class="line">categories: [分类1, 分类2, 分类3]</span><br><span class="line">---</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 Markdown 尽情发挥吧。</li>
+</ul>
+<hr>
+<h3 id="部署上传更新"><a href="#部署上传更新" class="headerlink" title="部署上传更新"></a>部署上传更新</h3><h4 id="安装部署当工具"><a href="#安装部署当工具" class="headerlink" title="安装部署当工具"></a>安装部署当工具</h4><ul>
+<li>打开终端，进入博客文件目录：</li>
+<li>安装部署当工具：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><ul>
+<li>进入博客文件目录找到 <strong>_config.yml</strong> 文件打开，找到 <strong>deploy</strong>  部分，更改配置：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">type</span>: git</span><br><span class="line">repo: </span><br><span class="line">    github: &lt; Github 地址 &gt;</span><br><span class="line">    coding: &lt; Coding 地址 &gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Coding 可以不使用，笔者的博客是双部署，GitHub，Coding 同时部署，看各位喜好。</li>
+<li>终端输入：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h3 id="Hexo，命令的使用"><a href="#Hexo，命令的使用" class="headerlink" title="Hexo，命令的使用"></a>Hexo，命令的使用</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo <span class="built_in">help</span>                   <span class="comment"># 查看帮助。</span></span><br><span class="line">hexo init                   <span class="comment"># 初始化目录。</span></span><br><span class="line">hexo new <span class="string">&quot;postName&quot;</span>         <span class="comment"># 新建文章。</span></span><br><span class="line">hexo new page <span class="string">&quot;pageName&quot;</span>    <span class="comment"># 新建页面。</span></span><br><span class="line">hexo generate               <span class="comment"># 生成网页， 可以在public目录查看整个网站的文件。</span></span><br><span class="line">hexo server                 <span class="comment"># 本地预览，预览地址 ： http://localhost:4000/，&#x27;Ctrl+C&#x27;关闭。</span></span><br><span class="line">hexo deploy                 <span class="comment"># 部署.deploy 目录。</span></span><br><span class="line">hexo clean                  <span class="comment"># 清除缓存，建议每次执行命令前先清理缓存。</span></span><br><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理，生成网页，发布</span></span><br><span class="line">hexo clean  &amp;&amp;  hexo g &amp;&amp; hexo d    </span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><ul>
+<li><p><strong>skip_render:  跳过指定文件的渲染，您可使用 glob 表达式来匹配路径，（可以理解为不需要 hexo  模板的样式，可以自己写 html 样式</strong></p>
+</li>
+<li><p><strong>配置方法如下:</strong></p>
+</li>
+<li><p><strong>单个文件夹下全部文件:</strong></p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">skip_render: docs/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>*<strong>单个文件夹下指定类型文件:</strong></p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">skip_render: docs/*.html</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>单个文件夹下全部文件以及子目录:</strong></p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">skip_render:docs/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>多个文件夹以及各种复杂情况:</strong></p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">skip_render:</span><br><span class="line">    - <span class="string">&#x27;docs1/*.html&#x27;</span></span><br><span class="line">    - <span class="string">&#x27;docs1/**&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>docs 路径问题，docs 应在 source 目录下</strong></p>
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>个人博客搭建</tag>
+        <tag>GitHub Pages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo,『 环境配置 』</title>
+    <url>/2017/09/18/HexoBlog/01.Hexo.%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/HexoBlog/00/1602229593.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="Hexo-环境配置"><a href="#Hexo-环境配置" class="headerlink" title="Hexo 环境配置"></a>Hexo 环境配置</h3><a id="more"></a>    
+
+<ul>
+<li><strong>Hexo</strong>， 基于 <strong>Node.js</strong>，所以我们需要安装 <strong>Node.js</strong>。</li>
+<li><strong>Hexo</strong>，部署到服务器，需要 <strong>Git</strong>，所以我们需要安装 <strong>Git</strong>。</li>
+</ul>
+<hr>
+<h3 id="Hexo，部署远程环境"><a href="#Hexo，部署远程环境" class="headerlink" title="Hexo，部署远程环境"></a>Hexo，部署远程环境</h3><ul>
+<li><strong>GitHub Pages 服务</strong></li>
+<li><strong>GitLab Pages 服务</strong></li>
+<li><strong>自行搭建服务器</strong></li>
+<li><strong>笔者使用的是, GitHub 部署</strong></li>
+</ul>
+<hr>
+<h3 id="Node-js-安装"><a href="#Node-js-安装" class="headerlink" title="Node.js 安装"></a>Node.js 安装</h3><ul>
+<li><a class="btn" href="https://nodejs.org/en/download/">Node.js 下载地址</a> <a class="btn" href="http://nodejs.cn/download/">Node.js 中文下载地址</a></li>
+<li><p>根据自己的 <strong>电脑操作系统</strong> 选择对应的，下载安装。</p>
+</li>
+<li><p>打开终端输入:</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure></li>
+<li><p>安装成功正常输出版本号:</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">v10.15.3</span><br></pre></td></tr></table></figure></li>
+<li><p>打开终端输入:</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure></li>
+<li><p>安装成功正常输出版本号:</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">6.4.1</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><ul>
+<li><a class="btn" href="https://git-scm.com/downloads">Git下载安装地址</a>
+<p>&#x0020;</p>
+</li>
+<li><p>根据自己的 <strong>电脑操作系统</strong> 选择对应的，下载安装。</p>
+</li>
+<li><p>安装完成测试下是否安装成功：</p>
+</li>
+<li><p>打开终端输入：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure></li>
+<li><p>安装成功正常输出版本号:</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git version 2.20.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Tips :</p>
+</li>
+<li><p>笔者从事 <strong>iOS</strong> 开发，使用的 <strong>Mac</strong>系统，开发工具是 <strong>Xcode</strong>，<strong>Xcode</strong> 安装的时候会自动安装 <strong>Git</strong>，<strong>Mac</strong> 系统的童鞋也可直接装个 <strong>Xcode</strong>。</p>
+</li>
+<li><p><strong>Xcode</strong>，对于苹果开发这个来说并不陌生，苹果的发开工具。</p>
+</li>
+</ul>
+<hr>
+<h3 id="GitHub-创建远程代码仓库"><a href="#GitHub-创建远程代码仓库" class="headerlink" title="GitHub 创建远程代码仓库"></a>GitHub 创建远程代码仓库</h3><ul>
+<li><p>注册 (如果有账号可以跳过此步骤), <a href="https://github.com/join?source=header-home">GitHub 注册地址</a></p>
+</li>
+<li><p>登录 (已登录跳过此步骤), <a href="https://github.com/login">GitHub 登录地址</a> </p>
+</li>
+<li><p>创建代码仓库, <a href="https://github.com/new">GitHub 创建项目</a></p>
+<p>  <img src="/images/HexoBlog/01/1602147209672.png"></p>
+</li>
+<li><p>设置代码仓库:</p>
+<p>  <img src="/images/HexoBlog/01/1602147274605.png"></p>
+</li>
+<li><p>设置 GitHub Pages: </p>
+<p>  <img src="/images/HexoBlog/01/1602147298906.png"></p>
+<p>  <img src="/images/HexoBlog/01/1602147312031.png"></p>
+</li>
+</ul>
+<hr>
+<h3 id="Hexo-安装与配置"><a href="#Hexo-安装与配置" class="headerlink" title="Hexo 安装与配置"></a>Hexo 安装与配置</h3><ul>
+<li>以上配置均成功配置完成的话，恭喜你可以进行下一步了，<strong>Hexo</strong> 安装与配置。</li>
+<li><a class="btn" href="https://dream-swp.com/2017/09/19/HexoBlog/03.Hexo.安装与配置/">Hexo 安装 & 配置</a>
+
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>个人博客搭建</tag>
+        <tag>GitHub Pages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo,『 NexT 标签 &amp; 分类 配置 』</title>
+    <url>/2018/01/30/HexoBlog/04.Hexo.NexT.%E6%A0%87%E7%AD%BE&amp;%E5%88%86%E7%B1%BB%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/HexoBlog/00/1602228309.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<a id="more"></a>    
+
+<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><h4 id="Hexo，NexT-配置「标签」"><a href="#Hexo，NexT-配置「标签」" class="headerlink" title="Hexo，NexT 配置「标签」"></a>Hexo，NexT 配置「标签」</h4><ul>
+<li>新建一个页面，命名为 <strong>tags</strong> 。命令如下：  </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> your-hexo-site</span><br><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="NexT，-config-yml-配置"><a href="#NexT，-config-yml-配置" class="headerlink" title="NexT， _config.yml 配置"></a>NexT， _config.yml 配置</h4><ul>
+<li>编辑 <strong>/themes/next/_config.yml</strong></li>
+<li>将 <strong>menu</strong> 中的 <strong>tags: /tags</strong> 注释去掉，如下:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  <span class="comment">#home: / || fa fa-home</span></span><br><span class="line">  <span class="comment">#about: /about/ || fa fa-user</span></span><br><span class="line">  tags: /tags/ || fa fa-tags</span><br><span class="line">  <span class="comment">#categories: /categories/ || fa fa-th</span></span><br><span class="line">  <span class="comment">#archives: /archives/ || fa fa-archive</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="文章关联标签"><a href="#文章关联标签" class="headerlink" title="文章关联标签"></a>文章关联标签</h4><ul>
+<li>新建文章，<strong>tags:</strong> 填写自己需要的标签，可写多个。</li>
+<li>如下：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo，安装与配置</span><br><span class="line">date: 2017-09-19 09:30:25</span><br><span class="line">tags: [Hexo, 个人博客搭建, GitHub, Coding]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><ul>
+<li>注意：如果有集成评论服务，页面也会带有评论。 若需要关闭的话，请添加字段 <strong>tags</strong> 并将值设置为 <strong>false</strong></li>
+<li>编辑 <strong>/source/tags/index.md</strong> 如下：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">title: Tags</span><br><span class="line">date: 2017-09-09 23:00:35</span><br><span class="line"><span class="built_in">type</span>: <span class="string">&quot;tags&quot;</span></span><br><span class="line">comments: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><h4 id="Hexo，NexT-配置「分类」"><a href="#Hexo，NexT-配置「分类」" class="headerlink" title="Hexo，NexT 配置「分类」"></a>Hexo，NexT 配置「分类」</h4><ul>
+<li>新建一个页面，命名为 <strong>categories</strong> 命令如下：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> your-hexo-site</span><br><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h4 id="NexT，-config-yml-配置-1"><a href="#NexT，-config-yml-配置-1" class="headerlink" title="NexT， _config.yml 配置"></a>NexT， _config.yml 配置</h4><ul>
+<li>编辑 <strong>/themes/next/_config.yml</strong></li>
+<li>将 <strong>menu</strong> 中的 <strong>categories: /categories</strong> 注释去掉，如下:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  <span class="comment">#home: / || fa fa-home</span></span><br><span class="line">  <span class="comment">#about: /about/ || fa fa-user</span></span><br><span class="line">  <span class="comment">#tags: /tags/ || fa fa-tags</span></span><br><span class="line">  categories: /categories/ || fa fa-th</span><br><span class="line">  <span class="comment">#archives: /archives/ || fa fa-archive</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="文章关联分类"><a href="#文章关联分类" class="headerlink" title="文章关联分类"></a>文章关联分类</h4><ul>
+<li>新建文章，<strong>categories:</strong> 填写自己需要的分类</li>
+<li>如下：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo，安装与配置</span><br><span class="line">date: 2017-09-19 09:30:25</span><br><span class="line">categories: Blog</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Tips-1"><a href="#Tips-1" class="headerlink" title="Tips"></a>Tips</h4><ul>
+<li>注意：如果有集成评论服务，页面也会带有评论。 若需要关闭的话，请添加字段 <strong>comments</strong> 并将值设置为 <strong>false</strong></li>
+<li>编辑 <strong>/source/categories/index.md</strong> 如下：</li>
+</ul>
+<pre><code class="bash">title: Categories
+date: 2017-09-09 23:00:46 
+type: &quot;categories&quot;
+comments: false </code></pre>
+<hr>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>个人博客搭建</tag>
+        <tag>GitHub Pages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo,『 NexT 统计 &amp; 检索 』</title>
+    <url>/2020/10/14/HexoBlog/06.Hexo.NexT.%E7%BB%9F%E8%AE%A1&amp;%E6%A3%80%E7%B4%A2/</url>
+    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/HexoBlog/00/1602228309.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<a id="more"></a>    
+
+<h3 id="统计启用"><a href="#统计启用" class="headerlink" title="统计启用"></a>统计启用</h3><ul>
+<li><p><strong>NexT</strong>，模板中自带 不蒜子统计.</p>
+</li>
+<li><p>笔者使用的是 NexT 不蒜子: <a class="btn" href="http://ibruce.info/2015/04/04/busuanzi">不蒜子统计</a></p>
+</li>
+<li><p>其他统计请参照具体文档: <a class="btn" href="https://theme-next.js.org/docs/third-party-services/statistics-and-analytics.html">NexT 文档</a></p>
+</li>
+<li><p>主题配置文件: _config.[user].yml</p>
+</li>
+<li><p>找到 <strong>busuanzi_count</strong></p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Show Views / Visitors of the website / page with busuanzi.</span></span><br><span class="line"><span class="comment"># Get more information on http://ibruce.info/2015/04/04/busuanzi</span></span><br><span class="line">busuanzi_count:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  total_visitors: <span class="literal">true</span></span><br><span class="line">  total_visitors_icon: fa fa-user</span><br><span class="line">  total_views: <span class="literal">true</span></span><br><span class="line">  total_views_icon: fa fa-eye</span><br><span class="line">  post_views: <span class="literal">true</span></span><br><span class="line">  post_views_icon: far fa-eye</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Local-Search-搜索集成"><a href="#Local-Search-搜索集成" class="headerlink" title="Local Search 搜索集成"></a>Local Search 搜索集成</h3><ul>
+<li>笔者检索功能是 Local Search, NexT 已经集成, 这里我们需要安装和配置下.</li>
+<li>打开终端进入博客根目录:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>进入根目录找到 _config.yml </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 代码粘贴到 _config.yml 最底部</span></span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  <span class="built_in">limit</span>: 10000</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主题配置文件: _config.[user].yml</li>
+<li>找到 Local Search, 开启搜索功能 enable: true.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local Search</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/next-theme/hexo-generator-searchdb</span></span><br><span class="line">local_search:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  <span class="comment"># If auto, trigger search by changing input.</span></span><br><span class="line">  <span class="comment"># If manual, trigger search by pressing enter key or search button.</span></span><br><span class="line">  trigger: auto</span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  unescape: <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  preload: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Hexo-「-NexT-模板配置-」"><a href="#Hexo-「-NexT-模板配置-」" class="headerlink" title="Hexo,「 NexT 模板配置 」"></a>Hexo,「 NexT 模板配置 」</h3><ul>
+<li><a class="btn" href="https://dream-swp.com/2018/01/25/HexoBlog/03.Hexo.NexT.模板配置/">Hexo「 NexT 模板配置 」</a>
+
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>个人博客搭建</tag>
+        <tag>GitHub Pages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo,『 数据同步 &amp; 数据迁移 』</title>
+    <url>/2018/01/31/HexoBlog/05.Hexo.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%8E%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/</url>
+    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/HexoBlog/00/1602255580174.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="Hexo-数据备份"><a href="#Hexo-数据备份" class="headerlink" title="Hexo 数据备份"></a>Hexo 数据备份</h3><a id="more"></a>    
+
+<ul>
+<li>相信很多人都有这样的困扰，在自己的电脑中搭建完毕，<strong>Hexo</strong> 博客之后，配置了主题，样式等等，突然换了电脑该怎么办？</li>
+<li>一般情况下，<strong>Hexo</strong> 部署到 <strong>Github</strong> 或 <strong>Coding</strong> 生成好的 <strong>Html</strong> 文件，就算 <strong>clone</strong> 下来我们也无法得到 <strong>.md</strong> ，和样式。</li>
+<li>那么在另外一台电脑上从新进行部署的话，需要重新修改样式配置文件，保证博客文章的同步，较少的台电脑我们是可以这么做的，很多台电脑呢？</li>
+<li>也有的人会说，复制出来，复制粘贴到不同的电脑上，多台电脑保证数据同步依然会很麻烦。</li>
+<li>这篇博客来帮你解决以上问题，实现在不同电脑上都可以自由写博客。</li>
+</ul>
+<hr>
+<h3 id="备份选择"><a href="#备份选择" class="headerlink" title="备份选择"></a>备份选择</h3><ul>
+<li>同一个 <strong>Git</strong> 仓库，使用不同的分支来控制，一个是 <strong>blog</strong> 备份数据分支 ， 一个是 <strong>pages</strong> 服务的分支。</li>
+<li>使用两个不同的 <strong>Git</strong> 仓库，分别来控制，笔者使用的是这种方法。</li>
+<li>Git 选择：</li>
+<li>可以使用 <strong>GitHub Pages</strong>， <strong>GitHub</strong> 仓库。</li>
+<li>可以使用 <strong>GitLab Pages</strong>， <strong>GitLab</strong> 仓库。</li>
+<li>也可以在自己的服务器搭建。</li>
+<li>笔者使用的是 <strong>GitHub</strong>，看读者自己的喜好。</li>
+</ul>
+<hr>
+<h3 id="Hexo-博客备份"><a href="#Hexo-博客备份" class="headerlink" title="Hexo 博客备份"></a>Hexo 博客备份</h3><ul>
+<li><strong>GitHub</strong> 新建一个 <strong>Git</strong> 仓库，克隆到电脑中。</li>
+<li>终端进入仓库目录，将博客拷贝到仓库下</li>
+<li>上传 <strong>Git</strong> 仓库 ( 上传仓库是建议删除 node_modules &amp; .deploy_git 这两个文件, .deploy_git 该文件是隐藏文件 )</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 进入 Git 仓库目录</span></span><br><span class="line"><span class="built_in">cd</span> your-git </span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交本地仓库</span></span><br><span class="line">git commit -a -m <span class="string">&#x27;备注&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送远程仓库</span></span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加标签</span></span><br><span class="line">git tag -a 0.0.x -m <span class="string">&#x27;0.0.x&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 标签推送到远程仓库</span></span><br><span class="line">git push --tags</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Hexo-博客迁移"><a href="#Hexo-博客迁移" class="headerlink" title="Hexo 博客迁移"></a>Hexo 博客迁移</h3><ul>
+<li>Git 克隆仓库到本地。</li>
+<li>安装 Hexo 依赖文件。</li>
+<li>安装模板样式，覆盖模板 <strong>_config.yml</strong> 配置文件</li>
+<li>安装 Git 部署文件。</li>
+<li>部署发布。</li>
+<li>命令如下：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Git 克隆仓库</span></span><br><span class="line">git <span class="built_in">clone</span> https://your-git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入仓库目录下</span></span><br><span class="line"><span class="built_in">cd</span> your-git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 **Hexo** 依赖文件</span></span><br><span class="line">rm -rf node_modules &amp;&amp; npm install --force</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试部署</span></span><br><span class="line">hexo s</span><br><span class="line">http://localhost:4000</span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署</span></span><br><span class="line">hexo clean &amp;&amp; hexo g </span><br><span class="line"></span><br><span class="line"><span class="comment"># 发布</span></span><br><span class="line">hexo d</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="主题备份"><a href="#主题备份" class="headerlink" title="主题备份"></a>主题备份</h3><ul>
+<li>备份主题模板的配置文件 _config.yml，数据迁移的时候安装完模板，直接可以替换配置文件。</li>
+<li><a class="btn" href="https://dream-swp.com/2018/01/25/HexoBlog/04.Hexo.NexT.模板配置/">Hexo「 NexT 模板配置 」</a>
+
+
+</li>
+</ul>
+<hr>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><ul>
+<li>每次写完博客，或 更新完模板样式，需要提交 Git，</li>
+<li>换电脑的时候如果，电脑中做过迁移，只需要 Git Pull 下就好，如果没有做过迁移，需要按照上面方法迁移博客数据。 </li>
+<li><strong>千万不要执行 hexo init，这样会重置hexo的配置文件，配好的文件就丢失啦！</strong></li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>个人博客搭建</tag>
+        <tag>GitHub Pages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OhMyZsh,『 安装 &amp; 配置 』</title>
+    <url>/2017/08/20/OhMyZsh/01.OhMyZsh.%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/Tools/OhMyZsh/1602219173.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="Oh-My-Zsh-是什么"><a href="#Oh-My-Zsh-是什么" class="headerlink" title="Oh My Zsh 是什么"></a>Oh My Zsh 是什么</h3><a id="more"></a>    
+
+<ul>
+<li><strong>Oh My Zsh</strong> 是一款社区驱动的命令行工具，正如它的主页上说的，<strong>Oh My Zsh</strong> 是一种生活方式。它基于 <strong>zsh</strong> 命令行，提供了主题配置，插件机制，已经内置的便捷操作。给我们一种全新的方式使用命令行。</li>
+<li><strong>Oh My Zsh</strong> 是基于 <strong>zsh</strong> 命令行的一个扩展工具集，提供了丰富的扩展功能。</li>
+<li><strong><a href="http://ohmyz.sh/">Oh My Zsh，官网地址</a></strong></li>
+<li><strong><a href="https://github.com/robbyrussell/oh-my-zsh">Oh My Zsh ，GitHub 地址</a></strong></li>
+<li>安装 <strong>Oh My Zsh</strong> 前提条件：必须已安装 <strong>zsh</strong></li>
+<li>笔者是 <strong>Mac</strong> 系统，以下操作都是基于 <strong>Mac</strong> 系统。</li>
+</ul>
+<hr>
+<h3 id="zsh-是什么"><a href="#zsh-是什么" class="headerlink" title="zsh 是什么"></a>zsh 是什么</h3><ul>
+<li><p><strong>zsh</strong> 是一款强大的虚拟终端，既是一个系统的虚拟终端，也可以作为一个脚本语言的交互解析器。</p>
+</li>
+<li><p>打开终端，在终端上输入:</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">zsh --version</span><br></pre></td></tr></table></figure></li>
+<li><p>终端查询版本为: </p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">zsh 5.7.1 (x86_64-apple-darwin18.2.0)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看系统当前 </p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat /etc/shells</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<hr>
+<h3 id="安装-Oh-My-Zsh-方法"><a href="#安装-Oh-My-Zsh-方法" class="headerlink" title="安装 Oh My Zsh 方法"></a>安装 Oh My Zsh 方法</h3><ul>
+<li><strong>可以通过 curl 或 wget 两种方式来安装，用一条命令即可安装。</strong></li>
+</ul>
+<hr>
+<h4 id="curl-安装"><a href="#curl-安装" class="headerlink" title="curl 安装"></a>curl 安装</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot; </span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="wget-安装"><a href="#wget-安装" class="headerlink" title="wget 安装"></a>wget 安装</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="安装过程中输出如下："><a href="#安装过程中输出如下：" class="headerlink" title="安装过程中输出如下："></a>安装过程中输出如下：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">xxxx%</span><span class="bash"> sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>&quot;</span> </span></span><br><span class="line">Cloning Oh My Zsh...</span><br><span class="line">Cloning into &#x27;/Users/xxxx/.oh-my-zsh&#x27;...</span><br><span class="line">remote: Counting objects: 831, done.</span><br><span class="line">remote: Compressing objects: 100% (700/700), done.</span><br><span class="line">remote: Total 831 (delta 14), reused 775 (delta 10), pack-reused 0</span><br><span class="line">Receiving objects: 100% (831/831), 567.67 KiB | 75.00 KiB/s, done.</span><br><span class="line">Resolving deltas: 100% (14/14), done.</span><br><span class="line">Looking for an existing zsh config...</span><br><span class="line">Found ~/.zshrc. Backing up to ~/.zshrc.pre-oh-my-zsh</span><br><span class="line">Using the Oh My Zsh template file and adding it to ~/.zshrc</span><br><span class="line">         __                                     __   </span><br><span class="line">  ____  / /_     ____ ___  __  __   ____  _____/ /_  </span><br><span class="line"> / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ </span><br><span class="line">/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / </span><br><span class="line">\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  </span><br><span class="line">                        /____/                       ....is now installed!</span><br><span class="line">Please look over the ~/.zshrc file to select plugins, themes, and options.</span><br><span class="line">p.s. Follow us at https://twitter.com/ohmyzsh.</span><br><span class="line">p.p.s. Get stickers and t-shirts at http://shop.planetargon.com.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="设置主题"><a href="#设置主题" class="headerlink" title="设置主题"></a>设置主题</h3><h4 id="设置固定主题"><a href="#设置固定主题" class="headerlink" title="设置固定主题"></a>设置固定主题</h4><ul>
+<li><strong>安装完毕后，我们就可以使用了，先来简单配置一下，Oh My Zsh 提供了很多主题风格，我们可以根据自己的喜好，设置主题风格</strong></li>
+<li>终端输入命令:</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">open ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>找到 <strong>ZSH_THEME ，ZSH_THEME=”robbyrussell” ，robbyrussell</strong> ，是默认的主题，修改 <strong>ZSH_THEME=”样式名称”</strong> </li>
+<li>保存这个文件文件，重新打开终端。</li>
+</ul>
+<hr>
+<h4 id="设置随机主题"><a href="#设置随机主题" class="headerlink" title="设置随机主题"></a>设置随机主题</h4><ul>
+<li><p><strong>我们还可以随机设置主题：</strong></p>
+</li>
+<li><p>步骤同上</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">* ZSH_THEME=&quot;random&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>每次打开终端主题是随机的。</p>
+</li>
+<li><p>终端输出：</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[oh-my-zsh] Random theme &#x27;/Users/xxxx/.oh-my-zsh/themes/zhann.zsh-theme&#x27; loaded...</span><br></pre></td></tr></table></figure></li>
+<li><p>其中 <strong>zhann.zsh-theme</strong> 是主题的名称， 有喜欢的童鞋可以记录保留</p>
+</li>
+</ul>
+<hr>
+<h3 id="查看主题名称"><a href="#查看主题名称" class="headerlink" title="查看主题名称"></a>查看主题名称</h3><ul>
+<li><p><strong>oh my zsh</strong> 默认自带了一些默认主题，存放在 <strong>~/.oh-my-zsh/themes</strong> 目录中。我们可以查看这些主题</p>
+</li>
+<li><p>终端输入：</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ~/.oh-my-zsh/themes &amp;&amp; ls</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>查看结果：</strong></p>
+<p>  <img src="/images/Tools/OhMyZsh/1602220240.png">    </p>
+</li>
+<li><a class="btn" href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes">查看更多主题样式</a>
+
+</li>
+</ul>
+<hr>
+<h3 id="卸载-Oh-My-Zsh"><a href="#卸载-Oh-My-Zsh" class="headerlink" title="卸载 Oh My Zsh"></a>卸载 Oh My Zsh</h3><ul>
+<li>终端输入 ：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">uninstall_oh_my_zsh</span><br><span class="line">Are you sure you want to remove Oh My Zsh? [y/N]  Y</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Removing ~&#x2F;.oh-my-zsh</span><br><span class="line">Looking for original zsh config...</span><br><span class="line">Found ~&#x2F;.zshrc.pre-oh-my-zsh -- Restoring to ~&#x2F;.zshrc</span><br><span class="line">Found ~&#x2F;.zshrc -- Renaming to ~&#x2F;.zshrc.omz-uninstalled-20170820200007</span><br><span class="line">Your original zsh config was restored. Please restart your session.</span><br><span class="line">Thanks for trying out Oh My Zsh. It&#39;s been uninstalled.</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><ul>
+<li><strong>Oh My Zsh</strong> 的自动更新提示误触关掉了解决办法</li>
+<li>打开终端输入：  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">upgrade_oh_my_zsh</span><br></pre></td></tr></table></figure></li>
+<li>如果不喜欢系统自带终端，笔者推荐一个强大的终端 App。</li>
+<li><strong>iTerm2</strong>，非常好用的一个终端软件。</li>
+<li><a class="btn" href="https://iterm2.com/index.html">iTerm2 下载地址</a>
+
+</li>
+</ul>
+<hr>
+<h3 id="Oh-My-Zsh-「-443-Connection-Refused-错误无法安装-」"><a href="#Oh-My-Zsh-「-443-Connection-Refused-错误无法安装-」" class="headerlink" title="Oh My Zsh, 「 443 Connection Refused 错误无法安装 」"></a>Oh My Zsh, 「 443 Connection Refused 错误无法安装 」</h3><ul>
+<li><a class="btn" href="https://dream-swp.com/2020/10/09/OhMyZsh/03.OhMyZsh.443:%20Connection.Refused.错误无法安装/">Oh My Zsh 「 443 Connection Refused 错误无法安装 」</a>
+
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>Oh My Zsh</category>
+      </categories>
+      <tags>
+        <tag>Oh My Zsh</tag>
+        <tag>命令行工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Oh My Zsh,『 443 Connection Refused 错误无法安装 』</title>
+    <url>/2020/10/09/OhMyZsh/03.OhMyZsh.443.Connection.Refused.%E9%94%99%E8%AF%AF%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/Tools/OhMyZsh/1602559870389.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="Oh-My-Zsh-「-443-Connection-Refused-错误无法安装-」"><a href="#Oh-My-Zsh-「-443-Connection-Refused-错误无法安装-」" class="headerlink" title="Oh My Zsh, 「 443:Connection Refused 错误无法安装 」"></a>Oh My Zsh, 「 443:Connection Refused 错误无法安装 」</h3><a id="more"></a>    
+
+<ul>
+<li>最近一段时间 GitHub 中的图片无法显示，页面也加载缓慢. GitHub 里面图片都在 raw.githubusercontent.com 域名中，我们需要在系统 hosts 文件中添加关联的 ip 地址即可.</li>
+<li>以下 ip 追加到 hosts 文件中：</li>
+</ul>
+<pre><code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># GitHub Start</span><br><span class="line">52.74.223.119     github.com</span><br><span class="line">192.30.253.119    gist.github.com</span><br><span class="line">54.169.195.247    api.github.com</span><br><span class="line">185.199.111.153   assets-cdn.github.com</span><br><span class="line">151.101.76.133    raw.githubusercontent.com</span><br><span class="line">151.101.76.133    gist.githubusercontent.com</span><br><span class="line">151.101.76.133    cloud.githubusercontent.com</span><br><span class="line">151.101.76.133    camo.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars0.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars1.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars2.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars3.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars4.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars5.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars6.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars7.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars8.githubusercontent.com</span><br><span class="line"># GitHub End</span><br></pre></td></tr></table></figure></code></pre>
+<hr>
+<h3 id="IP-查询工具"><a href="#IP-查询工具" class="headerlink" title="IP 查询工具"></a>IP 查询工具</h3><ul>
+<li><a class="btn" href="https://www.ipaddress.com">ipaddress</a>   <a class="btn" href="https://site.ip138.com">查询网</a> 
+
+</li>
+</ul>
+<hr>
+<h3 id="SwitchHosts-修改工具"><a href="#SwitchHosts-修改工具" class="headerlink" title="SwitchHosts 修改工具"></a>SwitchHosts 修改工具</h3><ul>
+<li><p>可以使用 SwitchHosts 工具，来修改 hosts<br>&#x0020;</p>
+</li>
+<li><a class="btn" href="https://github.com/oldj/SwitchHosts/releases">SwitchHosts</a> 
+
+
+</li>
+</ul>
+<hr>
+<h3 id="Hosts-文件位置"><a href="#Hosts-文件位置" class="headerlink" title="Hosts 文件位置"></a>Hosts 文件位置</h3><h4 id="MacOS-Ubuntu-CentOS"><a href="#MacOS-Ubuntu-CentOS" class="headerlink" title="MacOS, Ubuntu, CentOS"></a>MacOS, Ubuntu, CentOS</h4><ul>
+<li>MacOS 为例:</li>
+<li>前往文件夹 -&gt; /etc/hosts     </li>
+<li>hosts 是只读文件, 需要复制出来，修改完成在替换 hosts 文件。</li>
+</ul>
+<h4 id="刷新-DNS"><a href="#刷新-DNS" class="headerlink" title="刷新 DNS"></a>刷新 DNS</h4><ul>
+<li><p>打开终端输入：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo killall -HUP mDNSResponder</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><ul>
+<li><p>hosts 文件位置: </p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:/windows/system32/drivers/etc/hosts</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="刷新-DNS-1"><a href="#刷新-DNS-1" class="headerlink" title="刷新 DNS"></a>刷新 DNS</h4><ul>
+<li><p>打开终端输入：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ipconfig /flushdns</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>GitHub</tag>
+        <tag>Hosts</tag>
+        <tag>SwitchHosts</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OhMyZsh,『 Agnoster 主题配置 』</title>
+    <url>/2017/09/04/OhMyZsh/02.OhMyZsh.Agnoster.%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/Tools/OhMyZsh/1602219173.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="安装-OhMyZsh"><a href="#安装-OhMyZsh" class="headerlink" title="安装 OhMyZsh"></a>安装 OhMyZsh</h3><a id="more"></a>    
+
+<ul>
+<li><strong>OhMyZsh</strong> 安装</li>
+<li><strong>OhMyZsh</strong> 主题修改为 <strong>Agnoster</strong></li>
+<li>终端输入：  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">open ~/.zshrc</span><br></pre></td></tr></table></figure></li>
+<li>找到 <strong>ZSH_THEME</strong> 修改为：<strong>ZSH_THEME=”agnoster”</strong></li>
+<li><a class="btn" href="https://dream-swp.com/2017/08/20/OhMyZsh/01.OhMyZsh.主题安装配置/">OhMyZsh 主题安装配置</a>
+
+</li>
+</ul>
+<h3 id="Agnoster-主题效果"><a href="#Agnoster-主题效果" class="headerlink" title="Agnoster 主题效果"></a>Agnoster 主题效果</h3><h4 id="系统自带终端-Agnoster-主题效果"><a href="#系统自带终端-Agnoster-主题效果" class="headerlink" title="系统自带终端 Agnoster 主题效果"></a>系统自带终端 Agnoster 主题效果</h4><p><img src="/images/Tools/OhMyZsh/15044894652641.jpg" alt="系统自带终端 Agnoster 主题效果："></p>
+<hr>
+<h4 id="iTerm2-Agnoster-主题效果"><a href="#iTerm2-Agnoster-主题效果" class="headerlink" title="iTerm2 Agnoster 主题效果"></a>iTerm2 Agnoster 主题效果</h4><p><img src="/images/Tools/OhMyZsh/15044896981735.jpg" alt="iTerm2 Agnoster 主题效果："></p>
+<hr>
+<h3 id="安装-Powerline-对应的字体库"><a href="#安装-Powerline-对应的字体库" class="headerlink" title="安装 Powerline 对应的字体库"></a>安装 Powerline 对应的字体库</h3><ul>
+<li><p>为了展示 <strong>Agnoster</strong> 主题提示符里的三角形，需要 <strong>Powerline</strong> 字体库的支持。</p>
+</li>
+<li><p>使用 <strong>Git Clone</strong>下来字体库仓库，进入仓库根目录，执行 <strong>install.sh</strong> 安装。</p>
+</li>
+<li><p>字体库链接:</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/powerline/fonts.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入仓库根目录安装：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> fonts</span><br><span class="line">install.sh</span><br></pre></td></tr></table></figure>
+
+<p> <img src="/images/Tools/OhMyZsh/15044911882428.gif" alt="Git Clone Powerline 字体库效果图："></p>
+</li>
+</ul>
+<hr>
+<h3 id="修改终端-iTerm2-字体"><a href="#修改终端-iTerm2-字体" class="headerlink" title="修改终端 / iTerm2  字体"></a>修改终端 / iTerm2  字体</h3><h4 id="系统自带终端"><a href="#系统自带终端" class="headerlink" title="系统自带终端"></a>系统自带终端</h4><ul>
+<li><p>进入：终端 &gt; 偏好设置 &gt; 字体修改为 ：<strong>Meslo LG S DZ Regular for Powerline</strong>。</p>
+<p>  <img src="/images/Tools/OhMyZsh/15044931876649.jpg" alt="系统自带终端："></p>
+</li>
+</ul>
+<hr>
+<h4 id="修改-iTerm2"><a href="#修改-iTerm2" class="headerlink" title="修改 iTerm2"></a>修改 iTerm2</h4><ul>
+<li><p>进入：iTerm2 &gt; Profiles &gt; Text &gt; Font，修改字体为：<strong>Meslo LG S DZ Regular for Powerline</strong>。</p>
+<p> <img src="/images/Tools/OhMyZsh/15044928569772.jpg" alt="iTerm2 ："></p>
+</li>
+</ul>
+<hr>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><ul>
+<li><a class="btn" href="https://iterm2.com/index.html">iTerm2 下载地址</a>
+
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Oh My Zsh</tag>
+        <tag>命令行工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Oh My Zsh,『 Powerlevel10k 安装 &amp; 配置 』</title>
+    <url>/2020/10/13/OhMyZsh/04.OhMyZsh.Powerlevel10k%E5%AE%89%E8%A3%85&amp;%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/Tools/OhMyZsh/1602569542612.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="Powerlevel10k"><a href="#Powerlevel10k" class="headerlink" title="Powerlevel10k"></a>Powerlevel10k</h3><a id="more"></a>    
+
+<ul>
+<li>由于 Powerlevel9k ( 已经被弃用 ) 升级到 Powerlevel10k, 所以本篇文章进行更新. </li>
+<li><a class="btn" href="https://github.com/Powerlevel9k/powerlevel9k">Powerlevel9k 官方文档</a>
+
+</li>
+</ul>
+<hr>
+<ul>
+<li>Powerlevel10k 主题可以用于 zsh, oh-my-zsh, Prezto, Antigen 等等。</li>
+<li>Powerlevel10k 依托于 zsh, oh-my-zsh, Prezto, Antigen。</li>
+<li>这里我们直接使用 oh-my-zsh。</li>
+<li><a class="btn" href="https://github.com/romkatv/powerlevel10k">Powerlevel10k 官方文档</a> <a class="btn" href="https://dream-swp.com/2017/08/20/OhMyZsh/01.OhMyZsh.主题安装配置/">OhMyZsh 「 主题安装配置 」</a></li>
+<li>笔者使用的系统环境是 Mac OS. </li>
+</ul>
+<h3 id="Powerlevel10k-安装"><a href="#Powerlevel10k-安装" class="headerlink" title="Powerlevel10k 安装"></a>Powerlevel10k 安装</h3><ul>
+<li>手动安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>国内用户可以使用 gitee.com 上的官方镜像加速下载.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://gitee.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Powerlevel10k-配置"><a href="#Powerlevel10k-配置" class="headerlink" title="Powerlevel10k 配置"></a>Powerlevel10k 配置</h3><ul>
+<li>编辑 .zshrc 文件， 文件路径 ~/.zshrc</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">open ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ZSH_THEME=<span class="string">&quot;powerlevel10k/powerlevel10k&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Powerleve10k-自定义样式"><a href="#Powerleve10k-自定义样式" class="headerlink" title="Powerleve10k 自定义样式"></a>Powerleve10k 自定义样式</h3><ul>
+<li><p>Powerleve10k 兼容 Powerleve9k 的样式，代码可以通用</p>
+</li>
+<li><p>需要编辑 .zshrc 文件， 来自定义终端的样式</p>
+</li>
+<li><a class="btn" href="https://github.com/romkatv/powerlevel10k#batteries-included">Powerlevel10k 详细文档的配置</a> <a class="btn" href="https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config">Powerleve9k 更多样式</a></li>
+<li><p>笔者提供两个样式：</p>
+</li>
+<li><p>Dream_01.zshrc:<br><img src="/images/Tools/OhMyZsh/1602580360441.png" alt="Dream_01.zshrc"></p>
+</li>
+<li><p>Dream_02.zshrc:<br><img src="/images/Tools/OhMyZsh/1602580367466.png" alt="Dream_02.zshrc"></p>
+</li>
+</ul>
+<hr>
+<h3 id="zshrc-配置"><a href="#zshrc-配置" class="headerlink" title=".zshrc 配置"></a>.zshrc 配置</h3><ul>
+<li><p>下载 Dream_01.zshrc 或 Dream_02.zshrc，把其他代码复制到 .zshrc 文件的最下面</p>
+</li>
+<li><p>找到 .zshrc 文件 编辑 </p>
+</li>
+<li><p>文件目录 : </p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">open ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="安装字体库-hack-nerd-font"><a href="#安装字体库-hack-nerd-font" class="headerlink" title="安装字体库 ( hack-nerd-font )"></a>安装字体库 ( hack-nerd-font )</h3><ul>
+<li>我们现在需要安装终端需要的字体库 </li>
+<li><a class="btn" href="https://github.com/ryanoasis/nerd-fonts">Nerd Fonts</a></li>
+<li>这里我实用 Homebrew 来安装 </li>
+<li><a class="btn" href="https://brew.sh/index_zh-cn">Homebrew</a></li>
+<li>打开终端输入:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install font-hack-nerd-font</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>等待安装完成.</li>
+</ul>
+<hr>
+<h3 id="修改终端字体"><a href="#修改终端字体" class="headerlink" title="修改终端字体"></a>修改终端字体</h3><ul>
+<li>Mac OC 系统自带终端 -&gt; 偏好设置 -&gt; 字体 -&gt; 修改成 Hack Nerd Font</li>
+</ul>
+<p><img src="/images/Tools/OhMyZsh/1602582537785.png"></p>
+<ul>
+<li>iTerm -&gt; Preferences -&gt; Profiles -&gt; Text -&gt; font -&gt; 修改成 Hack Nerd Font</li>
+</ul>
+<p><img src="/images/Tools/OhMyZsh/1602582544800.png"></p>
+<hr>
+<h3 id="zshrc-文件下载"><a href="#zshrc-文件下载" class="headerlink" title=".zshrc 文件下载"></a>.zshrc 文件下载</h3><ul>
+<li><a class="btn" href="https://dream-swp.com/docs/iTerm/Dream_01.zshrc">Dream_01.zshrc</a> <a class="btn" href="https://dream-swp.com/docs/iTerm/Dream_02.zshrc">Dream_02.zshrc</a>
+
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Oh My Zsh</tag>
+        <tag>命令行工具</tag>
+        <tag>Powerlevel9k</tag>
+        <tag>Powerlevel10k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS,『 文本输入 SwpTextView 』</title>
+    <url>/2017/03/10/iOS/02-UIControl/01.iOS.%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%20SwpTextView/</url>
+    <content><![CDATA[<h3 id="SwpTextView"><a href="#SwpTextView" class="headerlink" title="SwpTextView"></a>SwpTextView</h3><ul>
+<li>在开发中, 用户输入大量文本信息，苹果自带控件 UITextField 已经满足不了我们需求，UITextView 没有 Placeholder 属性 </li>
+<li>在这种需求的基础上，改造了下系统的 UITextView，使它具备了 Placeholder 效果</li>
+</ul>
+<hr>
+<a id="more"></a>    
+
+<h3 id="SwpTextView-演示效果"><a href="#SwpTextView-演示效果" class="headerlink" title="SwpTextView 演示效果"></a>SwpTextView 演示效果</h3><p><img src="https://raw.githubusercontent.com/swp-song/SwpTextView/master/Screenshot/SwpTextView.gif" alt="SwpTextView 演示效果"></p>
+<hr>
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><h4 id="手动导入"><a href="#手动导入" class="headerlink" title="手动导入"></a>手动导入</h4><ul>
+<li><strong>SwpTextView</strong> 文件夹导入项目中</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&quot;SwpTextView.h&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="CocoaPods-导入："><a href="#CocoaPods-导入：" class="headerlink" title="CocoaPods 导入："></a><strong>CocoaPods</strong> 导入：</h4><figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">pod search SwpTextView</span><br><span class="line">pod <span class="string">&#x27;SwpTextView&#x27;</span>      </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;SwpTextView/SwpTextView.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="SwpTextView-下载地址"><a href="#SwpTextView-下载地址" class="headerlink" title="SwpTextView 下载地址"></a>SwpTextView 下载地址</h3><ul>
+<li><a class="btn" href="https://github.com/swp-song/SwpTextView">SwpTextView</a>
+
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Objective-c</tag>
+        <tag>UI控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS,『 图片轮播器 SwpBanner 』</title>
+    <url>/2017/03/12/iOS/02-UIControl/02.iOS.%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD%E5%99%A8%20SwpBanner/</url>
+    <content><![CDATA[<h3 id="SwpBanner"><a href="#SwpBanner" class="headerlink" title="SwpBanner"></a>SwpBanner</h3><ul>
+<li>图片轮播器, 在 App 开发中常用的一组控件, 苹果没有提供UI控件, 需要开发者自己去封装。</li>
+<li>想到做图片轮播. 我们常常就会想到使用 UISCrollerView， 如果要优化性能的需要我们自己去优化。</li>
+<li><strong>SwpBanner</strong> 使用 UICollectionView 系统直接会优化 Cell 复用问题。</li>
+<li><strong>SwpBanner</strong> 可加载本地图片，远程图片，<strong>SwpBanner</strong> 依赖 <strong>SDWebImage</strong> 加载远程图片。</li>
+</ul>
+<hr>
+<a id="more"></a>
+
+<h3 id="SwpBanner-演示效果"><a href="#SwpBanner-演示效果" class="headerlink" title="SwpBanner 演示效果"></a>SwpBanner 演示效果</h3><p><img src="https://raw.githubusercontent.com/swp-song/SwpBanner/master/Screenshot/SwpBanner.gif" alt="SwpBanner 演示效果"></p>
+<hr>
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><h4 id="手动导入"><a href="#手动导入" class="headerlink" title="手动导入"></a>手动导入</h4><ul>
+<li><strong>SwpBanner</strong> 文件夹导入项目。</li>
+<li><strong>SwpBanner</strong>  依赖 <strong>SDWebImage</strong>，请去下载 <strong>SDWebImage</strong>，将 <strong>SDWebImage</strong> 文件加入项目中。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&quot;SwpBanner.h&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a class="btn" href="https://github.com/rs/SDWebImage">SDWebImage</a>
+
+</li>
+</ul>
+<hr>
+<h4 id="CocoaPods-导入："><a href="#CocoaPods-导入：" class="headerlink" title="CocoaPods 导入："></a>CocoaPods 导入：</h4><ul>
+<li>使用 <strong>CocoaPods</strong> 导入 <strong>SwpBanner</strong>，<strong>pod</strong> 会自动导入 <strong>SDWebImage</strong>。</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">pod search SwpBanner</span><br><span class="line">pod <span class="string">&#x27;SwpBanner&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;SwpBanner/SwpBanner.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h3 id="SwpBanner-下载地址"><a href="#SwpBanner-下载地址" class="headerlink" title="SwpBanner 下载地址"></a>SwpBanner 下载地址</h3><ul>
+<li><a class="btn" href="https://github.com/swp-song/SwpBanner">SwpBanner</a>
+
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Objective-c</tag>
+        <tag>UI控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS,『 分享弹出视图 SwpShareView 』</title>
+    <url>/2017/04/10/iOS/02-UIControl/03.iOS.%E5%88%86%E4%BA%AB%E5%BC%B9%E5%87%BA%E8%A7%86%E5%9B%BE%20SwpShareView/</url>
+    <content><![CDATA[<h3 id="SwpShareView"><a href="#SwpShareView" class="headerlink" title="SwpShareView"></a>SwpShareView</h3><ul>
+<li>分享弹出视图的简单封装，使用了 pop 库。</li>
+<li>封装了一个简单的分享样式。</li>
+</ul>
+<hr>
+<a id="more"></a>
+
+<h3 id="SwpShareView-演示效果"><a href="#SwpShareView-演示效果" class="headerlink" title="SwpShareView 演示效果"></a>SwpShareView 演示效果</h3><p><a href="https://raw.githubusercontent.com/swp-song/SwpShareView/master/Screenshot/SwpShareView.gif"></a></p>
+<hr>
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><h4 id="手动导入"><a href="#手动导入" class="headerlink" title="手动导入"></a>手动导入</h4><ul>
+<li><strong>SwpShareView</strong> 文件夹导入项目。</li>
+<li><strong>SwpShareView</strong> 依赖 <strong>pop</strong> 库 , 请手动下载 <strong>pop</strong>，将其加入项目中。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&quot;SwpShareHeader.h&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a class="btn" href="https://github.com/facebook/pop">pop</a>
+
+</li>
+</ul>
+<hr>
+<h4 id="CocoaPods-导入："><a href="#CocoaPods-导入：" class="headerlink" title="CocoaPods 导入："></a>CocoaPods 导入：</h4><ul>
+<li>使用 <strong>CocoaPods</strong> 导入 <strong>SwpShareView</strong>，<strong>pod</strong> 会自动导入 <strong>pop</strong>。</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">pod search SwpShareView</span><br><span class="line">pod <span class="string">&#x27;SwpShareView&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;SwpShareView/SwpShareHeader.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="SwpShareView-下载地址"><a href="#SwpShareView-下载地址" class="headerlink" title="SwpShareView 下载地址"></a>SwpShareView 下载地址</h3><ul>
+<li><a class="btn" href="https://github.com/swp-song/SwpShareView">SwpShareView</a>
+
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Objective-c</tag>
+        <tag>UI控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS,『 App 引导页 SwpGuidancePage 』</title>
+    <url>/2017/04/05/iOS/02-UIControl/04.iOS.App%20%E5%BC%95%E5%AF%BC%E9%A1%B5%20SwpGuidancePage/</url>
+    <content><![CDATA[<h3 id="SwpGuidancePage"><a href="#SwpGuidancePage" class="headerlink" title="SwpGuidancePage"></a>SwpGuidancePage</h3><ul>
+<li>在我们项目中经常会用到引导页，引导页一般 3 - 5 个页面，主要功能就是向用户展示你的产品，App 更新的重要功能, 引导用户体验，重大活动推出等等.</li>
+<li>SwpGuidancePage 使用 UICollectionView 系统直接会优化 Cell 复用问题。</li>
+</ul>
+<hr>
+<a id="more"></a>
+
+
+<h3 id="SwpGuidancePage-效果"><a href="#SwpGuidancePage-效果" class="headerlink" title="SwpGuidancePage 效果"></a>SwpGuidancePage 效果</h3><p><a href="https://raw.githubusercontent.com/swp-song/SwpGuidancePage/master/Screenshot/SwpGuidancePage.gif"></a></p>
+<hr>
+<h4 id="手动导入"><a href="#手动导入" class="headerlink" title="手动导入"></a>手动导入</h4><ul>
+<li><strong>SwpGuidancePage</strong> 文件夹导入项目。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&quot;SwpGuidancePage.h&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="CocoaPods-导入："><a href="#CocoaPods-导入：" class="headerlink" title="CocoaPods 导入："></a>CocoaPods 导入：</h4><figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">pod search SwpGuidancePage</span><br><span class="line">pod <span class="string">&#x27;SwpGuidancePage&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;SwpGuidancePage/SwpGuidancePage.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="SwpGuidancePage-下载地址"><a href="#SwpGuidancePage-下载地址" class="headerlink" title="SwpGuidancePage 下载地址"></a>SwpGuidancePage 下载地址</h3><ul>
+<li><a class="btn" href="https://github.com/swp-song/SwpGuidancePage">SwpGuidancePage</a>
+
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Objective-c</tag>
+        <tag>UI控件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS, 『 AFNetworking 封装 』</title>
+    <url>/2017/05/12/iOS/03-NetworkRequest/01.iOS.AFNetworking%20%E5%B0%81%E8%A3%85/</url>
+    <content><![CDATA[<h3 id="SwpNetworking"><a href="#SwpNetworking" class="headerlink" title="SwpNetworking"></a>SwpNetworking</h3><ul>
+<li>AFNetworking 是一个非常强大网络请求库，AFNetWorking 是目前使用最多的第三方网络库，没有之一， 笔者简单封装了下，降低耦合，方便使用.</li>
+</ul>
+<hr>
+<a id="more"></a>
+
+
+<h3 id="SwpNetworking-演示效果"><a href="#SwpNetworking-演示效果" class="headerlink" title="SwpNetworking 演示效果"></a>SwpNetworking 演示效果</h3><p><img src="https://raw.githubusercontent.com/swp-song/SwpNetworking/master/Screenshot/dataRequest.gif" alt="SwpNetworking演示效果"></p>
+<hr>
+<h3 id="导入："><a href="#导入：" class="headerlink" title="导入："></a>导入：</h3><h4 id="手动导入"><a href="#手动导入" class="headerlink" title="手动导入"></a>手动导入</h4><ul>
+<li><strong>SwpNetworking</strong> 文件夹导入项目</li>
+<li><strong>SwpNetworking</strong> 依赖 <strong>AFNetworking  3.0 以上版本</strong> , 请去下载 <strong>AFNetworking  3.0 以上版本</strong>，将其加入项目中。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&quot;SwpNetworking.h&quot;</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><a href="https://github.com/AFNetworking/AFNetworking">AFNetworking 下载地址</a></strong></li>
+</ul>
+<hr>
+<h4 id="CocoaPods-导入："><a href="#CocoaPods-导入：" class="headerlink" title="CocoaPods 导入："></a>CocoaPods 导入：</h4><ul>
+<li>使用 <strong>CocoaPods</strong> 导入 <strong>SwpNetworking</strong>，<strong>pod</strong> 会自动导入 <strong>AFNetworking 3.0</strong> 以上的版本。</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">pod search SwpNetworking</span><br><span class="line">pod <span class="string">&#x27;SwpNetworking&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;SwpNetworking/SwpNetworking.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 网络获取数据</span></span><br><span class="line">+ (<span class="keyword">void</span>)swpPOST:(<span class="built_in">NSString</span> *)URLString parameters:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span> *)parameters swpNetworkingSuccess:(SwpNetworkingSuccessHandle)swpNetworkingSuccess swpNetworkingError:(SwpNetworkingErrorHandle)swpNetworkingError;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下载文件</span></span><br><span class="line">+ (<span class="keyword">void</span>)swpDownloadFile:(<span class="built_in">NSString</span> *)URLString swpDownloadProgress:(<span class="keyword">void</span>(^)(SwpDownloadProgress swpDownloadProgress))swpDownloadProgress swpCompletionHandler:(<span class="keyword">void</span>(^)(<span class="built_in">NSString</span> *filePath, <span class="built_in">NSString</span> *fileName,  <span class="built_in">NSString</span> *error))swpCompletionHandler;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 验证网络环境</span></span><br><span class="line">+ (<span class="keyword">void</span>)swpNetworkingReachabilityStatusChangeBlock:(<span class="keyword">void</span>(^)(SwpNetworkingReachabilityStatus swpResultStatus))swpResultStatus;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="SwpNetworking-下载地址"><a href="#SwpNetworking-下载地址" class="headerlink" title="SwpNetworking 下载地址"></a>SwpNetworking 下载地址</h3><ul>
+<li><a class="btn" href="https://github.com/swp-song/SwpNetworking">SwpNetworking</a>
+
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Objective-c</tag>
+        <tag>网络请求</tag>
+        <tag>AFNetworking</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS,『 本地存储 SwpFMDB 』</title>
+    <url>/2017/08/15/iOS/04-DataCache/01.iOS.%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%20SwpFMDB/</url>
+    <content><![CDATA[<h3 id="iOS本地持久化储存方式"><a href="#iOS本地持久化储存方式" class="headerlink" title="iOS本地持久化储存方式"></a>iOS本地持久化储存方式</h3><h4 id="iOS本地持久化储存方式，常用几种方式"><a href="#iOS本地持久化储存方式，常用几种方式" class="headerlink" title="iOS本地持久化储存方式，常用几种方式"></a>iOS本地持久化储存方式，常用几种方式</h4><ul>
+<li>NSUserDefault，File，Keychain，DataBase</li>
+<li>NSUserDefault, File 适用的范围也都是一些小规模数据, NSUserDefault 其实还是以 .plist 文件进行储存数据的.</li>
+<li>Keychain 是苹果提供的带有可逆加密的存储机制, 用于储存一些私密信息, 比如密码, 证书等等, App卸载只要系统不重装，Keychain中的数据依旧能够得到保留.</li>
+<li>DataBase, IOS 常用的数据库</li>
+</ul>
+<hr>
+<h4 id="DataBase-IOS-常用的数据库："><a href="#DataBase-IOS-常用的数据库：" class="headerlink" title="DataBase, IOS 常用的数据库："></a>DataBase, IOS 常用的数据库：</h4><ul>
+<li><strong>CoreData</strong>：苹果本身自带的数据 ( 重量级数据库，依赖性太强 ) 。</li>
+<li><strong>SQLite</strong>：API是纯C语言的, 这样我们一直以来面向对象开发的朋友们, 突然找不到了对象, 有点那么的惊慌失措。</li>
+<li><strong>FMDB</strong>：<strong>FMDB</strong> 底层依然封装 <strong>SQLite</strong>。</li>
+</ul>
+<hr>
+<a id="more"></a>    
+
+<h3 id="FMDB"><a href="#FMDB" class="headerlink" title="FMDB"></a>FMDB</h3><ul>
+<li><strong>FMDB</strong> 是方式封装了 <strong>SQLite</strong>, 并且对于多线程并发, 线程安, 进行了处理, 和苹果本身自带的 <strong>CoreData</strong> 对比 轻量, 依懒性小. 使用起来很方便.</li>
+<li><a class="btn" href="https://github.com/ccgus/fmdb">FMDB 下载地地址</a>
+
+</li>
+</ul>
+<hr>
+<h3 id="为什么封装-FMDB"><a href="#为什么封装-FMDB" class="headerlink" title="为什么封装 FMDB"></a>为什么封装 FMDB</h3><ul>
+<li>之前做的项目需要大量持久化存储数据, 使用 <strong>FMDB</strong> 需要些大量的 SQL 语句….😂😂😂😂😂😂。<br>  <strong>FMDB</strong> 已经封装了 <strong>SQLite</strong>，但是开发者还是需要去写 <strong>SQL</strong> 语句，对于模型中属性比较多的话，拼接 <strong>SQL</strong> 语句将变得十分繁琐， 字典， 数组数据是没办法直接存入数据库, 需要特殊处理。</li>
+<li>面向模型开发，操作模型，更加面向对象, 操作起来更加方便。</li>
+<li>所以笔者做了面向模型的二次封装，不需要写任何 <strong>SQL</strong> 语句， 屏蔽掉反锁的操作，插入数据库是模型数据，取出也是模型数据，简单粗暴， 方便使用.</li>
+</ul>
+<hr>
+<h3 id="SwpFMDB-警告"><a href="#SwpFMDB-警告" class="headerlink" title="SwpFMDB 警告"></a>SwpFMDB 警告</h3><ul>
+<li><strong>请在自定义模型中加入这个属性 swpDBID</strong>.</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *swpDBID;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 <strong>SwpFMDB</strong> 缓存数据，是自定义模型，请在自定义模型中添加 <strong>swpDBID</strong> 这个属性，该属性必须存在，否则会崩溃。</li>
+<li>如果继承 <strong>SwpBDModel</strong> 无需添加该属性。</li>
+</ul>
+<hr>
+<h3 id="SwpFMDB-注意事项"><a href="#SwpFMDB-注意事项" class="headerlink" title="SwpFMDB 注意事项"></a>SwpFMDB 注意事项</h3><ul>
+<li>创建出都是同一个对象, 无毒无害放心使用. 😀😀😀😀😀😀😀</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">SwpFMDB *swpFMDB1 = [[SwpFMDB alloc] init];</span><br><span class="line">SwpFMDB *swpFMDB2 = [SwpFMDB new];</span><br><span class="line">SwpFMDB *swpFMDB3 = [swpFMDB1 <span class="keyword">copy</span>];</span><br><span class="line">SwpFMDB *swpFMDB4 = [swpFMDB1 mutableCopy];</span><br><span class="line">SwpFMDB *swpFMDB5 = [SwpFMDB shareManager];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;swpFMDB1 = %p, swpFMDB2 = %p, swpFMDB3 = %p, swpFMDB4 = %p, swpFMDB5 = %p&quot;</span>, swpFMDB1, swpFMDB2, swpFMDB3, swpFMDB4, swpFMDB5);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印结果:</span></span><br><span class="line">swpFMDB1 = <span class="number">0x61000001e8f0</span>, swpFMDB2 = <span class="number">0x61000001e8f0</span>, swpFMDB3 = <span class="number">0x61000001e8f0</span>, swpFMDB4 = <span class="number">0x61000001e8f0</span>, swpFMDB5 = <span class="number">0x61000001e8f0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="SwpFMDB-详细文档"><a href="#SwpFMDB-详细文档" class="headerlink" title="SwpFMDB 详细文档"></a>SwpFMDB 详细文档</h3><ul>
+<li><a class="btn" href="https://dream-swp.com/docs/SwpFMDB/index.html">SwpFMDB Api 首页</a></li>
+<li><a class="btn" href="https://dream-swp.com/docs/SwpFMDB/Classes/SwpFMDB.html">SwpFMDB Api 外部调用接口</a></li>
+<li><a class="btn" href="https://dream-swp.com/docs/SwpFMDB/Classes/SwpFMDBManager.html">SwpFMDB Api 核心类</a>
+
+</li>
+</ul>
+<hr>
+<h3 id="SwpFMDB-下载地址"><a href="#SwpFMDB-下载地址" class="headerlink" title="SwpFMDB 下载地址"></a>SwpFMDB 下载地址</h3><ul>
+<li><a class="btn" href="https://github.com/swp-song/SwpFMDB">SwpFMDB</a>
+
+</li>
+</ul>
+<hr>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><a href="https://casatwy.com/iosying-yong-jia-gou-tan-ben-di-chi-jiu-hua-fang-an-ji-dong-tai-bu-shu.html">iOS应用架构谈 本地持久化方案及动态部署</a></li>
+<li><a href="http://blog.devtang.com/2012/04/22/use-fmdb/">在iOS开发中使用FMDB</a></li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Objective-c</tag>
+        <tag>Database</tag>
+        <tag>本地存储</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS,『 技巧分享, 属性生成 』</title>
+    <url>/2017/05/05/iOS/01-Objective-C/01-Framework/iOS.%E6%8A%80%E5%B7%A7%E5%88%86%E4%BA%AB,%E5%B1%9E%E6%80%A7%E7%94%9F%E6%88%90/</url>
+    <content><![CDATA[<h3 id="需求"><a href="#需求" class="headerlink" title="需求:"></a>需求:</h3><ul>
+<li>根据后台返回 <strong>json</strong> 数据, 生成对应的模型属性。 </li>
+</ul>
+<hr>
+<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤:"></a>实现步骤:</h3><ul>
+<li>解析后台数据, 并转换成字典。</li>
+<li>字典添加分类, 添加实现方 ( 不写成分类方法也可以， 可以写成一个公共方法调用，具体看您的心情 😁😁😁😁😁😁 )。</li>
+<li>这里笔者使用分类写的。</li>
+<li>循环字典判断对应的数据类型，生成对应的属性类型，拼接字符串。</li>
+<li>控制台打印输出，复制粘贴到模型类中 ( 😀😀😀😀😀😀😀😀😀 )。</li>
+</ul>
+<hr>
+<a id="more"></a>    
+
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h3><ul>
+<li>唯一的缺点就是定义模型数据中属性的名称，是根据后台生成的，如果后台变量名称很坑慎用 ( 😂😂😂😂😂😂 )。</li>
+</ul>
+<hr>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><ul>
+<li>熟悉 OC ( Objective - C ) 的一些基本知识.</li>
+<li>了解一些的字符串 OC 字符传的操作.</li>
+<li>了解如何判断系统类型, 和分类 ( Category ) 基本使用.</li>
+</ul>
+<hr>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><h4 id="创建所有属性"><a href="#创建所有属性" class="headerlink" title="创建所有属性"></a>创建所有属性</h4><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建所有属性</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)swpGenerateProperty;</span><br><span class="line"><span class="comment">// 核心方法 :</span></span><br><span class="line"><span class="comment">// 拼接属性字符串</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)swpStitchingString;</span><br><span class="line"><span class="comment">// 验证属性类型</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)swpVerificationPropertyType:(<span class="keyword">id</span>)key value:(<span class="keyword">id</span>)value;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)swpGenerateProperty &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span> swpStitchingString];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="拼接所有属"><a href="#拼接所有属" class="headerlink" title="拼接所有属"></a>拼接所有属</h4><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 拼接所有属</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)swpStitchingString &#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *propertys = [<span class="built_in">NSMutableString</span> string];</span><br><span class="line">    [<span class="keyword">self</span> enumerateKeysAndObjectsUsingBlock:^(<span class="keyword">id</span>  _Nonnull key, <span class="keyword">id</span>  _Nonnull value, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</span><br><span class="line">        <span class="keyword">id</span> dictionaryKey    = key;</span><br><span class="line">        <span class="keyword">id</span> dictionaryValen  = value;</span><br><span class="line">        <span class="keyword">if</span> ([dictionaryKey isEqual:<span class="string">@&quot;id&quot;</span>]) &#123;</span><br><span class="line">            dictionaryKey = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;%@_&quot;</span>, key];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">NSString</span> *property = [<span class="keyword">self</span> swpVerificationPropertyType:dictionaryKey value:dictionaryValen];</span><br><span class="line">        [propertys appendFormat:<span class="string">@&quot;\n /\*!  !\*/ \n %@ \n&quot;</span>, property];</span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="keyword">return</span> propertys.copy;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="验证属性类型"><a href="#验证属性类型" class="headerlink" title="验证属性类型"></a>验证属性类型</h4><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)swpVerificationPropertyType:(<span class="keyword">id</span>)key value:(<span class="keyword">id</span>)value &#123;</span><br><span class="line">    <span class="keyword">if</span> ([value isKindOfClass:<span class="built_in">NSClassFromString</span>(<span class="string">@&quot;__NSCFBoolean&quot;</span>)]) &#123;</span><br><span class="line">        <span class="comment">// BOOL</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;@property (nonatomic, assign, getter = is%@) BOOL %@;&quot;</span>, [key capitalizedString], key];</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([value isKindOfClass:[<span class="built_in">NSNumber</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="comment">// NSInteger</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;@property (nonatomic, assign) NSInteger     %@;&quot;</span>, key];  </span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([value isKindOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="comment">// NSString</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;@property (nonatomic, copy  ) NSString      \*%@;&quot;</span>, key];</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([value isKindOfClass:[<span class="built_in">NSDictionary</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="comment">// NSDictionary</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;@property (nonatomic, copy  ) NSDictionary  \*%@;&quot;</span>, key];</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([value isKindOfClass:[<span class="built_in">NSArray</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="comment">// NSArray</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;@property (nonatomic, copy  ) NSArray       *%@;&quot;</span>,  key];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">@&quot;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Objective-c</tag>
+        <tag>偷懒技巧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo,『 NexT 模板配置 』</title>
+    <url>/2018/01/25/HexoBlog/03.Hexo.NexT.%E6%A8%A1%E6%9D%BF%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/HexoBlog/00/1602228309.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="NexT-安装"><a href="#NexT-安装" class="headerlink" title="NexT 安装"></a>NexT 安装</h3><a id="more"></a>    
+
+<h4 id="npm-安装-推荐使用"><a href="#npm-安装-推荐使用" class="headerlink" title="npm 安装 ( 推荐使用 )"></a>npm 安装 ( 推荐使用 )</h4><ul>
+<li><p>使用 npm 安装</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-next@latest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装指定版本</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-next@8.0.0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Copy next/_config.yml 文件</p>
+</li>
+<li><p>该文件会复制到 Hexo 目录下, 与 Hexo _config.yml 在同一级目录</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp node_modules&#x2F;hexo-theme-next&#x2F;_config.yml _config.next.yml</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h4 id="Git-安装"><a href="#Git-安装" class="headerlink" title="Git 安装"></a>Git 安装</h4><ul>
+<li><p>使用 <strong>git</strong> 直接 <strong>clone</strong></p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+
+<p>  or</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;gitlab.com&#x2F;hexo-theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装指定版本</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone --branch v8.0.0 https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+
+<p>  or</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone --branch v8.0.0 https:&#x2F;&#x2F;gitlab.com&#x2F;hexo-theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Copy next/_config.yml 文件</p>
+</li>
+<li><p>该文件会复制到 Hexo 目录下, 与 Hexo _config.yml 在同一级目录</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp theme&#x2F;next&#x2F;_config.yml _config.next.yml</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h3 id="config-yml-配置"><a href="#config-yml-配置" class="headerlink" title="_config.yml 配置"></a>_config.yml 配置</h3><ul>
+<li><p>安装完成，修改 <strong>/博客目录/_config.yml/**， 配置文件，找到 **theme: landscape</strong> 修改为 <strong>theme: next</strong>。</p>
+  <figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="symbol">theme:</span> <span class="keyword">next</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改完成进入终端:</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &lt;folder&gt;</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>浏览器访问 : <a href="http://localhost:4000/">http://localhost:4000</a></p>
+</li>
+<li><p><strong>NexT 主题的效果:</strong></p>
+<p>  <img src="/images/HexoBlog/03/1602253620267.png"></p>
+</li>
+</ul>
+<hr>
+<h3 id="NexT-文档"><a href="#NexT-文档" class="headerlink" title="NexT 文档"></a>NexT 文档</h3><ul>
+<li><a class="btn" href="https://theme-next.js.org">NexT 文档</a> <a class="btn" href="https://github.com/next-theme/hexo-theme-next">NexT GitHub</a> <a class="btn" href="https://gitlab.com/hexo-theme-next/hexo-theme-next">NexT Gitlab</a> 
+
+
+
+</li>
+</ul>
+<hr>
+<h3 id="NexT-配置"><a href="#NexT-配置" class="headerlink" title="NexT 配置"></a>NexT 配置</h3><ul>
+<li>在安装 NexT 模板的时，我们已经复制复制了一份 _config.yml 文件，修改名称为 _config.next.yml, 我们通过修改这个文件来控制模板的样式，复制出来是为了避免修改源文件，模板升级问题。</li>
+<li><strong>/_config.next.yml</strong> 配置文件中有很多参数，我们简单介绍下常用的。</li>
+</ul>
+<hr>
+<h4 id="缓存文件-amp-资源文件"><a href="#缓存文件-amp-资源文件" class="headerlink" title="缓存文件 &amp; 资源文件"></a>缓存文件 &amp; 资源文件</h4><details class="note primary"><summary><p>缓存文件 &amp; 资源文件配置</p>
+</summary>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ===============================================================</span></span><br><span class="line"><span class="comment"># It&#x27;s recommended to use Alternate Theme Config to configure the theme</span></span><br><span class="line"><span class="comment"># Modifying this file may result in merge conflict</span></span><br><span class="line"><span class="comment"># See: https://theme-next.js.org/docs/getting-started/configuration</span></span><br><span class="line"><span class="comment"># ===============================================================</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Theme Core Configuration Settings</span></span><br><span class="line"><span class="comment"># See: https://theme-next.js.org/docs/theme-settings/</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Allow to cache content generation. Introduced in NexT v6.0.0.</span></span><br><span class="line"><span class="comment"># 允许缓存，true</span></span><br><span class="line">cache:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove unnecessary files after hexo generate.</span></span><br><span class="line"><span class="comment"># 是否在 hexo 生成之后删除不必要的文件，false</span></span><br><span class="line">minify: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define custom file paths.</span></span><br><span class="line"><span class="comment"># Create your custom files in site directory `source/_data` and uncomment needed files below.</span></span><br><span class="line"><span class="comment"># 常用的文件路径</span></span><br><span class="line">custom_file_path:</span><br><span class="line">  <span class="comment">#head: source/_data/head.njk</span></span><br><span class="line">  <span class="comment">#header: source/_data/header.njk</span></span><br><span class="line">  <span class="comment">#sidebar: source/_data/sidebar.njk</span></span><br><span class="line">  <span class="comment">#postMeta: source/_data/post-meta.njk</span></span><br><span class="line">  <span class="comment">#postBodyEnd: source/_data/post-body-end.njk</span></span><br><span class="line">  <span class="comment">#footer: source/_data/footer.njk</span></span><br><span class="line">  <span class="comment">#bodyEnd: source/_data/body-end.njk</span></span><br><span class="line">  <span class="comment">#variable: source/_data/variables.styl</span></span><br><span class="line">  <span class="comment">#mixin: source/_data/mixins.styl</span></span><br><span class="line">  <span class="comment">#style: source/_data/styles.styl</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</details>
+
+<hr>
+<h4 id="NexT-样式配置"><a href="#NexT-样式配置" class="headerlink" title="NexT 样式配置"></a>NexT 样式配置</h4><details class="note primary"><summary><p>NexT 样式配置</p>
+</summary>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Scheme Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 布局</span></span><br><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment"># scheme: Muse</span></span><br><span class="line"><span class="comment"># scheme: Mist</span></span><br><span class="line"><span class="comment"># scheme: Pisces</span></span><br><span class="line">scheme: Gemini</span><br><span class="line"></span><br><span class="line"><span class="comment"># Dark Mode</span></span><br><span class="line"><span class="comment"># 夜间模式</span></span><br><span class="line">darkmode: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Site Information Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># 网站图标设置</span></span><br><span class="line">favicon: </span><br><span class="line">  small: /images/favicon-16x16-next.png</span><br><span class="line">  medium: /images/favicon-32x32-next.png</span><br><span class="line">  apple_touch_icon: /images/apple-touch-icon-next.png</span><br><span class="line">  safari_pinned_tab: /images/logo.svg</span><br><span class="line">  <span class="comment">#android_manifest: /images/manifest.json</span></span><br><span class="line">  <span class="comment">#ms_browserconfig: /images/browserconfig.xml</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Custom Logo (Warning: Do not support scheme Mist)</span></span><br><span class="line">custom_logo: <span class="comment">#/uploads/custom-logo.jpg</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Creative Commons 4.0 International License.</span></span><br><span class="line"><span class="comment"># See: https://creativecommons.org/share-your-work/licensing-types-examples</span></span><br><span class="line"><span class="comment"># Available values of license: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</span></span><br><span class="line"><span class="comment"># You can set a language value if you prefer a translated version of CC license, e.g. deed.zh</span></span><br><span class="line"><span class="comment"># CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org</span></span><br><span class="line"><span class="comment"># 文章版权说明</span></span><br><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: <span class="literal">false</span></span><br><span class="line">  post: <span class="literal">false</span></span><br><span class="line">  language:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Menu Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Usage: `Key: /link/ || icon`</span></span><br><span class="line"><span class="comment"># Key is the name of menu item. If the translation for this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-senstive.</span></span><br><span class="line"><span class="comment"># Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.</span></span><br><span class="line"><span class="comment"># When running the site in a subdirectory (e.g. yoursite.com/blog), remove the leading slash from link value (/archives -&gt; archives).</span></span><br><span class="line"><span class="comment"># External url should start with http:// or https://</span></span><br><span class="line"><span class="comment"># 菜单显示</span></span><br><span class="line">menu:</span><br><span class="line">  home: / || fa fa-home                     <span class="comment"># 主页</span></span><br><span class="line">  <span class="comment">#about: /about/ || fa fa-user             # 关于</span></span><br><span class="line">  tags: /tags/ || fa fa-tags                <span class="comment"># 标签</span></span><br><span class="line">  categories: /categories/ || fa fa-th      <span class="comment"># 分类</span></span><br><span class="line">  archives: /archives/ || fa fa-archive     <span class="comment"># 归档</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar   # 日历</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap   # 站点地图</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || fa fa-heartbeat     # 404</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable / Disable menu icons / item badges.</span></span><br><span class="line"><span class="comment"># 菜单设置</span></span><br><span class="line">menu_settings:</span><br><span class="line">  icons: <span class="literal">true</span>       <span class="comment"># 显示图标</span></span><br><span class="line">  badges: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Sidebar Settings</span></span><br><span class="line"><span class="comment"># See: https://theme-next.js.org/docs/theme-settings/sidebar</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 侧边栏位置</span></span><br><span class="line">sidebar:</span><br><span class="line">  <span class="comment"># Sidebar Position.</span></span><br><span class="line">  position: left</span><br><span class="line">  <span class="comment"># position: right</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Manual define the sidebar width. If commented, will be default for:</span></span><br><span class="line">  <span class="comment"># Muse | Mist: 320</span></span><br><span class="line">  <span class="comment"># Pisces | Gemini: 240</span></span><br><span class="line">  <span class="comment"># 侧边栏宽度</span></span><br><span class="line">  <span class="comment">#width: 300</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Sidebar Display (only for Muse | Mist), available values:       侧边栏暂时样式</span></span><br><span class="line">  <span class="comment">#  - post    expand on posts automatically. Default.              文章界面自动展开</span></span><br><span class="line">  <span class="comment">#  - always  expand for all pages automatically.                  所有的页面都默认展开</span></span><br><span class="line">  <span class="comment">#  - hide    expand only when click on the sidebar toggle icon.   所有的页面都默认隐藏</span></span><br><span class="line">  <span class="comment">#  - remove  totally remove sidebar including sidebar toggle.     完全移除侧边栏</span></span><br><span class="line">  display: post</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Sidebar padding in pixels.                                              侧边栏填充像素大小</span></span><br><span class="line">  padding: 18</span><br><span class="line">  <span class="comment"># Sidebar offset from top menubar in pixels (only for Pisces | Gemini).   侧边栏距离顶部菜单的距离</span></span><br><span class="line">  offset: 12</span><br><span class="line"></span><br><span class="line"><span class="comment"># Sidebar Avatar</span></span><br><span class="line">avatar:</span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.                         头像</span></span><br><span class="line">  url: /images/Header/swp_header.png</span><br><span class="line">  <span class="comment"># If true, the avatar will be dispalyed in circle.                        设置圆形</span></span><br><span class="line">  rounded: <span class="literal">false</span></span><br><span class="line">  <span class="comment"># If true, the avatar will be rotated with the cursor.                    是否旋转</span></span><br><span class="line">  rotated: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Posts / Categories / Tags in sidebar.</span></span><br><span class="line"><span class="comment"># 头像下是否显示文章、分类和标签设置</span></span><br><span class="line">site_state: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Social Links</span></span><br><span class="line"><span class="comment"># Usage: `Key: permalink || icon`</span></span><br><span class="line"><span class="comment"># Key is the link label showing to end users.</span></span><br><span class="line"><span class="comment"># Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.</span></span><br><span class="line"><span class="comment"># 社交账号 &amp; 友情链接</span></span><br><span class="line">social:</span><br><span class="line">  GitHub: https://github.com/swp-song || fab fa-github</span><br><span class="line">  <span class="comment">#E-Mail: mailto:yourname@gmail.com || fa fa-envelope</span></span><br><span class="line">  <span class="comment">#Weibo: https://weibo.com/yourname || fab fa-weibo</span></span><br><span class="line">  <span class="comment">#Google: https://plus.google.com/yourname || fab fa-google</span></span><br><span class="line">  <span class="comment">#Twitter: https://twitter.com/yourname || fab fa-twitter</span></span><br><span class="line">  <span class="comment">#FB Page: https://www.facebook.com/yourname || fab fa-facebook</span></span><br><span class="line">  <span class="comment">#StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow</span></span><br><span class="line">  <span class="comment">#YouTube: https://youtube.com/yourname || fab fa-youtube</span></span><br><span class="line">  <span class="comment">#Instagram: https://instagram.com/yourname || fab fa-instagram</span></span><br><span class="line">  <span class="comment">#Skype: skype:yourname?call|chat || fab fa-skype</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 友情链接</span></span><br><span class="line">social_icons:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  icons_only: <span class="literal">false</span></span><br><span class="line">  transition: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Blog rolls</span></span><br><span class="line">links_settings:</span><br><span class="line">  icon: fa fa-globe</span><br><span class="line">  title: Links</span><br><span class="line">  <span class="comment"># Available values: block | inline</span></span><br><span class="line">  layout: block</span><br><span class="line"></span><br><span class="line">links:</span><br><span class="line">  <span class="comment">#Title: http://yoursite.com</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Table of Contents in the Sidebar</span></span><br><span class="line"><span class="comment"># Front-matter variable (unsupport wrap expand_all).</span></span><br><span class="line">toc:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Automatically add list number to toc.</span></span><br><span class="line">  number: <span class="literal">true</span></span><br><span class="line">  <span class="comment"># If true, all words will placed on next lines if header width longer then sidebar width.</span></span><br><span class="line">  wrap: <span class="literal">false</span></span><br><span class="line">  <span class="comment"># If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span></span><br><span class="line">  expand_all: <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Maximum heading depth of generated toc.</span></span><br><span class="line">  max_depth: 6</span><br><span class="line"></span><br><span class="line"><span class="comment"># A button to open designated chat widget in sidebar.</span></span><br><span class="line"><span class="comment"># Firstly, you need enable the chat service you want to activate its sidebar button.</span></span><br><span class="line">chat:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  <span class="comment">#service: chatra</span></span><br><span class="line">  <span class="comment">#service: tidio</span></span><br><span class="line">  icon: fa fa-comment <span class="comment"># Icon name in Font Awesome, set false to disable icon.</span></span><br><span class="line">  text: Chat <span class="comment"># Button text, change it as you wish.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网站页脚设置</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Footer Settings</span></span><br><span class="line"><span class="comment"># See: https://theme-next.js.org/docs/theme-settings/footer</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Show multilingual switcher in footer.</span></span><br><span class="line">language_switcher: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">footer:</span><br><span class="line">  <span class="comment"># Specify the date when the site was setup. If not defined, current year will be used.</span></span><br><span class="line">  <span class="comment"># 起始建站时间</span></span><br><span class="line">  since: 2017</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Icon between year and copyright info.</span></span><br><span class="line">  icon:</span><br><span class="line">    <span class="comment"># Icon name in Font Awesome. See: https://fontawesome.com/icons     页脚图片</span></span><br><span class="line">    name: fab fa-apple</span><br><span class="line">    <span class="comment"># If you want to animate the icon, set it to true.                  是否开启页脚图片动画</span></span><br><span class="line">    animated: <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Change the color of icon, using Hex Code.                         图片颜色</span></span><br><span class="line">    color: <span class="string">&quot;#ffffff&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># If not defined, `author` from Hexo `_config.yml` will be used.</span></span><br><span class="line">  copyright:</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Powered by Hexo &amp; NexT      是否显示 HexT 链接</span></span><br><span class="line">  powered: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn</span></span><br><span class="line">  <span class="comment"># 备案</span></span><br><span class="line">  beian:</span><br><span class="line">    <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">    icp:</span><br><span class="line">    <span class="comment"># The digit in the num of gongan beian.</span></span><br><span class="line">    gongan_id:</span><br><span class="line">    <span class="comment"># The full num of gongan beian.</span></span><br><span class="line">    gongan_num:</span><br><span class="line">    <span class="comment"># The icon for gongan beian. See: http://www.beian.gov.cn/portal/download</span></span><br><span class="line">    gongan_icon_url:</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</details>
+
+
+<hr>
+<h4 id="NexT-文章设置"><a href="#NexT-文章设置" class="headerlink" title="NexT 文章设置"></a>NexT 文章设置</h4><details class="note primary"><summary><p>NexT 文章设置</p>
+</summary>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Post Settings</span></span><br><span class="line"><span class="comment"># See: https://theme-next.js.org/docs/theme-settings/posts</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Automatically excerpt description in homepage as preamble text.</span></span><br><span class="line"><span class="comment"># 主页显示预览文本</span></span><br><span class="line">excerpt_description: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Read more button</span></span><br><span class="line"><span class="comment"># If true, the read more button will be displayed in excerpt section.</span></span><br><span class="line"><span class="comment"># 是否显示 阅读更多 按钮</span></span><br><span class="line">read_more_btn: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Post meta display settings</span></span><br><span class="line"><span class="comment"># 文章显示设置</span></span><br><span class="line">post_meta:</span><br><span class="line">  item_text: <span class="literal">true</span>           <span class="comment"># 显示文章内容</span></span><br><span class="line">  created_at: <span class="literal">true</span>          <span class="comment"># 显示创建时间</span></span><br><span class="line">  updated_at:</span><br><span class="line">    <span class="built_in">enable</span>: <span class="literal">true</span>            <span class="comment"># 显示更新时间</span></span><br><span class="line">    another_day: <span class="literal">true</span></span><br><span class="line">  categories: <span class="literal">true</span>          <span class="comment"># 显示分类</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Post wordcount display settings</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/next-theme/hexo-word-counter</span></span><br><span class="line"><span class="comment"># 预计阅读时间和文章字数统计</span></span><br><span class="line">symbols_count_time: </span><br><span class="line">  separated_meta: <span class="literal">true</span></span><br><span class="line">  item_text_total: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Use icon instead of the symbol # to indicate the tag at the bottom of the post</span></span><br><span class="line"><span class="comment"># 文章底部默认的标签是 # tags </span></span><br><span class="line">tag_icon: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Donate (Sponsor) settings</span></span><br><span class="line"><span class="comment"># Front-matter variable (unsupport animation).</span></span><br><span class="line"><span class="comment"># 打赏设置</span></span><br><span class="line">reward_settings:</span><br><span class="line">  <span class="comment"># If true, a donate button will be displayed in every article by default.</span></span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  animation: <span class="literal">false</span></span><br><span class="line">  <span class="comment">#comment: Buy me a coffee</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 收款二维码图片</span></span><br><span class="line">reward:</span><br><span class="line">  <span class="comment">#wechatpay: /images/wechatpay.png</span></span><br><span class="line">  <span class="comment">#alipay: /images/alipay.png</span></span><br><span class="line">  <span class="comment">#paypal: /images/paypal.png</span></span><br><span class="line">  <span class="comment">#bitcoin: /images/bitcoin.png</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Subscribe through Telegram Channel, Twitter, etc.</span></span><br><span class="line"><span class="comment"># Usage: `Key: permalink || icon` (Font Awesome)</span></span><br><span class="line">follow_me:</span><br><span class="line">  <span class="comment">#Twitter: https://twitter.com/username || fab fa-twitter</span></span><br><span class="line">  <span class="comment">#Telegram: https://t.me/channel_name || fab fa-telegram</span></span><br><span class="line">  <span class="comment">#WeChat: /images/wechat_channel.jpg || fab fa-weixin</span></span><br><span class="line">  <span class="comment">#RSS: /atom.xml || fa fa-rss</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Related popular posts</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/tea3/hexo-related-popular-posts</span></span><br><span class="line">related_posts:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  title: <span class="comment"># Custom header, leave empty to use the default one</span></span><br><span class="line">  display_in_home: <span class="literal">false</span></span><br><span class="line">  params:</span><br><span class="line">    maxCount: 5</span><br><span class="line">    <span class="comment">#PPMixingRate: 0.0</span></span><br><span class="line">    <span class="comment">#isDate: false</span></span><br><span class="line">    <span class="comment">#isImage: false</span></span><br><span class="line">    <span class="comment">#isExcerpt: false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Post edit</span></span><br><span class="line"><span class="comment"># Easily browse and edit blog source code online.</span></span><br><span class="line">post_edit:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  url: https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/ <span class="comment"># Link for view source</span></span><br><span class="line">  <span class="comment">#url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/ # Link for fork &amp; edit</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Show previous post and next post in post footer if exists</span></span><br><span class="line"><span class="comment"># Available values: left | right | false</span></span><br><span class="line">post_navigation: left</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Custom Page Settings</span></span><br><span class="line"><span class="comment"># See: https://theme-next.js.org/docs/theme-settings/custom-pages</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># TagCloud settings for tags page.</span></span><br><span class="line">tagcloud:</span><br><span class="line">  min: 12 <span class="comment"># Minimun font size in px</span></span><br><span class="line">  max: 30 <span class="comment"># Maxium font size in px</span></span><br><span class="line">  amount: 200 <span class="comment"># Total amount of tags</span></span><br><span class="line">  orderby: name <span class="comment"># Order of tags</span></span><br><span class="line">  order: 1 <span class="comment"># Sort order</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Google Calendar</span></span><br><span class="line"><span class="comment"># Share your recent schedule to others via calendar page.</span></span><br><span class="line">calendar:</span><br><span class="line">  calendar_id: &lt;required&gt; <span class="comment"># Your Google account E-Mail</span></span><br><span class="line">  api_key: &lt;required&gt;</span><br><span class="line">  orderBy: startTime</span><br><span class="line">  showLocation: <span class="literal">false</span></span><br><span class="line">  offsetMax: 72 <span class="comment"># Time Range</span></span><br><span class="line">  offsetMin: 4 <span class="comment"># Time Range</span></span><br><span class="line">  showDeleted: <span class="literal">false</span></span><br><span class="line">  singleEvents: <span class="literal">true</span></span><br><span class="line">  maxResults: 250</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Misc Theme Settings</span></span><br><span class="line"><span class="comment"># See: https://theme-next.js.org/docs/theme-settings/miscellaneous</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the text alignment in posts / pages.</span></span><br><span class="line">text_align:</span><br><span class="line">  <span class="comment"># Available values: start | end | left | right | center | justify | justify-all | match-parent</span></span><br><span class="line">  desktop: justify</span><br><span class="line">  mobile: justify</span><br><span class="line"></span><br><span class="line"><span class="comment"># Reduce padding / margin indents on devices with narrow width.</span></span><br><span class="line">mobile_layout_economy: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Android Chrome header panel color ($brand-bg / $headband-bg =&gt; $black-deep).</span></span><br><span class="line">android_chrome_color: <span class="string">&quot;#222&quot;</span></span><br><span class="line"></span><br><span class="line">codeblock:</span><br><span class="line">  <span class="comment"># Code Highlight theme</span></span><br><span class="line">  <span class="comment"># All available themes: https://theme-next.js.org/highlight/</span></span><br><span class="line">  theme:</span><br><span class="line">    light: vs2015</span><br><span class="line">    dark: vs2015</span><br><span class="line">  prism:</span><br><span class="line">    light: prism</span><br><span class="line">    dark: prism-dark</span><br><span class="line">  <span class="comment"># Add copy button on codeblock</span></span><br><span class="line">  copy_button:</span><br><span class="line">    <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Available values: default | flat | mac</span></span><br><span class="line">    style: </span><br><span class="line"></span><br><span class="line">back2top:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Back to top in sidebar.</span></span><br><span class="line">  sidebar: <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Scroll percent label in b2t button.</span></span><br><span class="line">  scrollpercent: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Reading progress bar</span></span><br><span class="line">reading_progress:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Available values: top | bottom</span></span><br><span class="line">  position: top</span><br><span class="line">  color: <span class="string">&quot;#37c6c0&quot;</span></span><br><span class="line">  height: 3px</span><br><span class="line"></span><br><span class="line"><span class="comment"># Bookmark Support</span></span><br><span class="line">bookmark:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Customize the color of the bookmark.</span></span><br><span class="line">  color: <span class="string">&quot;#222&quot;</span></span><br><span class="line">  <span class="comment"># If auto, save the reading progress when closing the page or clicking the bookmark-icon.</span></span><br><span class="line">  <span class="comment"># If manual, only save it by clicking the bookmark-icon.</span></span><br><span class="line">  save: auto</span><br><span class="line"></span><br><span class="line"><span class="comment"># `Follow me on GitHub` banner in the top-right corner.</span></span><br><span class="line">github_banner:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  permalink: https://github.com/yourname</span><br><span class="line">  title: Follow me on GitHub</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</details>
+
+
+<hr>
+<h4 id="NexT-字体设置"><a href="#NexT-字体设置" class="headerlink" title="NexT 字体设置"></a>NexT 字体设置</h4><details class="note primary"><summary><p>NexT 字体设置</p>
+</summary>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Font Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Find fonts on Google Fonts (https://fonts.google.com)</span></span><br><span class="line"><span class="comment"># All fonts set here will have the following styles:</span></span><br><span class="line"><span class="comment">#   light | light italic | normal | normal italic | bold | bold italic</span></span><br><span class="line"><span class="comment"># Be aware that setting too much fonts will cause site running slowly</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># To avoid space between header and sidebar in scheme Pisces / Gemini, Web Safe fonts are recommended for `global` (and `title`):</span></span><br><span class="line"><span class="comment"># Arial | Tahoma | Helvetica | Times New Roman | Courier New | Verdana | Georgia | Palatino | Garamond | Comic Sans MS | Trebuchet MS</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line">font:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Uri of fonts host, e.g. https://fonts.googleapis.com (Default).</span></span><br><span class="line">  host:</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font options:</span></span><br><span class="line">  <span class="comment"># `external: true` will load this font family from `host` above.</span></span><br><span class="line">  <span class="comment"># `family: Times New Roman`. Without any quotes.</span></span><br><span class="line">  <span class="comment"># `size: x.x`. Use `em` as unit. Default: 1 (16px)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Global font settings used for all elements inside &lt;body&gt;.</span></span><br><span class="line">  global:</span><br><span class="line">    external: <span class="literal">true</span></span><br><span class="line">    family: Monda</span><br><span class="line">    size: 0.80</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for site title (.site-title).</span></span><br><span class="line">  title:</span><br><span class="line">    external: <span class="literal">true</span></span><br><span class="line">    family: Monda</span><br><span class="line">    size: 1.5</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for headlines (&lt;h1&gt; to &lt;h6&gt;).</span></span><br><span class="line">  headings:</span><br><span class="line">    external: <span class="literal">true</span></span><br><span class="line">    family: Monda</span><br><span class="line">    size: 1.5</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for posts (.post-body).</span></span><br><span class="line">  posts:</span><br><span class="line">    external: <span class="literal">true</span></span><br><span class="line">    family: Monda</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for &lt;code&gt; and code blocks.</span></span><br><span class="line">  codes:</span><br><span class="line">    external: <span class="literal">true</span></span><br><span class="line">    family: monospace</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</details>
+
+<hr>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>个人博客搭建</tag>
+        <tag>GitHub Pages</tag>
+      </tags>
+  </entry>
+</search>

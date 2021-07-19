@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/Header/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Header/swp-favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Header/swp-favicon-32x32.png">
+  <link rel="mask-icon" href="/images/Header/swp-logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dream-swp.com","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="CocoaPods">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CocoaPods,『 安装 &amp; 使用 』">
+<meta property="og:url" content="https://dream-swp.com/2018/02/11/CocoaPods/01.CocoaPods.%E5%AE%89%E8%A3%85&%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Dream">
+<meta property="og:description" content="CocoaPods">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dream-swp.com/images/CocoaPods/1602224488.png">
+<meta property="og:image" content="https://dream-swp.com/images/CocoaPods/1602225181.png">
+<meta property="og:image" content="https://dream-swp.com/images/CocoaPods/1602226065.png">
+<meta property="og:image" content="https://dream-swp.com/images/CocoaPods/1602260730098.png">
+<meta property="og:image" content="https://dream-swp.com/images/CocoaPods/1602260976992.png">
+<meta property="og:image" content="https://dream-swp.com/images/CocoaPods/1602260754991.png">
+<meta property="og:image" content="https://dream-swp.com/images/CocoaPods/1602260754991.png">
+<meta property="og:image" content="https://dream-swp.com/images/CocoaPods/1602260805029.png">
+<meta property="article:published_time" content="2018-02-11T02:13:14.000Z">
+<meta property="article:modified_time" content="2021-07-19T14:33:46.909Z">
+<meta property="article:author" content="Dream">
+<meta property="article:tag" content="CocoaPods">
+<meta property="article:tag" content="Pod">
+<meta property="article:tag" content="iOS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dream-swp.com/images/CocoaPods/1602224488.png">
+
+
+<link rel="canonical" href="https://dream-swp.com/2018/02/11/CocoaPods/01.CocoaPods.%E5%AE%89%E8%A3%85&%E4%BD%BF%E7%94%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dream-swp.com/2018/02/11/CocoaPods/01.CocoaPods.%E5%AE%89%E8%A3%85&%E4%BD%BF%E7%94%A8/","path":"2018/02/11/CocoaPods/01.CocoaPods.安装&使用/","title":"CocoaPods,『 安装 & 使用 』"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CocoaPods,『 安装 & 使用 』 | Dream</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Dream</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description"></p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CocoaPods"><span class="nav-number">1.</span> <span class="nav-text">CocoaPods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ruby%EF%BC%8CGem"><span class="nav-number">2.</span> <span class="nav-text">Ruby，Gem</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B-Gem-%E7%89%88%E6%9C%AC"><span class="nav-number">2.1.</span> <span class="nav-text">查看 Gem 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gem-%E5%8D%87%E7%BA%A7"><span class="nav-number">2.2.</span> <span class="nav-text">Gem 升级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gem-%E6%9B%B4%E6%96%B0%E6%89%80%E6%9C%89%E6%8F%92%E4%BB%B6"><span class="nav-number">2.3.</span> <span class="nav-text">Gem 更新所有插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gem-%E6%9B%B4%E6%96%B0%E6%89%80%E6%9C%89%E6%8F%92%E4%BB%B6-1"><span class="nav-number">2.4.</span> <span class="nav-text">Gem 更新所有插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-CocoaPods"><span class="nav-number">3.</span> <span class="nav-text">安装 CocoaPods</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2-Ruby-%E6%BA%90"><span class="nav-number">3.2.</span> <span class="nav-text">更换 Ruby 源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tips"><span class="nav-number">3.3.</span> <span class="nav-text">Tips</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CocoaPods-%E5%91%BD%E4%BB%A4%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">CocoaPods  命令简单使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CocoaPods-%EF%BC%8CPodfile-%E6%96%87%E4%BB%B6%E7%BC%96%E5%86%99%EF%BC%8C%E4%B8%89%E6%96%B9%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">5.</span> <span class="nav-text">CocoaPods ，Podfile 文件编写，三方库的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-Podfile-%E6%96%87%E4%BB%B6"><span class="nav-number">5.1.</span> <span class="nav-text">创建 Podfile 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E5%86%99-Podfile-%E6%96%87%E4%BB%B6"><span class="nav-number">5.2.</span> <span class="nav-text">编写 Podfile 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E5%86%99-pod-install"><span class="nav-number">5.3.</span> <span class="nav-text">编写 pod install</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tips-1"><span class="nav-number">5.4.</span> <span class="nav-text">Tips</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CocoaPods-%E6%93%8D%E4%BD%9C"><span class="nav-number">6.</span> <span class="nav-text">CocoaPods 操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CocoaPods-%E5%8D%B8%E8%BD%BD"><span class="nav-number">6.1.</span> <span class="nav-text">CocoaPods 卸载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CocoaPods%E6%9B%B4%E6%96%B0-%EF%BC%9A"><span class="nav-number">6.2.</span> <span class="nav-text">CocoaPods更新 ：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CocoaPods-%E6%9B%B4%E6%96%B0%E6%B5%8B%E8%AF%95%E7%89%88-%EF%BC%9A"><span class="nav-number">6.3.</span> <span class="nav-text">CocoaPods 更新测试版 ：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CocoaPods-%E5%88%9D%E5%A7%8B%E5%8C%96-%EF%BC%9A"><span class="nav-number">6.4.</span> <span class="nav-text">CocoaPods 初始化 ：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tips-2"><span class="nav-number">6.5.</span> <span class="nav-text">Tips</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dream"
+      src="/images/Header/swp_header.png">
+  <p class="site-author-name" itemprop="name">Dream</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/swp-song" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;swp-song" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dream-swp.com/2018/02/11/CocoaPods/01.CocoaPods.%E5%AE%89%E8%A3%85&%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Header/swp_header.png">
+      <meta itemprop="name" content="Dream">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dream">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CocoaPods,『 安装 & 使用 』
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-02-11 10:13:14" itemprop="dateCreated datePublished" datetime="2018-02-11T10:13:14+08:00">2018-02-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-19 22:33:46" itemprop="dateModified" datetime="2021-07-19T22:33:46+08:00">2021-07-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CocoaPods/" itemprop="url" rel="index"><span itemprop="name">CocoaPods</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/CocoaPods/1602224488.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="CocoaPods"><a href="#CocoaPods" class="headerlink" title="CocoaPods"></a>CocoaPods</h3><a id="more"></a>    
+
+<ul>
+<li>在 iOS 项目的开发中，开发者必然会用到一些三方的库，需要导入一堆相关依赖库，更新的时候也要删掉重新导入然后再配置，当我们需要更新某个第三方库的时候，我们又要手动移除该库，导入新的库，然后再配置，这些是很麻烦且没有意义的工作。</li>
+<li>这时我们需要一个三方库文件管理的工具，来方便管理库文件：<strong>CocoaPods</strong>，就是帮助开发者解决三方库文件，导入，更新的。</li>
+<li>说白了 <strong>CocoaPods</strong> 就是三方库的管理工具。</li>
+<li>使用 <strong>CocoaPods</strong> 更方便管理我们的三方库文件。</li>
+</ul>
+<hr>
+<h3 id="Ruby，Gem"><a href="#Ruby，Gem" class="headerlink" title="Ruby，Gem"></a>Ruby，Gem</h3><ul>
+<li><strong>Gem</strong> 的使用，<strong>Gem</strong> 是 <strong>Ruby</strong> 的包管理工具，<strong>Ruby</strong> 的各种插件是通过 <strong>Gem</strong> 来安装的， <strong>CocoaPods</strong> 就是 <strong>Ruby</strong> 开发的一个插件。</li>
+<li>在使用 <strong>Gem</strong> 来安装 <strong>CocoaPods</strong> 时， 建议先更新 <strong>Gem</strong> 的版本，（ <strong>Gem</strong> 是 <strong>Mac OS</strong> 自带的我们不需要安装 ，但是需要更新下，防止安装失败）。</li>
+</ul>
+<hr>
+<h4 id="查看-Gem-版本"><a href="#查看-Gem-版本" class="headerlink" title="查看 Gem 版本"></a>查看 Gem 版本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem --versio </span><br><span class="line">gem -v</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Gem-升级"><a href="#Gem-升级" class="headerlink" title="Gem 升级"></a>Gem 升级</h4><ul>
+<li>Gem 升级：</li>
+<li>Gem 升级， 这个主要是解决 Gem 版本过老导致 Cocoapods 不能安装问题</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem update --system</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Gem-更新所有插件"><a href="#Gem-更新所有插件" class="headerlink" title="Gem 更新所有插件"></a>Gem 更新所有插件</h4><ul>
+<li>Gem 更新所有插件:</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem update</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Gem-更新所有插件-1"><a href="#Gem-更新所有插件-1" class="headerlink" title="Gem 更新所有插件"></a>Gem 更新所有插件</h4><ul>
+<li>Gem 清除过期插件：</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem cleanup</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CocoaPods/1602225181.png"></p>
+<hr>
+<h3 id="安装-CocoaPods"><a href="#安装-CocoaPods" class="headerlink" title="安装 CocoaPods"></a>安装 CocoaPods</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://cocoapods.org/">CocoaPods 官方网站</a></strong></li>
+<li>CocoaPods 安装命令如下:</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem install -n /usr/local/bin cocoapods</span><br></pre></td></tr></table></figure>
+<ul>
+<li>等待安装成功。</li>
+</ul>
+<hr>
+<h4 id="更换-Ruby-源"><a href="#更换-Ruby-源" class="headerlink" title="更换 Ruby 源"></a>更换 Ruby 源</h4><ul>
+<li>以上操作是建立在 <strong>Gem</strong> 服务器良好的情况下进行的，如果没翻墙，请切换到国内的 <strong>Ruby</strong> 软件源</li>
+<li><strong>Ruby</strong> 的软件源  <strong><a target="_blank" rel="noopener" href="https://rubygems.org/">https://rubygems.org</a></strong> 因为使用的国外的服务器，所以被墙了，需要切换 <strong>Ruby</strong> 的源，使用如下 ：</li>
+<li><del>淘宝的已经不能用了 <strong><a target="_blank" rel="noopener" href="https://ruby.taobao.org/">https://ruby.taobao.org/</a></strong></del></li>
+<li>终端输入：</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更换 Ruby 源, 确保只有 gems.ruby-china.com</span></span><br><span class="line">gem sources --add <span class="symbol">https:</span>/<span class="regexp">/gems.ruby-china.com/</span> --remove <span class="symbol">https:</span>/<span class="regexp">/rubygems.org/</span></span><br><span class="line">gem sources -l</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CocoaPods/1602226065.png"></p>
+<hr>
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><ul>
+<li>替换完成在输入安装命令即可：</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem install -n /usr/local/bin cocoapods</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>等待安装完成。</li>
+<li><strong>同理 <a target="_blank" rel="noopener" href="https://gems.ruby-china.com/">https://gems.ruby-china.com/</a> 镜像也可换回 <a target="_blank" rel="noopener" href="https://rubygems.org/">https://rubygems.org/</a> 镜像</strong></li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem sources --add <span class="symbol">https:</span>/<span class="regexp">/rubygems.org/</span> --remove <span class="symbol">https:</span>/<span class="regexp">/gems.ruby-china.com/</span></span><br><span class="line">gem sources -l</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="CocoaPods-命令简单使用"><a href="#CocoaPods-命令简单使用" class="headerlink" title="CocoaPods  命令简单使用"></a>CocoaPods  命令简单使用</h3><ul>
+<li>命令如下：</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看帮助，查看 pod 命令</span></span><br><span class="line">pod --help </span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 pod 版本</span></span><br><span class="line">pod --version</span><br><span class="line">        </span><br><span class="line"><span class="comment"># 创建 Podfile 文件        </span></span><br><span class="line">pod init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索库，根据库的名称</span></span><br><span class="line">pod search SwpCateGory</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装三方库</span></span><br><span class="line">pod install</span><br><span class="line">   </span><br><span class="line"><span class="comment"># 更新三方库</span></span><br><span class="line">pod update</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CocoaPods/1602260730098.png"></p>
+<ul>
+<li>search </li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod search SwpCateGory</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CocoaPods/1602260976992.png"></p>
+<hr>
+<h3 id="CocoaPods-，Podfile-文件编写，三方库的安装"><a href="#CocoaPods-，Podfile-文件编写，三方库的安装" class="headerlink" title="CocoaPods ，Podfile 文件编写，三方库的安装"></a>CocoaPods ，Podfile 文件编写，三方库的安装</h3><h4 id="创建-Podfile-文件"><a href="#创建-Podfile-文件" class="headerlink" title="创建 Podfile 文件"></a>创建 Podfile 文件</h4><ul>
+<li>创建 Podfile 文件</li>
+<li><strong>终端输入:</strong></li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;project&gt;</span><br><span class="line">pod init</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>可以使用 CocoaPods App 编辑 Podfile</li>
+<li><strong><a target="_blank" rel="noopener" href="https://cocoapods.org/app">CocoaPods App下载页面</a></strong></li>
+</ul>
+<hr>
+<h4 id="编写-Podfile-文件"><a href="#编写-Podfile-文件" class="headerlink" title="编写 Podfile 文件"></a>编写 Podfile 文件</h4><ul>
+<li>创建完 <strong>Podfile</strong> 之后使用 <strong>CocoaPods App</strong>，<strong>常用编辑器</strong>，或 <strong>Vim</strong> 编辑 <strong>Podfile</strong> 文件，读者任选其一。</li>
+<li>编辑如下：</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Uncomment the next line to define a global platform for your project</span></span><br><span class="line">source <span class="string">&#x27;https://github.com/CocoaPods/Specs.git&#x27;</span></span><br><span class="line">platform <span class="symbol">:ios</span>, <span class="string">&#x27;11.0&#x27;</span></span><br><span class="line">target <span class="string">&#x27;Demo&#x27;</span> <span class="keyword">do</span></span><br><span class="line">    <span class="comment"># Comment the next line if you don&#x27;t want to use dynamic frameworks</span></span><br><span class="line">    use_frameworks!</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Pods for Demo</span></span><br><span class="line">    pod <span class="string">&#x27;SwpCateGory&#x27;</span></span><br><span class="line">    pod <span class="string">&#x27;SwpRequest&#x27;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="编写-pod-install"><a href="#编写-pod-install" class="headerlink" title="编写 pod install"></a>编写 pod install</h4><ul>
+<li>编辑完 <strong>Podfile</strong> 文件，安装三方库</li>
+<li>终端安装三方库：</li>
+<li>终端输入：</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入项目</span></span><br><span class="line">cd &lt;project&gt;</span><br><span class="line"><span class="comment"># 安装三方库</span></span><br><span class="line">pod install </span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CocoaPods/1602260754991.png"></p>
+<hr>
+<h4 id="Tips-1"><a href="#Tips-1" class="headerlink" title="Tips"></a>Tips</h4><ul>
+<li><p>进入项目目录，请打开：<strong>（重要的事情说说三遍！！！）</strong></p>
+</li>
+<li><p><strong>xxx.xcworkspace！！！</strong> </p>
+</li>
+<li><p><strong>xxx.xcworkspace！！！</strong> </p>
+</li>
+<li><p><strong>xxx.xcworkspace！！！</strong> </p>
+</li>
+<li><p>而不是 <strong>xxx.xcodeproj</strong></p>
+<p>  <img src="/images/CocoaPods/1602260754991.png"></p>
+</li>
+<li><p>项目结构:</p>
+<p>  <img src="/images/CocoaPods/1602260805029.png" alt="项目结构"></p>
+</li>
+</ul>
+<hr>
+<h3 id="CocoaPods-操作"><a href="#CocoaPods-操作" class="headerlink" title="CocoaPods 操作"></a>CocoaPods 操作</h3><h4 id="CocoaPods-卸载"><a href="#CocoaPods-卸载" class="headerlink" title="CocoaPods 卸载"></a>CocoaPods 卸载</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 卸载 CocoaPods</span></span><br><span class="line">sudo gem uninstall cocoapods </span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="CocoaPods更新-："><a href="#CocoaPods更新-：" class="headerlink" title="CocoaPods更新 ："></a>CocoaPods更新 ：</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新 CocoaPods</span></span><br><span class="line">sudo gem update cocoapods</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="CocoaPods-更新测试版-："><a href="#CocoaPods-更新测试版-：" class="headerlink" title="CocoaPods 更新测试版 ："></a>CocoaPods 更新测试版 ：</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装测试版 CocoaPods</span></span><br><span class="line">sudo gem install -n /usr/local/bin cocoapods --pre</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h4 id="CocoaPods-初始化-："><a href="#CocoaPods-初始化-：" class="headerlink" title="CocoaPods 初始化 ："></a>CocoaPods 初始化 ：</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pod 初始化</span></span><br><span class="line">pod setup</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Tips-2"><a href="#Tips-2" class="headerlink" title="Tips"></a>Tips</h4><ul>
+<li><strong>CocoaPods</strong> 初始化操作可能等待的时间过于长久，就是将 <strong>podspec</strong> 索引文件 下载到 <strong>~/.cocoapods</strong> 目录下。</li>
+<li>如果你等太久，可以终端输入:</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~<span class="regexp">/.cocoapods</span></span><br><span class="line"><span class="regexp">du -sh </span></span><br></pre></td></tr></table></figure>
+
+<hr>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CocoaPods/" rel="tag"><i class="fa fa-tag"></i> CocoaPods</a>
+              <a href="/tags/Pod/" rel="tag"><i class="fa fa-tag"></i> Pod</a>
+              <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/01/31/HexoBlog/05.Hexo.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%8E%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/" rel="prev" title="Hexo,『 数据同步 & 数据迁移 』">
+                  <i class="fa fa-chevron-left"></i> Hexo,『 数据同步 & 数据迁移 』
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/10/09/OhMyZsh/03.OhMyZsh.443.Connection.Refused.%E9%94%99%E8%AF%AF%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85/" rel="next" title="Oh My Zsh,『 443 Connection Refused 错误无法安装 』">
+                  Oh My Zsh,『 443 Connection Refused 错误无法安装 』 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fab fa-apple"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dream</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

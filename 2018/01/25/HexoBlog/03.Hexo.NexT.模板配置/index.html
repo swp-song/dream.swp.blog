@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/Header/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Header/swp-favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Header/swp-favicon-32x32.png">
+  <link rel="mask-icon" href="/images/Header/swp-logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dream-swp.com","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="NexT 安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo,『 NexT 模板配置 』">
+<meta property="og:url" content="https://dream-swp.com/2018/01/25/HexoBlog/03.Hexo.NexT.%E6%A8%A1%E6%9D%BF%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Dream">
+<meta property="og:description" content="NexT 安装">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dream-swp.com/images/HexoBlog/00/1602228309.png">
+<meta property="og:image" content="https://dream-swp.com/images/HexoBlog/03/1602253620267.png">
+<meta property="article:published_time" content="2018-01-25T06:26:11.000Z">
+<meta property="article:modified_time" content="2021-07-19T14:33:46.909Z">
+<meta property="article:author" content="Dream">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="个人博客搭建">
+<meta property="article:tag" content="GitHub Pages">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dream-swp.com/images/HexoBlog/00/1602228309.png">
+
+
+<link rel="canonical" href="https://dream-swp.com/2018/01/25/HexoBlog/03.Hexo.NexT.%E6%A8%A1%E6%9D%BF%E9%85%8D%E7%BD%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dream-swp.com/2018/01/25/HexoBlog/03.Hexo.NexT.%E6%A8%A1%E6%9D%BF%E9%85%8D%E7%BD%AE/","path":"2018/01/25/HexoBlog/03.Hexo.NexT.模板配置/","title":"Hexo,『 NexT 模板配置 』"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo,『 NexT 模板配置 』 | Dream</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Dream</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description"></p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NexT-%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">NexT 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-%E5%AE%89%E8%A3%85-%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">npm 安装 ( 推荐使用 )</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Git-%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">Git 安装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config-yml-%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">_config.yml 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NexT-%E6%96%87%E6%A1%A3"><span class="nav-number">3.</span> <span class="nav-text">NexT 文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NexT-%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">NexT 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6-amp-%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6"><span class="nav-number">4.1.</span> <span class="nav-text">缓存文件 &amp; 资源文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NexT-%E6%A0%B7%E5%BC%8F%E9%85%8D%E7%BD%AE"><span class="nav-number">4.2.</span> <span class="nav-text">NexT 样式配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NexT-%E6%96%87%E7%AB%A0%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.3.</span> <span class="nav-text">NexT 文章设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NexT-%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.4.</span> <span class="nav-text">NexT 字体设置</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dream"
+      src="/images/Header/swp_header.png">
+  <p class="site-author-name" itemprop="name">Dream</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/swp-song" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;swp-song" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dream-swp.com/2018/01/25/HexoBlog/03.Hexo.NexT.%E6%A8%A1%E6%9D%BF%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Header/swp_header.png">
+      <meta itemprop="name" content="Dream">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dream">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo,『 NexT 模板配置 』
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-01-25 14:26:11" itemprop="dateCreated datePublished" datetime="2018-01-25T14:26:11+08:00">2018-01-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-19 22:33:46" itemprop="dateModified" datetime="2021-07-19T22:33:46+08:00">2021-07-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/HexoBlog/00/1602228309.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="NexT-安装"><a href="#NexT-安装" class="headerlink" title="NexT 安装"></a>NexT 安装</h3><a id="more"></a>    
+
+<h4 id="npm-安装-推荐使用"><a href="#npm-安装-推荐使用" class="headerlink" title="npm 安装 ( 推荐使用 )"></a>npm 安装 ( 推荐使用 )</h4><ul>
+<li><p>使用 npm 安装</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-theme-next@latest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装指定版本</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-theme-next@8.0.0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Copy next/_config.yml 文件</p>
+</li>
+<li><p>该文件会复制到 Hexo 目录下, 与 Hexo _config.yml 在同一级目录</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp node_modules&#x2F;hexo-theme-next&#x2F;_config.yml _config.next.yml</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h4 id="Git-安装"><a href="#Git-安装" class="headerlink" title="Git 安装"></a>Git 安装</h4><ul>
+<li><p>使用 <strong>git</strong> 直接 <strong>clone</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+
+<p>  or</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;gitlab.com&#x2F;hexo-theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装指定版本</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --branch v8.0.0 https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+
+<p>  or</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --branch v8.0.0 https:&#x2F;&#x2F;gitlab.com&#x2F;hexo-theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Copy next/_config.yml 文件</p>
+</li>
+<li><p>该文件会复制到 Hexo 目录下, 与 Hexo _config.yml 在同一级目录</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp theme&#x2F;next&#x2F;_config.yml _config.next.yml</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h3 id="config-yml-配置"><a href="#config-yml-配置" class="headerlink" title="_config.yml 配置"></a>_config.yml 配置</h3><ul>
+<li><p>安装完成，修改 <strong>/博客目录/_config.yml/**， 配置文件，找到 **theme: landscape</strong> 修改为 <strong>theme: next</strong>。</p>
+  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="symbol">theme:</span> <span class="keyword">next</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改完成进入终端:</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;folder&gt;</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>浏览器访问 : <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a></p>
+</li>
+<li><p><strong>NexT 主题的效果:</strong></p>
+<p>  <img src="/images/HexoBlog/03/1602253620267.png"></p>
+</li>
+</ul>
+<hr>
+<h3 id="NexT-文档"><a href="#NexT-文档" class="headerlink" title="NexT 文档"></a>NexT 文档</h3><ul>
+<li><a class="btn" target="_blank" rel="noopener" href="https://theme-next.js.org">NexT 文档</a> <a class="btn" target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">NexT GitHub</a> <a class="btn" target="_blank" rel="noopener" href="https://gitlab.com/hexo-theme-next/hexo-theme-next">NexT Gitlab</a> 
+
+
+
+</li>
+</ul>
+<hr>
+<h3 id="NexT-配置"><a href="#NexT-配置" class="headerlink" title="NexT 配置"></a>NexT 配置</h3><ul>
+<li>在安装 NexT 模板的时，我们已经复制复制了一份 _config.yml 文件，修改名称为 _config.next.yml, 我们通过修改这个文件来控制模板的样式，复制出来是为了避免修改源文件，模板升级问题。</li>
+<li><strong>/_config.next.yml</strong> 配置文件中有很多参数，我们简单介绍下常用的。</li>
+</ul>
+<hr>
+<h4 id="缓存文件-amp-资源文件"><a href="#缓存文件-amp-资源文件" class="headerlink" title="缓存文件 &amp; 资源文件"></a>缓存文件 &amp; 资源文件</h4><details class="note primary"><summary><p>缓存文件 &amp; 资源文件配置</p>
+</summary>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ===============================================================</span></span><br><span class="line"><span class="comment"># It&#x27;s recommended to use Alternate Theme Config to configure the theme</span></span><br><span class="line"><span class="comment"># Modifying this file may result in merge conflict</span></span><br><span class="line"><span class="comment"># See: https://theme-next.js.org/docs/getting-started/configuration</span></span><br><span class="line"><span class="comment"># ===============================================================</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Theme Core Configuration Settings</span></span><br><span class="line"><span class="comment"># See: https://theme-next.js.org/docs/theme-settings/</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Allow to cache content generation. Introduced in NexT v6.0.0.</span></span><br><span class="line"><span class="comment"># 允许缓存，true</span></span><br><span class="line">cache:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove unnecessary files after hexo generate.</span></span><br><span class="line"><span class="comment"># 是否在 hexo 生成之后删除不必要的文件，false</span></span><br><span class="line">minify: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define custom file paths.</span></span><br><span class="line"><span class="comment"># Create your custom files in site directory `source/_data` and uncomment needed files below.</span></span><br><span class="line"><span class="comment"># 常用的文件路径</span></span><br><span class="line">custom_file_path:</span><br><span class="line">  <span class="comment">#head: source/_data/head.njk</span></span><br><span class="line">  <span class="comment">#header: source/_data/header.njk</span></span><br><span class="line">  <span class="comment">#sidebar: source/_data/sidebar.njk</span></span><br><span class="line">  <span class="comment">#postMeta: source/_data/post-meta.njk</span></span><br><span class="line">  <span class="comment">#postBodyEnd: source/_data/post-body-end.njk</span></span><br><span class="line">  <span class="comment">#footer: source/_data/footer.njk</span></span><br><span class="line">  <span class="comment">#bodyEnd: source/_data/body-end.njk</span></span><br><span class="line">  <span class="comment">#variable: source/_data/variables.styl</span></span><br><span class="line">  <span class="comment">#mixin: source/_data/mixins.styl</span></span><br><span class="line">  <span class="comment">#style: source/_data/styles.styl</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</details>
+
+<hr>
+<h4 id="NexT-样式配置"><a href="#NexT-样式配置" class="headerlink" title="NexT 样式配置"></a>NexT 样式配置</h4><details class="note primary"><summary><p>NexT 样式配置</p>
+</summary>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Scheme Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 布局</span></span><br><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment"># scheme: Muse</span></span><br><span class="line"><span class="comment"># scheme: Mist</span></span><br><span class="line"><span class="comment"># scheme: Pisces</span></span><br><span class="line">scheme: Gemini</span><br><span class="line"></span><br><span class="line"><span class="comment"># Dark Mode</span></span><br><span class="line"><span class="comment"># 夜间模式</span></span><br><span class="line">darkmode: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Site Information Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># 网站图标设置</span></span><br><span class="line">favicon: </span><br><span class="line">  small: /images/favicon-16x16-next.png</span><br><span class="line">  medium: /images/favicon-32x32-next.png</span><br><span class="line">  apple_touch_icon: /images/apple-touch-icon-next.png</span><br><span class="line">  safari_pinned_tab: /images/logo.svg</span><br><span class="line">  <span class="comment">#android_manifest: /images/manifest.json</span></span><br><span class="line">  <span class="comment">#ms_browserconfig: /images/browserconfig.xml</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Custom Logo (Warning: Do not support scheme Mist)</span></span><br><span class="line">custom_logo: <span class="comment">#/uploads/custom-logo.jpg</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Creative Commons 4.0 International License.</span></span><br><span class="line"><span class="comment"># See: https://creativecommons.org/share-your-work/licensing-types-examples</span></span><br><span class="line"><span class="comment"># Available values of license: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</span></span><br><span class="line"><span class="comment"># You can set a language value if you prefer a translated version of CC license, e.g. deed.zh</span></span><br><span class="line"><span class="comment"># CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org</span></span><br><span class="line"><span class="comment"># 文章版权说明</span></span><br><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: <span class="literal">false</span></span><br><span class="line">  post: <span class="literal">false</span></span><br><span class="line">  language:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Menu Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Usage: `Key: /link/ || icon`</span></span><br><span class="line"><span class="comment"># Key is the name of menu item. If the translation for this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-senstive.</span></span><br><span class="line"><span class="comment"># Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.</span></span><br><span class="line"><span class="comment"># When running the site in a subdirectory (e.g. yoursite.com/blog), remove the leading slash from link value (/archives -&gt; archives).</span></span><br><span class="line"><span class="comment"># External url should start with http:// or https://</span></span><br><span class="line"><span class="comment"># 菜单显示</span></span><br><span class="line">menu:</span><br><span class="line">  home: / || fa fa-home                     <span class="comment"># 主页</span></span><br><span class="line">  <span class="comment">#about: /about/ || fa fa-user             # 关于</span></span><br><span class="line">  tags: /tags/ || fa fa-tags                <span class="comment"># 标签</span></span><br><span class="line">  categories: /categories/ || fa fa-th      <span class="comment"># 分类</span></span><br><span class="line">  archives: /archives/ || fa fa-archive     <span class="comment"># 归档</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar   # 日历</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap   # 站点地图</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || fa fa-heartbeat     # 404</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable / Disable menu icons / item badges.</span></span><br><span class="line"><span class="comment"># 菜单设置</span></span><br><span class="line">menu_settings:</span><br><span class="line">  icons: <span class="literal">true</span>       <span class="comment"># 显示图标</span></span><br><span class="line">  badges: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Sidebar Settings</span></span><br><span class="line"><span class="comment"># See: https://theme-next.js.org/docs/theme-settings/sidebar</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 侧边栏位置</span></span><br><span class="line">sidebar:</span><br><span class="line">  <span class="comment"># Sidebar Position.</span></span><br><span class="line">  position: left</span><br><span class="line">  <span class="comment"># position: right</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Manual define the sidebar width. If commented, will be default for:</span></span><br><span class="line">  <span class="comment"># Muse | Mist: 320</span></span><br><span class="line">  <span class="comment"># Pisces | Gemini: 240</span></span><br><span class="line">  <span class="comment"># 侧边栏宽度</span></span><br><span class="line">  <span class="comment">#width: 300</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Sidebar Display (only for Muse | Mist), available values:       侧边栏暂时样式</span></span><br><span class="line">  <span class="comment">#  - post    expand on posts automatically. Default.              文章界面自动展开</span></span><br><span class="line">  <span class="comment">#  - always  expand for all pages automatically.                  所有的页面都默认展开</span></span><br><span class="line">  <span class="comment">#  - hide    expand only when click on the sidebar toggle icon.   所有的页面都默认隐藏</span></span><br><span class="line">  <span class="comment">#  - remove  totally remove sidebar including sidebar toggle.     完全移除侧边栏</span></span><br><span class="line">  display: post</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Sidebar padding in pixels.                                              侧边栏填充像素大小</span></span><br><span class="line">  padding: 18</span><br><span class="line">  <span class="comment"># Sidebar offset from top menubar in pixels (only for Pisces | Gemini).   侧边栏距离顶部菜单的距离</span></span><br><span class="line">  offset: 12</span><br><span class="line"></span><br><span class="line"><span class="comment"># Sidebar Avatar</span></span><br><span class="line">avatar:</span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.                         头像</span></span><br><span class="line">  url: /images/Header/swp_header.png</span><br><span class="line">  <span class="comment"># If true, the avatar will be dispalyed in circle.                        设置圆形</span></span><br><span class="line">  rounded: <span class="literal">false</span></span><br><span class="line">  <span class="comment"># If true, the avatar will be rotated with the cursor.                    是否旋转</span></span><br><span class="line">  rotated: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Posts / Categories / Tags in sidebar.</span></span><br><span class="line"><span class="comment"># 头像下是否显示文章、分类和标签设置</span></span><br><span class="line">site_state: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Social Links</span></span><br><span class="line"><span class="comment"># Usage: `Key: permalink || icon`</span></span><br><span class="line"><span class="comment"># Key is the link label showing to end users.</span></span><br><span class="line"><span class="comment"># Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.</span></span><br><span class="line"><span class="comment"># 社交账号 &amp; 友情链接</span></span><br><span class="line">social:</span><br><span class="line">  GitHub: https://github.com/swp-song || fab fa-github</span><br><span class="line">  <span class="comment">#E-Mail: mailto:yourname@gmail.com || fa fa-envelope</span></span><br><span class="line">  <span class="comment">#Weibo: https://weibo.com/yourname || fab fa-weibo</span></span><br><span class="line">  <span class="comment">#Google: https://plus.google.com/yourname || fab fa-google</span></span><br><span class="line">  <span class="comment">#Twitter: https://twitter.com/yourname || fab fa-twitter</span></span><br><span class="line">  <span class="comment">#FB Page: https://www.facebook.com/yourname || fab fa-facebook</span></span><br><span class="line">  <span class="comment">#StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow</span></span><br><span class="line">  <span class="comment">#YouTube: https://youtube.com/yourname || fab fa-youtube</span></span><br><span class="line">  <span class="comment">#Instagram: https://instagram.com/yourname || fab fa-instagram</span></span><br><span class="line">  <span class="comment">#Skype: skype:yourname?call|chat || fab fa-skype</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 友情链接</span></span><br><span class="line">social_icons:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  icons_only: <span class="literal">false</span></span><br><span class="line">  transition: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Blog rolls</span></span><br><span class="line">links_settings:</span><br><span class="line">  icon: fa fa-globe</span><br><span class="line">  title: Links</span><br><span class="line">  <span class="comment"># Available values: block | inline</span></span><br><span class="line">  layout: block</span><br><span class="line"></span><br><span class="line">links:</span><br><span class="line">  <span class="comment">#Title: http://yoursite.com</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Table of Contents in the Sidebar</span></span><br><span class="line"><span class="comment"># Front-matter variable (unsupport wrap expand_all).</span></span><br><span class="line">toc:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Automatically add list number to toc.</span></span><br><span class="line">  number: <span class="literal">true</span></span><br><span class="line">  <span class="comment"># If true, all words will placed on next lines if header width longer then sidebar width.</span></span><br><span class="line">  wrap: <span class="literal">false</span></span><br><span class="line">  <span class="comment"># If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span></span><br><span class="line">  expand_all: <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Maximum heading depth of generated toc.</span></span><br><span class="line">  max_depth: 6</span><br><span class="line"></span><br><span class="line"><span class="comment"># A button to open designated chat widget in sidebar.</span></span><br><span class="line"><span class="comment"># Firstly, you need enable the chat service you want to activate its sidebar button.</span></span><br><span class="line">chat:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  <span class="comment">#service: chatra</span></span><br><span class="line">  <span class="comment">#service: tidio</span></span><br><span class="line">  icon: fa fa-comment <span class="comment"># Icon name in Font Awesome, set false to disable icon.</span></span><br><span class="line">  text: Chat <span class="comment"># Button text, change it as you wish.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网站页脚设置</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Footer Settings</span></span><br><span class="line"><span class="comment"># See: https://theme-next.js.org/docs/theme-settings/footer</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Show multilingual switcher in footer.</span></span><br><span class="line">language_switcher: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">footer:</span><br><span class="line">  <span class="comment"># Specify the date when the site was setup. If not defined, current year will be used.</span></span><br><span class="line">  <span class="comment"># 起始建站时间</span></span><br><span class="line">  since: 2017</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Icon between year and copyright info.</span></span><br><span class="line">  icon:</span><br><span class="line">    <span class="comment"># Icon name in Font Awesome. See: https://fontawesome.com/icons     页脚图片</span></span><br><span class="line">    name: fab fa-apple</span><br><span class="line">    <span class="comment"># If you want to animate the icon, set it to true.                  是否开启页脚图片动画</span></span><br><span class="line">    animated: <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Change the color of icon, using Hex Code.                         图片颜色</span></span><br><span class="line">    color: <span class="string">&quot;#ffffff&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># If not defined, `author` from Hexo `_config.yml` will be used.</span></span><br><span class="line">  copyright:</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Powered by Hexo &amp; NexT      是否显示 HexT 链接</span></span><br><span class="line">  powered: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn</span></span><br><span class="line">  <span class="comment"># 备案</span></span><br><span class="line">  beian:</span><br><span class="line">    <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">    icp:</span><br><span class="line">    <span class="comment"># The digit in the num of gongan beian.</span></span><br><span class="line">    gongan_id:</span><br><span class="line">    <span class="comment"># The full num of gongan beian.</span></span><br><span class="line">    gongan_num:</span><br><span class="line">    <span class="comment"># The icon for gongan beian. See: http://www.beian.gov.cn/portal/download</span></span><br><span class="line">    gongan_icon_url:</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</details>
+
+
+<hr>
+<h4 id="NexT-文章设置"><a href="#NexT-文章设置" class="headerlink" title="NexT 文章设置"></a>NexT 文章设置</h4><details class="note primary"><summary><p>NexT 文章设置</p>
+</summary>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Post Settings</span></span><br><span class="line"><span class="comment"># See: https://theme-next.js.org/docs/theme-settings/posts</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Automatically excerpt description in homepage as preamble text.</span></span><br><span class="line"><span class="comment"># 主页显示预览文本</span></span><br><span class="line">excerpt_description: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Read more button</span></span><br><span class="line"><span class="comment"># If true, the read more button will be displayed in excerpt section.</span></span><br><span class="line"><span class="comment"># 是否显示 阅读更多 按钮</span></span><br><span class="line">read_more_btn: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Post meta display settings</span></span><br><span class="line"><span class="comment"># 文章显示设置</span></span><br><span class="line">post_meta:</span><br><span class="line">  item_text: <span class="literal">true</span>           <span class="comment"># 显示文章内容</span></span><br><span class="line">  created_at: <span class="literal">true</span>          <span class="comment"># 显示创建时间</span></span><br><span class="line">  updated_at:</span><br><span class="line">    <span class="built_in">enable</span>: <span class="literal">true</span>            <span class="comment"># 显示更新时间</span></span><br><span class="line">    another_day: <span class="literal">true</span></span><br><span class="line">  categories: <span class="literal">true</span>          <span class="comment"># 显示分类</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Post wordcount display settings</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/next-theme/hexo-word-counter</span></span><br><span class="line"><span class="comment"># 预计阅读时间和文章字数统计</span></span><br><span class="line">symbols_count_time: </span><br><span class="line">  separated_meta: <span class="literal">true</span></span><br><span class="line">  item_text_total: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Use icon instead of the symbol # to indicate the tag at the bottom of the post</span></span><br><span class="line"><span class="comment"># 文章底部默认的标签是 # tags </span></span><br><span class="line">tag_icon: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Donate (Sponsor) settings</span></span><br><span class="line"><span class="comment"># Front-matter variable (unsupport animation).</span></span><br><span class="line"><span class="comment"># 打赏设置</span></span><br><span class="line">reward_settings:</span><br><span class="line">  <span class="comment"># If true, a donate button will be displayed in every article by default.</span></span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  animation: <span class="literal">false</span></span><br><span class="line">  <span class="comment">#comment: Buy me a coffee</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 收款二维码图片</span></span><br><span class="line">reward:</span><br><span class="line">  <span class="comment">#wechatpay: /images/wechatpay.png</span></span><br><span class="line">  <span class="comment">#alipay: /images/alipay.png</span></span><br><span class="line">  <span class="comment">#paypal: /images/paypal.png</span></span><br><span class="line">  <span class="comment">#bitcoin: /images/bitcoin.png</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Subscribe through Telegram Channel, Twitter, etc.</span></span><br><span class="line"><span class="comment"># Usage: `Key: permalink || icon` (Font Awesome)</span></span><br><span class="line">follow_me:</span><br><span class="line">  <span class="comment">#Twitter: https://twitter.com/username || fab fa-twitter</span></span><br><span class="line">  <span class="comment">#Telegram: https://t.me/channel_name || fab fa-telegram</span></span><br><span class="line">  <span class="comment">#WeChat: /images/wechat_channel.jpg || fab fa-weixin</span></span><br><span class="line">  <span class="comment">#RSS: /atom.xml || fa fa-rss</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Related popular posts</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/tea3/hexo-related-popular-posts</span></span><br><span class="line">related_posts:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  title: <span class="comment"># Custom header, leave empty to use the default one</span></span><br><span class="line">  display_in_home: <span class="literal">false</span></span><br><span class="line">  params:</span><br><span class="line">    maxCount: 5</span><br><span class="line">    <span class="comment">#PPMixingRate: 0.0</span></span><br><span class="line">    <span class="comment">#isDate: false</span></span><br><span class="line">    <span class="comment">#isImage: false</span></span><br><span class="line">    <span class="comment">#isExcerpt: false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Post edit</span></span><br><span class="line"><span class="comment"># Easily browse and edit blog source code online.</span></span><br><span class="line">post_edit:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  url: https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/ <span class="comment"># Link for view source</span></span><br><span class="line">  <span class="comment">#url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/ # Link for fork &amp; edit</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Show previous post and next post in post footer if exists</span></span><br><span class="line"><span class="comment"># Available values: left | right | false</span></span><br><span class="line">post_navigation: left</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Custom Page Settings</span></span><br><span class="line"><span class="comment"># See: https://theme-next.js.org/docs/theme-settings/custom-pages</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># TagCloud settings for tags page.</span></span><br><span class="line">tagcloud:</span><br><span class="line">  min: 12 <span class="comment"># Minimun font size in px</span></span><br><span class="line">  max: 30 <span class="comment"># Maxium font size in px</span></span><br><span class="line">  amount: 200 <span class="comment"># Total amount of tags</span></span><br><span class="line">  orderby: name <span class="comment"># Order of tags</span></span><br><span class="line">  order: 1 <span class="comment"># Sort order</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Google Calendar</span></span><br><span class="line"><span class="comment"># Share your recent schedule to others via calendar page.</span></span><br><span class="line">calendar:</span><br><span class="line">  calendar_id: &lt;required&gt; <span class="comment"># Your Google account E-Mail</span></span><br><span class="line">  api_key: &lt;required&gt;</span><br><span class="line">  orderBy: startTime</span><br><span class="line">  showLocation: <span class="literal">false</span></span><br><span class="line">  offsetMax: 72 <span class="comment"># Time Range</span></span><br><span class="line">  offsetMin: 4 <span class="comment"># Time Range</span></span><br><span class="line">  showDeleted: <span class="literal">false</span></span><br><span class="line">  singleEvents: <span class="literal">true</span></span><br><span class="line">  maxResults: 250</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Misc Theme Settings</span></span><br><span class="line"><span class="comment"># See: https://theme-next.js.org/docs/theme-settings/miscellaneous</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the text alignment in posts / pages.</span></span><br><span class="line">text_align:</span><br><span class="line">  <span class="comment"># Available values: start | end | left | right | center | justify | justify-all | match-parent</span></span><br><span class="line">  desktop: justify</span><br><span class="line">  mobile: justify</span><br><span class="line"></span><br><span class="line"><span class="comment"># Reduce padding / margin indents on devices with narrow width.</span></span><br><span class="line">mobile_layout_economy: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Android Chrome header panel color ($brand-bg / $headband-bg =&gt; $black-deep).</span></span><br><span class="line">android_chrome_color: <span class="string">&quot;#222&quot;</span></span><br><span class="line"></span><br><span class="line">codeblock:</span><br><span class="line">  <span class="comment"># Code Highlight theme</span></span><br><span class="line">  <span class="comment"># All available themes: https://theme-next.js.org/highlight/</span></span><br><span class="line">  theme:</span><br><span class="line">    light: vs2015</span><br><span class="line">    dark: vs2015</span><br><span class="line">  prism:</span><br><span class="line">    light: prism</span><br><span class="line">    dark: prism-dark</span><br><span class="line">  <span class="comment"># Add copy button on codeblock</span></span><br><span class="line">  copy_button:</span><br><span class="line">    <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Available values: default | flat | mac</span></span><br><span class="line">    style: </span><br><span class="line"></span><br><span class="line">back2top:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Back to top in sidebar.</span></span><br><span class="line">  sidebar: <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Scroll percent label in b2t button.</span></span><br><span class="line">  scrollpercent: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Reading progress bar</span></span><br><span class="line">reading_progress:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Available values: top | bottom</span></span><br><span class="line">  position: top</span><br><span class="line">  color: <span class="string">&quot;#37c6c0&quot;</span></span><br><span class="line">  height: 3px</span><br><span class="line"></span><br><span class="line"><span class="comment"># Bookmark Support</span></span><br><span class="line">bookmark:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Customize the color of the bookmark.</span></span><br><span class="line">  color: <span class="string">&quot;#222&quot;</span></span><br><span class="line">  <span class="comment"># If auto, save the reading progress when closing the page or clicking the bookmark-icon.</span></span><br><span class="line">  <span class="comment"># If manual, only save it by clicking the bookmark-icon.</span></span><br><span class="line">  save: auto</span><br><span class="line"></span><br><span class="line"><span class="comment"># `Follow me on GitHub` banner in the top-right corner.</span></span><br><span class="line">github_banner:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  permalink: https://github.com/yourname</span><br><span class="line">  title: Follow me on GitHub</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</details>
+
+
+<hr>
+<h4 id="NexT-字体设置"><a href="#NexT-字体设置" class="headerlink" title="NexT 字体设置"></a>NexT 字体设置</h4><details class="note primary"><summary><p>NexT 字体设置</p>
+</summary>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Font Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Find fonts on Google Fonts (https://fonts.google.com)</span></span><br><span class="line"><span class="comment"># All fonts set here will have the following styles:</span></span><br><span class="line"><span class="comment">#   light | light italic | normal | normal italic | bold | bold italic</span></span><br><span class="line"><span class="comment"># Be aware that setting too much fonts will cause site running slowly</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># To avoid space between header and sidebar in scheme Pisces / Gemini, Web Safe fonts are recommended for `global` (and `title`):</span></span><br><span class="line"><span class="comment"># Arial | Tahoma | Helvetica | Times New Roman | Courier New | Verdana | Georgia | Palatino | Garamond | Comic Sans MS | Trebuchet MS</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line">font:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Uri of fonts host, e.g. https://fonts.googleapis.com (Default).</span></span><br><span class="line">  host:</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font options:</span></span><br><span class="line">  <span class="comment"># `external: true` will load this font family from `host` above.</span></span><br><span class="line">  <span class="comment"># `family: Times New Roman`. Without any quotes.</span></span><br><span class="line">  <span class="comment"># `size: x.x`. Use `em` as unit. Default: 1 (16px)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Global font settings used for all elements inside &lt;body&gt;.</span></span><br><span class="line">  global:</span><br><span class="line">    external: <span class="literal">true</span></span><br><span class="line">    family: Monda</span><br><span class="line">    size: 0.80</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for site title (.site-title).</span></span><br><span class="line">  title:</span><br><span class="line">    external: <span class="literal">true</span></span><br><span class="line">    family: Monda</span><br><span class="line">    size: 1.5</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for headlines (&lt;h1&gt; to &lt;h6&gt;).</span></span><br><span class="line">  headings:</span><br><span class="line">    external: <span class="literal">true</span></span><br><span class="line">    family: Monda</span><br><span class="line">    size: 1.5</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for posts (.post-body).</span></span><br><span class="line">  posts:</span><br><span class="line">    external: <span class="literal">true</span></span><br><span class="line">    family: Monda</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for &lt;code&gt; and code blocks.</span></span><br><span class="line">  codes:</span><br><span class="line">    external: <span class="literal">true</span></span><br><span class="line">    family: monospace</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</details>
+
+<hr>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag"><i class="fa fa-tag"></i> 个人博客搭建</a>
+              <a href="/tags/GitHub-Pages/" rel="tag"><i class="fa fa-tag"></i> GitHub Pages</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/09/19/HexoBlog/02.Hexo.%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" rel="prev" title="Hexo,『 安装 & 配置 』">
+                  <i class="fa fa-chevron-left"></i> Hexo,『 安装 & 配置 』
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/01/30/HexoBlog/04.Hexo.NexT.%E6%A0%87%E7%AD%BE&%E5%88%86%E7%B1%BB%E9%85%8D%E7%BD%AE/" rel="next" title="Hexo,『 NexT 标签 & 分类 配置 』">
+                  Hexo,『 NexT 标签 & 分类 配置 』 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fab fa-apple"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dream</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

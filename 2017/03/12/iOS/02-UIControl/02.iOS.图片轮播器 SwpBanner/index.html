@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/Header/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Header/swp-favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Header/swp-favicon-32x32.png">
+  <link rel="mask-icon" href="/images/Header/swp-logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dream-swp.com","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="SwpBanner 图片轮播器, 在 App 开发中常用的一组控件, 苹果没有提供UI控件, 需要开发者自己去封装。 想到做图片轮播. 我们常常就会想到使用 UISCrollerView， 如果要优化性能的需要我们自己去优化。 SwpBanner 使用 UICollectionView 系统直接会优化 Cell 复用问题。 SwpBanner 可加载本地图片，远程图片，SwpBanner 依赖 S">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS,『 图片轮播器 SwpBanner 』">
+<meta property="og:url" content="https://dream-swp.com/2017/03/12/iOS/02-UIControl/02.iOS.%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD%E5%99%A8%20SwpBanner/index.html">
+<meta property="og:site_name" content="Dream">
+<meta property="og:description" content="SwpBanner 图片轮播器, 在 App 开发中常用的一组控件, 苹果没有提供UI控件, 需要开发者自己去封装。 想到做图片轮播. 我们常常就会想到使用 UISCrollerView， 如果要优化性能的需要我们自己去优化。 SwpBanner 使用 UICollectionView 系统直接会优化 Cell 复用问题。 SwpBanner 可加载本地图片，远程图片，SwpBanner 依赖 S">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/swp-song/SwpBanner/master/Screenshot/SwpBanner.gif">
+<meta property="article:published_time" content="2017-03-12T01:18:29.000Z">
+<meta property="article:modified_time" content="2021-07-19T14:33:46.912Z">
+<meta property="article:author" content="Dream">
+<meta property="article:tag" content="Objective-c">
+<meta property="article:tag" content="UI控件">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/swp-song/SwpBanner/master/Screenshot/SwpBanner.gif">
+
+
+<link rel="canonical" href="https://dream-swp.com/2017/03/12/iOS/02-UIControl/02.iOS.%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD%E5%99%A8%20SwpBanner/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dream-swp.com/2017/03/12/iOS/02-UIControl/02.iOS.%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD%E5%99%A8%20SwpBanner/","path":"2017/03/12/iOS/02-UIControl/02.iOS.图片轮播器 SwpBanner/","title":"iOS,『 图片轮播器 SwpBanner 』"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>iOS,『 图片轮播器 SwpBanner 』 | Dream</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Dream</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description"></p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SwpBanner"><span class="nav-number">1.</span> <span class="nav-text">SwpBanner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SwpBanner-%E6%BC%94%E7%A4%BA%E6%95%88%E6%9E%9C"><span class="nav-number">2.</span> <span class="nav-text">SwpBanner 演示效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5"><span class="nav-number">3.</span> <span class="nav-text">导入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E5%AF%BC%E5%85%A5"><span class="nav-number">3.1.</span> <span class="nav-text">手动导入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CocoaPods-%E5%AF%BC%E5%85%A5%EF%BC%9A"><span class="nav-number">3.2.</span> <span class="nav-text">CocoaPods 导入：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SwpBanner-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="nav-number">4.</span> <span class="nav-text">SwpBanner 下载地址</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dream"
+      src="/images/Header/swp_header.png">
+  <p class="site-author-name" itemprop="name">Dream</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/swp-song" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;swp-song" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dream-swp.com/2017/03/12/iOS/02-UIControl/02.iOS.%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD%E5%99%A8%20SwpBanner/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Header/swp_header.png">
+      <meta itemprop="name" content="Dream">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dream">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          iOS,『 图片轮播器 SwpBanner 』
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-03-12 09:18:29" itemprop="dateCreated datePublished" datetime="2017-03-12T09:18:29+08:00">2017-03-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-19 22:33:46" itemprop="dateModified" datetime="2021-07-19T22:33:46+08:00">2021-07-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="SwpBanner"><a href="#SwpBanner" class="headerlink" title="SwpBanner"></a>SwpBanner</h3><ul>
+<li>图片轮播器, 在 App 开发中常用的一组控件, 苹果没有提供UI控件, 需要开发者自己去封装。</li>
+<li>想到做图片轮播. 我们常常就会想到使用 UISCrollerView， 如果要优化性能的需要我们自己去优化。</li>
+<li><strong>SwpBanner</strong> 使用 UICollectionView 系统直接会优化 Cell 复用问题。</li>
+<li><strong>SwpBanner</strong> 可加载本地图片，远程图片，<strong>SwpBanner</strong> 依赖 <strong>SDWebImage</strong> 加载远程图片。</li>
+</ul>
+<hr>
+<a id="more"></a>
+
+<h3 id="SwpBanner-演示效果"><a href="#SwpBanner-演示效果" class="headerlink" title="SwpBanner 演示效果"></a>SwpBanner 演示效果</h3><p><img src="https://raw.githubusercontent.com/swp-song/SwpBanner/master/Screenshot/SwpBanner.gif" alt="SwpBanner 演示效果"></p>
+<hr>
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><h4 id="手动导入"><a href="#手动导入" class="headerlink" title="手动导入"></a>手动导入</h4><ul>
+<li><strong>SwpBanner</strong> 文件夹导入项目。</li>
+<li><strong>SwpBanner</strong>  依赖 <strong>SDWebImage</strong>，请去下载 <strong>SDWebImage</strong>，将 <strong>SDWebImage</strong> 文件加入项目中。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&quot;SwpBanner.h&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a class="btn" target="_blank" rel="noopener" href="https://github.com/rs/SDWebImage">SDWebImage</a>
+
+</li>
+</ul>
+<hr>
+<h4 id="CocoaPods-导入："><a href="#CocoaPods-导入：" class="headerlink" title="CocoaPods 导入："></a>CocoaPods 导入：</h4><ul>
+<li>使用 <strong>CocoaPods</strong> 导入 <strong>SwpBanner</strong>，<strong>pod</strong> 会自动导入 <strong>SDWebImage</strong>。</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pod search SwpBanner</span><br><span class="line">pod <span class="string">&#x27;SwpBanner&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;SwpBanner/SwpBanner.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h3 id="SwpBanner-下载地址"><a href="#SwpBanner-下载地址" class="headerlink" title="SwpBanner 下载地址"></a>SwpBanner 下载地址</h3><ul>
+<li><a class="btn" target="_blank" rel="noopener" href="https://github.com/swp-song/SwpBanner">SwpBanner</a>
+
+</li>
+</ul>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Objective-c/" rel="tag"><i class="fa fa-tag"></i> Objective-c</a>
+              <a href="/tags/UI%E6%8E%A7%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> UI控件</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/03/10/iOS/02-UIControl/01.iOS.%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%20SwpTextView/" rel="prev" title="iOS,『 文本输入 SwpTextView 』">
+                  <i class="fa fa-chevron-left"></i> iOS,『 文本输入 SwpTextView 』
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/04/05/iOS/02-UIControl/04.iOS.App%20%E5%BC%95%E5%AF%BC%E9%A1%B5%20SwpGuidancePage/" rel="next" title="iOS,『 App 引导页 SwpGuidancePage 』">
+                  iOS,『 App 引导页 SwpGuidancePage 』 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fab fa-apple"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dream</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
