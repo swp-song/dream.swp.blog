@@ -14,11 +14,11 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">SwpBanner v2.1.0 </a>
+				<a href="../index.html">SwpBanner v3.0.0 </a>
 			</h1>
 
 			<p id="developer-home">
-				<a href="../index.html">swp-song</a>
+				<a href="../index.html">Dream</a>
 			</p>
 			
 		</div>
@@ -57,6 +57,8 @@
 
 	
 	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/swpBanner:collectionView:layout:insetForSectionAtIndex:">- swpBanner:collectionView:layout:insetForSectionAtIndex:</option>
 		
 		<option value="//api/name/swpBanner:collectionView:layout:sizeForItemAtIndexPath:">- swpBanner:collectionView:layout:sizeForItemAtIndexPath:</option>
 		
@@ -117,7 +119,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>swpBanner:didSelectItemAtIndexPath: ( <a href="../Classes/SwpBanner.html">SwpBanner</a> 代理方法，点击每个 Cell 调用 )</p>
+				<p><a href="../Classes/SwpBanner.html">SwpBanner</a> 代理方法，点击每个 Cell 调用</p>
 			</div>
 			
 		    
@@ -151,7 +153,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>@author swp_song</p>
+				<p><a href="../Classes/SwpBanner.html">SwpBanner</a> 代理方法，点击每个 Cell 调用</p>
 			</div>
 			
 
@@ -180,12 +182,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>swpBanner:collectionView:layout:sizeForItemAtIndexPath: ( <a href="../Classes/SwpBanner.html">SwpBanner</a> 代理方法，设置每个 Cell 的宽高 )</p>
+				<p><a href="../Classes/SwpBanner.html">SwpBanner</a> 代理方法，设置每个 Cell 的宽高</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (CGSize)swpBanner:(SwpBanner *)<em>swpBanner</em> collectionView:(UICollectionView *)<em>collectionView</em> layout:(UICollectionViewLayout *)<em>collectionViewLayout</em> sizeForItemAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (CGSize)swpBanner:(SwpBanner *)<em>swpBanner</em> collectionView:(UICollectionView *)<em>collectionView</em> layout:(UICollectionViewFlowLayout *)<em>layout</em> sizeForItemAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
 
 		    
 			
@@ -204,8 +206,8 @@
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>collectionViewLayout</code></th>
-						<td><p>collectionViewLayout</p></td>
+						<th scope="row" class="argument-name"><code>layout</code></th>
+						<td><p>layout</p></td>
 					</tr>
 				
 					<tr>
@@ -229,7 +231,85 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>@author swp_song</p>
+				<p><a href="../Classes/SwpBanner.html">SwpBanner</a> 代理方法，设置每个 Cell 的宽高</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SwpBannerDelegate.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swpBanner:collectionView:layout:insetForSectionAtIndex:" title="swpBanner:collectionView:layout:insetForSectionAtIndex:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swpBanner:collectionView:layout:insetForSectionAtIndex:">&ndash;&nbsp;swpBanner:collectionView:layout:insetForSectionAtIndex:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p><a href="../Classes/SwpBanner.html">SwpBanner</a> 代理方法，设置每个 cell 上左下右边距</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (UIEdgeInsets)swpBanner:(SwpBanner *)<em>swpBanner</em> collectionView:(UICollectionView *)<em>collectionView</em> layout:(UICollectionViewFlowLayout *)<em>layout</em> insetForSectionAtIndex:(NSInteger)<em>section</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>swpBanner</code></th>
+						<td><p>swpBanner</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>collectionView</code></th>
+						<td><p>collectionView</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>layout</code></th>
+						<td><p>layout</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>section</code></th>
+						<td><p>section</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>UIEdgeInsets</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p><a href="../Classes/SwpBanner.html">SwpBanner</a> 代理方法，设置每个 cell 上左下右边距</p>
 			</div>
 			
 
@@ -258,7 +338,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>swpBanner:loadNetworkPlaceholderImageAtIndexPath:   ( <a href="../Classes/SwpBanner.html">SwpBanner</a> 代理方法，设置网络加载图片 PlaceholderImage )</p>
+				<p><a href="../Classes/SwpBanner.html">SwpBanner</a> 代理方法，设置网络加载图片 PlaceholderImage</p>
 			</div>
 			
 		    
@@ -286,13 +366,18 @@
 			
 
 			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>NSString or UIImage</p>
+			</div>
+			
 
 			
 
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>@author swp_song</p>
+				<p><a href="../Classes/SwpBanner.html">SwpBanner</a> 代理方法，设置网络加载图片 PlaceholderImage</p>
 			</div>
 			
 
@@ -324,7 +409,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 swp-song. All rights reserved. Updated: 2018-04-10</p>
+						<p class="copyright">Copyright &copy; 2021 Dream. All rights reserved. Updated: 2021-10-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
