@@ -1,97 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo,『 环境配置 』</title>
-    <url>/2017/09/18/HexoBlog/01.Hexo.%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/HexoBlog/00/1602229593.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
-
-<hr>
-<h3 id="Hexo-环境配置"><a href="#Hexo-环境配置" class="headerlink" title="Hexo 环境配置"></a>Hexo 环境配置</h3><a id="more"></a>    
-
-<ul>
-<li><strong>Hexo</strong>， 基于 <strong>Node.js</strong>，所以我们需要安装 <strong>Node.js</strong>。</li>
-<li><strong>Hexo</strong>，部署到服务器，需要 <strong>Git</strong>，所以我们需要安装 <strong>Git</strong>。</li>
-</ul>
-<hr>
-<h3 id="Hexo，部署远程环境"><a href="#Hexo，部署远程环境" class="headerlink" title="Hexo，部署远程环境"></a>Hexo，部署远程环境</h3><ul>
-<li><strong>GitHub Pages 服务</strong></li>
-<li><strong>GitLab Pages 服务</strong></li>
-<li><strong>自行搭建服务器</strong></li>
-<li><strong>笔者使用的是, GitHub 部署</strong></li>
-</ul>
-<hr>
-<h3 id="Node-js-安装"><a href="#Node-js-安装" class="headerlink" title="Node.js 安装"></a>Node.js 安装</h3><ul>
-<li><a class="btn" href="https://nodejs.org/en/download/">Node.js 下载地址</a> <a class="btn" href="http://nodejs.cn/download/">Node.js 中文下载地址</a></li>
-<li><p>根据自己的 <strong>电脑操作系统</strong> 选择对应的，下载安装。</p>
-</li>
-<li><p>打开终端输入:</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure></li>
-<li><p>安装成功正常输出版本号:</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">v10.15.3</span><br></pre></td></tr></table></figure></li>
-<li><p>打开终端输入:</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure></li>
-<li><p>安装成功正常输出版本号:</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">6.4.1</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><ul>
-<li><a class="btn" href="https://git-scm.com/downloads">Git下载安装地址</a>
-<p>&#x0020;</p>
-</li>
-<li><p>根据自己的 <strong>电脑操作系统</strong> 选择对应的，下载安装。</p>
-</li>
-<li><p>安装完成测试下是否安装成功：</p>
-</li>
-<li><p>打开终端输入：</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure></li>
-<li><p>安装成功正常输出版本号:</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git version 2.20.1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Tips :</p>
-</li>
-<li><p>笔者从事 <strong>iOS</strong> 开发，使用的 <strong>Mac</strong>系统，开发工具是 <strong>Xcode</strong>，<strong>Xcode</strong> 安装的时候会自动安装 <strong>Git</strong>，<strong>Mac</strong> 系统的童鞋也可直接装个 <strong>Xcode</strong>。</p>
-</li>
-<li><p><strong>Xcode</strong>，对于苹果开发这个来说并不陌生，苹果的发开工具。</p>
-</li>
-</ul>
-<hr>
-<h3 id="GitHub-创建远程代码仓库"><a href="#GitHub-创建远程代码仓库" class="headerlink" title="GitHub 创建远程代码仓库"></a>GitHub 创建远程代码仓库</h3><ul>
-<li><p>注册 (如果有账号可以跳过此步骤), <a href="https://github.com/join?source=header-home">GitHub 注册地址</a></p>
-</li>
-<li><p>登录 (已登录跳过此步骤), <a href="https://github.com/login">GitHub 登录地址</a> </p>
-</li>
-<li><p>创建代码仓库, <a href="https://github.com/new">GitHub 创建项目</a></p>
-<p>  <img src="/images/HexoBlog/01/1602147209672.png"></p>
-</li>
-<li><p>设置代码仓库:</p>
-<p>  <img src="/images/HexoBlog/01/1602147274605.png"></p>
-</li>
-<li><p>设置 GitHub Pages: </p>
-<p>  <img src="/images/HexoBlog/01/1602147298906.png"></p>
-<p>  <img src="/images/HexoBlog/01/1602147312031.png"></p>
-</li>
-</ul>
-<hr>
-<h3 id="Hexo-安装与配置"><a href="#Hexo-安装与配置" class="headerlink" title="Hexo 安装与配置"></a>Hexo 安装与配置</h3><ul>
-<li>以上配置均成功配置完成的话，恭喜你可以进行下一步了，<strong>Hexo</strong> 安装与配置。</li>
-<li><a class="btn" href="https://dream-swp.com/2017/09/19/HexoBlog/03.Hexo.安装与配置/">Hexo 安装 & 配置</a>
-
-</li>
-</ul>
-<hr>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>个人博客搭建</tag>
-        <tag>GitHub Pages</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CocoaPods,『 安装 &amp; 使用 』</title>
     <url>/2018/02/11/CocoaPods/01.CocoaPods.%E5%AE%89%E8%A3%85&amp;%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/CocoaPods/1602224488.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
@@ -251,6 +160,97 @@
         <tag>CocoaPods</tag>
         <tag>Pod</tag>
         <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo,『 环境配置 』</title>
+    <url>/2017/09/18/HexoBlog/01.Hexo.%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/HexoBlog/00/1602229593.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="Hexo-环境配置"><a href="#Hexo-环境配置" class="headerlink" title="Hexo 环境配置"></a>Hexo 环境配置</h3><a id="more"></a>    
+
+<ul>
+<li><strong>Hexo</strong>， 基于 <strong>Node.js</strong>，所以我们需要安装 <strong>Node.js</strong>。</li>
+<li><strong>Hexo</strong>，部署到服务器，需要 <strong>Git</strong>，所以我们需要安装 <strong>Git</strong>。</li>
+</ul>
+<hr>
+<h3 id="Hexo，部署远程环境"><a href="#Hexo，部署远程环境" class="headerlink" title="Hexo，部署远程环境"></a>Hexo，部署远程环境</h3><ul>
+<li><strong>GitHub Pages 服务</strong></li>
+<li><strong>GitLab Pages 服务</strong></li>
+<li><strong>自行搭建服务器</strong></li>
+<li><strong>笔者使用的是, GitHub 部署</strong></li>
+</ul>
+<hr>
+<h3 id="Node-js-安装"><a href="#Node-js-安装" class="headerlink" title="Node.js 安装"></a>Node.js 安装</h3><ul>
+<li><a class="btn" href="https://nodejs.org/en/download/">Node.js 下载地址</a> <a class="btn" href="http://nodejs.cn/download/">Node.js 中文下载地址</a></li>
+<li><p>根据自己的 <strong>电脑操作系统</strong> 选择对应的，下载安装。</p>
+</li>
+<li><p>打开终端输入:</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure></li>
+<li><p>安装成功正常输出版本号:</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">v10.15.3</span><br></pre></td></tr></table></figure></li>
+<li><p>打开终端输入:</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure></li>
+<li><p>安装成功正常输出版本号:</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">6.4.1</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><ul>
+<li><a class="btn" href="https://git-scm.com/downloads">Git下载安装地址</a>
+<p>&#x0020;</p>
+</li>
+<li><p>根据自己的 <strong>电脑操作系统</strong> 选择对应的，下载安装。</p>
+</li>
+<li><p>安装完成测试下是否安装成功：</p>
+</li>
+<li><p>打开终端输入：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure></li>
+<li><p>安装成功正常输出版本号:</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git version 2.20.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Tips :</p>
+</li>
+<li><p>笔者从事 <strong>iOS</strong> 开发，使用的 <strong>Mac</strong>系统，开发工具是 <strong>Xcode</strong>，<strong>Xcode</strong> 安装的时候会自动安装 <strong>Git</strong>，<strong>Mac</strong> 系统的童鞋也可直接装个 <strong>Xcode</strong>。</p>
+</li>
+<li><p><strong>Xcode</strong>，对于苹果开发这个来说并不陌生，苹果的发开工具。</p>
+</li>
+</ul>
+<hr>
+<h3 id="GitHub-创建远程代码仓库"><a href="#GitHub-创建远程代码仓库" class="headerlink" title="GitHub 创建远程代码仓库"></a>GitHub 创建远程代码仓库</h3><ul>
+<li><p>注册 (如果有账号可以跳过此步骤), <a href="https://github.com/join?source=header-home">GitHub 注册地址</a></p>
+</li>
+<li><p>登录 (已登录跳过此步骤), <a href="https://github.com/login">GitHub 登录地址</a> </p>
+</li>
+<li><p>创建代码仓库, <a href="https://github.com/new">GitHub 创建项目</a></p>
+<p>  <img src="/images/HexoBlog/01/1602147209672.png"></p>
+</li>
+<li><p>设置代码仓库:</p>
+<p>  <img src="/images/HexoBlog/01/1602147274605.png"></p>
+</li>
+<li><p>设置 GitHub Pages: </p>
+<p>  <img src="/images/HexoBlog/01/1602147298906.png"></p>
+<p>  <img src="/images/HexoBlog/01/1602147312031.png"></p>
+</li>
+</ul>
+<hr>
+<h3 id="Hexo-安装与配置"><a href="#Hexo-安装与配置" class="headerlink" title="Hexo 安装与配置"></a>Hexo 安装与配置</h3><ul>
+<li>以上配置均成功配置完成的话，恭喜你可以进行下一步了，<strong>Hexo</strong> 安装与配置。</li>
+<li><a class="btn" href="https://dream-swp.com/2017/09/19/HexoBlog/03.Hexo.安装与配置/">Hexo 安装 & 配置</a>
+
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>个人博客搭建</tag>
+        <tag>GitHub Pages</tag>
       </tags>
   </entry>
   <entry>
@@ -778,6 +778,70 @@ comments: false </code></pre>
       </tags>
   </entry>
   <entry>
+    <title>Oh My Zsh,『 443 Connection Refused 错误无法安装 』</title>
+    <url>/2020/10/09/OhMyZsh/03.OhMyZsh.443.Connection.Refused.%E9%94%99%E8%AF%AF%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/Tools/OhMyZsh/1602559870389.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
+
+<hr>
+<h3 id="Oh-My-Zsh-「-443-Connection-Refused-错误无法安装-」"><a href="#Oh-My-Zsh-「-443-Connection-Refused-错误无法安装-」" class="headerlink" title="Oh My Zsh, 「 443:Connection Refused 错误无法安装 」"></a>Oh My Zsh, 「 443:Connection Refused 错误无法安装 」</h3><a id="more"></a>    
+
+<ul>
+<li>最近一段时间 GitHub 中的图片无法显示，页面也加载缓慢. GitHub 里面图片都在 raw.githubusercontent.com 域名中，我们需要在系统 hosts 文件中添加关联的 ip 地址即可.</li>
+<li>以下 ip 追加到 hosts 文件中：</li>
+</ul>
+<pre><code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># GitHub Start</span><br><span class="line">52.74.223.119     github.com</span><br><span class="line">192.30.253.119    gist.github.com</span><br><span class="line">54.169.195.247    api.github.com</span><br><span class="line">185.199.111.153   assets-cdn.github.com</span><br><span class="line">151.101.76.133    raw.githubusercontent.com</span><br><span class="line">151.101.76.133    gist.githubusercontent.com</span><br><span class="line">151.101.76.133    cloud.githubusercontent.com</span><br><span class="line">151.101.76.133    camo.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars0.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars1.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars2.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars3.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars4.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars5.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars6.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars7.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars8.githubusercontent.com</span><br><span class="line"># GitHub End</span><br></pre></td></tr></table></figure></code></pre>
+<hr>
+<h3 id="IP-查询工具"><a href="#IP-查询工具" class="headerlink" title="IP 查询工具"></a>IP 查询工具</h3><ul>
+<li><a class="btn" href="https://www.ipaddress.com">ipaddress</a>   <a class="btn" href="https://site.ip138.com">查询网</a> 
+
+</li>
+</ul>
+<hr>
+<h3 id="SwitchHosts-修改工具"><a href="#SwitchHosts-修改工具" class="headerlink" title="SwitchHosts 修改工具"></a>SwitchHosts 修改工具</h3><ul>
+<li><p>可以使用 SwitchHosts 工具，来修改 hosts<br>&#x0020;</p>
+</li>
+<li><a class="btn" href="https://github.com/oldj/SwitchHosts/releases">SwitchHosts</a> 
+
+
+</li>
+</ul>
+<hr>
+<h3 id="Hosts-文件位置"><a href="#Hosts-文件位置" class="headerlink" title="Hosts 文件位置"></a>Hosts 文件位置</h3><h4 id="MacOS-Ubuntu-CentOS"><a href="#MacOS-Ubuntu-CentOS" class="headerlink" title="MacOS, Ubuntu, CentOS"></a>MacOS, Ubuntu, CentOS</h4><ul>
+<li>MacOS 为例:</li>
+<li>前往文件夹 -&gt; /etc/hosts     </li>
+<li>hosts 是只读文件, 需要复制出来，修改完成在替换 hosts 文件。</li>
+</ul>
+<h4 id="刷新-DNS"><a href="#刷新-DNS" class="headerlink" title="刷新 DNS"></a>刷新 DNS</h4><ul>
+<li><p>打开终端输入：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo killall -HUP mDNSResponder</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><ul>
+<li><p>hosts 文件位置: </p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:/windows/system32/drivers/etc/hosts</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="刷新-DNS-1"><a href="#刷新-DNS-1" class="headerlink" title="刷新 DNS"></a>刷新 DNS</h4><ul>
+<li><p>打开终端输入：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ipconfig /flushdns</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>GitHub</tag>
+        <tag>Hosts</tag>
+        <tag>SwitchHosts</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Oh My Zsh,『 Powerlevel10k 安装 &amp; 配置 』</title>
     <url>/2020/10/13/OhMyZsh/04.OhMyZsh.Powerlevel10k%E5%AE%89%E8%A3%85&amp;%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/Tools/OhMyZsh/1602569542612.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
@@ -880,70 +944,6 @@ comments: false </code></pre>
         <tag>命令行工具</tag>
         <tag>Powerlevel9k</tag>
         <tag>Powerlevel10k</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Oh My Zsh,『 443 Connection Refused 错误无法安装 』</title>
-    <url>/2020/10/09/OhMyZsh/03.OhMyZsh.443.Connection.Refused.%E9%94%99%E8%AF%AF%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/Tools/OhMyZsh/1602559870389.png"></div></div><div class="group-picture-row"></div><div class="group-picture-row"></div></div>
-
-<hr>
-<h3 id="Oh-My-Zsh-「-443-Connection-Refused-错误无法安装-」"><a href="#Oh-My-Zsh-「-443-Connection-Refused-错误无法安装-」" class="headerlink" title="Oh My Zsh, 「 443:Connection Refused 错误无法安装 」"></a>Oh My Zsh, 「 443:Connection Refused 错误无法安装 」</h3><a id="more"></a>    
-
-<ul>
-<li>最近一段时间 GitHub 中的图片无法显示，页面也加载缓慢. GitHub 里面图片都在 raw.githubusercontent.com 域名中，我们需要在系统 hosts 文件中添加关联的 ip 地址即可.</li>
-<li>以下 ip 追加到 hosts 文件中：</li>
-</ul>
-<pre><code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># GitHub Start</span><br><span class="line">52.74.223.119     github.com</span><br><span class="line">192.30.253.119    gist.github.com</span><br><span class="line">54.169.195.247    api.github.com</span><br><span class="line">185.199.111.153   assets-cdn.github.com</span><br><span class="line">151.101.76.133    raw.githubusercontent.com</span><br><span class="line">151.101.76.133    gist.githubusercontent.com</span><br><span class="line">151.101.76.133    cloud.githubusercontent.com</span><br><span class="line">151.101.76.133    camo.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars0.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars1.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars2.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars3.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars4.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars5.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars6.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars7.githubusercontent.com</span><br><span class="line">151.101.76.133    avatars8.githubusercontent.com</span><br><span class="line"># GitHub End</span><br></pre></td></tr></table></figure></code></pre>
-<hr>
-<h3 id="IP-查询工具"><a href="#IP-查询工具" class="headerlink" title="IP 查询工具"></a>IP 查询工具</h3><ul>
-<li><a class="btn" href="https://www.ipaddress.com">ipaddress</a>   <a class="btn" href="https://site.ip138.com">查询网</a> 
-
-</li>
-</ul>
-<hr>
-<h3 id="SwitchHosts-修改工具"><a href="#SwitchHosts-修改工具" class="headerlink" title="SwitchHosts 修改工具"></a>SwitchHosts 修改工具</h3><ul>
-<li><p>可以使用 SwitchHosts 工具，来修改 hosts<br>&#x0020;</p>
-</li>
-<li><a class="btn" href="https://github.com/oldj/SwitchHosts/releases">SwitchHosts</a> 
-
-
-</li>
-</ul>
-<hr>
-<h3 id="Hosts-文件位置"><a href="#Hosts-文件位置" class="headerlink" title="Hosts 文件位置"></a>Hosts 文件位置</h3><h4 id="MacOS-Ubuntu-CentOS"><a href="#MacOS-Ubuntu-CentOS" class="headerlink" title="MacOS, Ubuntu, CentOS"></a>MacOS, Ubuntu, CentOS</h4><ul>
-<li>MacOS 为例:</li>
-<li>前往文件夹 -&gt; /etc/hosts     </li>
-<li>hosts 是只读文件, 需要复制出来，修改完成在替换 hosts 文件。</li>
-</ul>
-<h4 id="刷新-DNS"><a href="#刷新-DNS" class="headerlink" title="刷新 DNS"></a>刷新 DNS</h4><ul>
-<li><p>打开终端输入：</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo killall -HUP mDNSResponder</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><ul>
-<li><p>hosts 文件位置: </p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:/windows/system32/drivers/etc/hosts</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="刷新-DNS-1"><a href="#刷新-DNS-1" class="headerlink" title="刷新 DNS"></a>刷新 DNS</h4><ul>
-<li><p>打开终端输入：</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ipconfig /flushdns</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-]]></content>
-      <categories>
-        <category>Tools</category>
-      </categories>
-      <tags>
-        <tag>GitHub</tag>
-        <tag>Hosts</tag>
-        <tag>SwitchHosts</tag>
       </tags>
   </entry>
   <entry>
